@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,9 +26,11 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Poppins',sans-serif;
-background:#fff9fc;
+background:#fffaf7;
 color:#444;
 }
+
+/* HERO */
 
 .hero{
 height:100vh;
@@ -36,38 +39,46 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
+
 background:
-linear-gradient(rgba(255,245,250,.85),rgba(255,245,250,.85)),
-linear-gradient(135deg,#fff7fb,#ffe8f4);
+linear-gradient(rgba(255,250,247,.88),rgba(255,250,247,.88)),
+linear-gradient(135deg,#fffaf7,#f5e6e1);
 }
 
 .hero h1{
 font-family:'Great Vibes',cursive;
 font-size:clamp(4rem,8vw,7rem);
-color:#c89d1c;
+color:#8B0000;
 line-height:1.1;
 }
 
 .hero p{
 margin-top:20px;
 font-size:1.2rem;
+color:#5c1a1a;
 }
+
+/* BUTTON */
 
 .btn{
 display:inline-block;
 margin-top:30px;
 padding:15px 35px;
-background:#d4af37;
+background:#8B0000;
 color:white;
 text-decoration:none;
 border-radius:50px;
 font-weight:600;
 transition:.3s;
+box-shadow:0 8px 20px rgba(139,0,0,.2);
 }
 
 .btn:hover{
 transform:translateY(-3px);
+background:#6f0000;
 }
+
+/* SECTIONS */
 
 section{
 padding:90px 10%;
@@ -77,9 +88,11 @@ padding:90px 10%;
 text-align:center;
 font-family:'Great Vibes',cursive;
 font-size:3.5rem;
-color:#c89d1c;
+color:#8B0000;
 margin-bottom:40px;
 }
+
+/* COUNTDOWN */
 
 .countdown{
 display:grid;
@@ -95,14 +108,17 @@ padding:30px;
 border-radius:20px;
 text-align:center;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
+border-top:4px solid #D4AF37;
 }
 
 .time-box span{
 display:block;
 font-size:2.5rem;
 font-weight:700;
-color:#d4af37;
+color:#8B0000;
 }
+
+/* CARDS */
 
 .card{
 background:white;
@@ -112,7 +128,14 @@ box-shadow:0 10px 30px rgba(0,0,0,.08);
 max-width:900px;
 margin:auto;
 text-align:center;
+border:1px solid #eee2dc;
 }
+
+.card h3{
+color:#8B0000;
+}
+
+/* GALLERY */
 
 .gallery{
 display:grid;
@@ -123,13 +146,21 @@ gap:20px;
 .placeholder{
 height:250px;
 border-radius:20px;
-background:linear-gradient(135deg,#ffe5f1,#fff4f9);
+
+background:
+linear-gradient(135deg,#f5e6e1,#fffaf7);
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 font-weight:600;
-color:#999;
+color:#8B0000;
+
+border:2px solid #D4AF37;
 }
+
+/* RSVP */
 
 form{
 max-width:600px;
@@ -146,46 +177,97 @@ padding:15px;
 border:1px solid #ddd;
 border-radius:12px;
 font-size:1rem;
+font-family:'Poppins',sans-serif;
+background:white;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+outline:none;
+border-color:#8B0000;
+box-shadow:0 0 0 2px rgba(139,0,0,.1);
 }
 
 button{
 padding:15px;
 border:none;
 border-radius:12px;
-background:#d4af37;
+background:#8B0000;
 color:white;
 font-size:1rem;
 cursor:pointer;
+font-weight:600;
+transition:.3s;
 }
+
+button:hover{
+background:#6f0000;
+transform:translateY(-2px);
+}
+
+/* MESSAGE */
+
+#message{
+margin-top:15px;
+font-weight:600;
+text-align:center;
+color:#8B0000;
+}
+
+/* FOOTER */
 
 footer{
 text-align:center;
 padding:50px 20px;
 background:#fff;
 margin-top:50px;
+border-top:3px solid #D4AF37;
 }
 
-#message{
-margin-top:15px;
-font-weight:600;
-text-align:center;
+footer h3{
+color:#8B0000;
+margin-bottom:10px;
+}
+
+footer p{
+color:#555;
 }
 
 </style>
 </head>
+
 <body>
 
+<!-- HERO -->
+
 <section class="hero">
+
 <div>
-<h1>Yathziry Quirino<br>&<br>Alexandra Garcia</h1>
+
+<h1>
+Yathziry Quirino
+<br>
+&
+<br>
+Alexandra Garcia
+</h1>
+
 <p>A Joint Quinceañera Celebration</p>
+
 <p>October 23, 2027</p>
 
 <a href="#rsvp" class="btn">RSVP</a>
+
 </div>
+
 </section>
 
+
+<!-- COUNTDOWN -->
+
 <section>
+
 <h2 class="section-title">Countdown</h2>
 
 <div class="countdown">
@@ -211,30 +293,53 @@ Seconds
 </div>
 
 </div>
+
 </section>
 
+
+<!-- CELEBRATION -->
+
 <section>
+
 <h2 class="section-title">Our Celebration</h2>
 
 <div class="card">
+
 <p>
 We are excited to celebrate this special milestone with our family and friends.
 More details about our celebration will be shared soon.
 </p>
+
 </div>
+
 </section>
 
+
+<!-- EVENT DETAILS -->
+
 <section>
+
 <h2 class="section-title">Event Details</h2>
 
 <div class="card">
+
 <h3>Venue Coming Soon</h3>
+
 <br>
-<p>Location details will be announced soon.</p>
+
+<p>
+Location details will be announced soon.
+</p>
+
 </div>
+
 </section>
 
+
+<!-- GALLERY -->
+
 <section>
+
 <h2 class="section-title">Gallery</h2>
 
 <div class="gallery">
@@ -245,26 +350,60 @@ More details about our celebration will be shared soon.
 <div class="placeholder">Photo Coming Soon</div>
 
 </div>
+
 </section>
 
+
+<!-- RSVP -->
+
 <section id="rsvp">
+
 <h2 class="section-title">RSVP</h2>
 
 <form id="rsvpForm">
 
-<input type="text" name="name" placeholder="Your Name" required>
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required
+>
 
-<input type="email" name="email" placeholder="Your Email" required>
+<input
+type="email"
+name="email"
+placeholder="Your Email"
+required
+>
 
-<select name="attendance" required>
-<option value="">Will you attend?</option>
-<option value="Yes">Yes, I will attend</option>
-<option value="No">No, I cannot attend</option>
+<select
+name="attendance"
+required
+>
+
+<option value="">
+Will you attend?
+</option>
+
+<option value="Yes">
+Yes, I will attend
+</option>
+
+<option value="No">
+No, I cannot attend
+</option>
+
 </select>
 
-<textarea name="message" rows="5" placeholder="Leave a message"></textarea>
+<textarea
+name="message"
+rows="5"
+placeholder="Leave a message"
+></textarea>
 
-<button type="submit">Send RSVP</button>
+<button type="submit">
+Send RSVP
+</button>
 
 <p id="message"></p>
 
@@ -272,10 +411,21 @@ More details about our celebration will be shared soon.
 
 </section>
 
+
+<!-- FOOTER -->
+
 <footer>
+
 <h3>With Love ❤️</h3>
-<p>Yathziry Quirino & Alexandra Garcia</p>
+
+<p>
+Yathziry Quirino & Alexandra Garcia
+</p>
+
 </footer>
+
+
+<!-- EMAILJS -->
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
@@ -285,7 +435,12 @@ emailjs.init({
 publicKey:"vsmZUgvnvKlx7ymca"
 });
 
-document.getElementById("rsvpForm").addEventListener("submit",function(e){
+
+/* RSVP */
+
+document
+.getElementById("rsvpForm")
+.addEventListener("submit",function(e){
 
 e.preventDefault();
 
@@ -293,41 +448,67 @@ emailjs.sendForm(
 "service_l60yxx7",
 "template_fqkpg0u",
 this
-).then(()=>{
+)
 
-document.getElementById("message").innerHTML=
+.then(()=>{
+
+document.getElementById("message").innerHTML =
 "💖 Thank you! Your RSVP has been received.";
 
 this.reset();
 
-}).catch(()=>{
+})
 
-document.getElementById("message").innerHTML=
+.catch(()=>{
+
+document.getElementById("message").innerHTML =
 "❌ Unable to send RSVP.";
 
 });
 
 });
 
-const eventDate=new Date("October 23, 2027 17:00:00").getTime();
+
+/* COUNTDOWN */
+
+const eventDate =
+new Date("October 23, 2027 17:00:00").getTime();
+
 
 setInterval(()=>{
 
-const now=new Date().getTime();
+const now =
+new Date().getTime();
 
-const distance=eventDate-now;
+const distance =
+eventDate - now;
 
-document.getElementById("days").textContent=
-Math.floor(distance/(1000*60*60*24));
 
-document.getElementById("hours").textContent=
-Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+document.getElementById("days").textContent =
+Math.floor(
+distance/(1000*60*60*24)
+);
 
-document.getElementById("minutes").textContent=
-Math.floor((distance%(1000*60*60))/(1000*60));
 
-document.getElementById("seconds").textContent=
-Math.floor((distance%(1000*60))/1000);
+document.getElementById("hours").textContent =
+Math.floor(
+(distance%(1000*60*60*24))/
+(1000*60*60)
+);
+
+
+document.getElementById("minutes").textContent =
+Math.floor(
+(distance%(1000*60*60))/
+(1000*60)
+);
+
+
+document.getElementById("seconds").textContent =
+Math.floor(
+(distance%(1000*60))/
+1000
+);
 
 },1000);
 
@@ -335,3 +516,5 @@ Math.floor((distance%(1000*60))/1000);
 
 </body>
 </html>
+```
+
