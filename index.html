@@ -10,228 +10,602 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
+/* =========================
+   GLOBAL
+========================= */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-font-family:'Poppins',sans-serif;
-background:#fffaf7;
-color:#444;
+    font-family:'Poppins',sans-serif;
+    background:
+        radial-gradient(circle at 50% 20%, #5b0808 0%, #310303 45%, #160101 100%);
+    color:#f8ead0;
+    overflow-x:hidden;
 }
 
-/* HERO */
+/* Gold texture/glow */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(212,175,55,.08), transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(212,175,55,.06), transparent 20%);
+    z-index:-1;
+}
+
+/* =========================
+   GOLD DECORATIONS
+========================= */
+
+.gold-line{
+    width:180px;
+    height:2px;
+    margin:20px auto;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #d4af37,
+        #fff0a8,
+        #d4af37,
+        transparent
+    );
+}
+
+.ornament{
+    color:#d4af37;
+    font-size:24px;
+    letter-spacing:8px;
+    text-align:center;
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
 
-background:
-linear-gradient(rgba(255,250,247,.88),rgba(255,250,247,.88)),
-linear-gradient(135deg,#fffaf7,#f5e6e1);
+    position:relative;
+
+    background:
+        radial-gradient(circle at center,
+        rgba(120,0,0,.5),
+        transparent 55%),
+        linear-gradient(
+        135deg,
+        #4d0505,
+        #210101 60%,
+        #420404
+        );
+
+    border-bottom:2px solid #d4af37;
 }
+
+/* Gold frame */
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:1px solid #d4af37;
+    pointer-events:none;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:28px;
+    border:1px solid rgba(212,175,55,.35);
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:1000px;
+}
+
+/* Crown */
+
+.crown{
+    font-size:48px;
+    color:#d4af37;
+    margin-bottom:15px;
+    text-shadow:
+        0 0 15px rgba(212,175,55,.5);
+}
+
+/* Names */
 
 .hero h1{
-font-family:'Great Vibes',cursive;
-font-size:clamp(4rem,8vw,7rem);
-color:#8B0000;
-line-height:1.1;
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(4rem,9vw,8rem);
+    font-weight:400;
+    line-height:.95;
+
+    background:linear-gradient(
+        180deg,
+        #fff3a8 0%,
+        #d4af37 35%,
+        #fff1a0 55%,
+        #b8860b 100%
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    text-shadow:
+        0 4px 15px rgba(0,0,0,.5);
 }
 
-.hero p{
-margin-top:20px;
-font-size:1.2rem;
-color:#5c1a1a;
+.ampersand{
+    font-size:.65em;
 }
 
-/* BUTTON */
+.hero-subtitle{
+    font-family:'Cinzel',serif;
+    font-size:1rem;
+    letter-spacing:6px;
+    color:#f8ead0;
+    margin-top:30px;
+}
+
+.hero-date{
+    font-family:'Cinzel',serif;
+    color:#d4af37;
+    font-size:1.5rem;
+    letter-spacing:3px;
+    margin-top:18px;
+}
+
+/* RSVP button */
 
 .btn{
-display:inline-block;
-margin-top:30px;
-padding:15px 35px;
-background:#8B0000;
-color:white;
-text-decoration:none;
-border-radius:50px;
-font-weight:600;
-transition:.3s;
-box-shadow:0 8px 20px rgba(139,0,0,.2);
+    display:inline-block;
+    margin-top:35px;
+    padding:15px 55px;
+
+    color:#3b0505;
+    background:
+        linear-gradient(
+        180deg,
+        #fff0a0,
+        #d4af37,
+        #a67c00
+        );
+
+    text-decoration:none;
+    font-family:'Cinzel',serif;
+    font-weight:700;
+    letter-spacing:3px;
+
+    border:2px solid #f8df75;
+    border-radius:5px;
+
+    box-shadow:
+        0 0 20px rgba(212,175,55,.35),
+        inset 0 1px rgba(255,255,255,.7);
+
+    transition:.3s;
 }
 
 .btn:hover{
-transform:translateY(-3px);
-background:#6f0000;
+    transform:translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 0 35px rgba(212,175,55,.6),
+        inset 0 1px rgba(255,255,255,.8);
 }
 
-/* SECTIONS */
+/* =========================
+   SECTIONS
+========================= */
 
 section{
-padding:90px 10%;
+    padding:90px 7%;
+    position:relative;
 }
 
 .section-title{
-text-align:center;
-font-family:'Great Vibes',cursive;
-font-size:3.5rem;
-color:#8B0000;
-margin-bottom:40px;
+    text-align:center;
+
+    font-family:'Cinzel',serif;
+    font-size:2rem;
+    letter-spacing:6px;
+
+    color:#d4af37;
+
+    margin-bottom:15px;
+
+    text-shadow:
+        0 0 15px rgba(212,175,55,.25);
 }
 
-/* COUNTDOWN */
+.section-title::before,
+.section-title::after{
+    content:" ✦ ";
+    color:#d4af37;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
 
 .countdown{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:20px;
-max-width:800px;
-margin:auto;
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(160px,1fr));
+
+    gap:20px;
+    max-width:900px;
+    margin:40px auto 0;
 }
 
 .time-box{
-background:white;
-padding:30px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-border-top:4px solid #D4AF37;
+    padding:35px 20px;
+
+    background:
+        linear-gradient(
+        145deg,
+        rgba(105,8,8,.95),
+        rgba(45,2,2,.98)
+        );
+
+    border:1px solid #b8860b;
+    border-radius:12px;
+
+    text-align:center;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.45),
+        inset 0 0 25px rgba(212,175,55,.05);
 }
 
 .time-box span{
-display:block;
-font-size:2.5rem;
-font-weight:700;
-color:#8B0000;
+    display:block;
+
+    font-family:'Cinzel',serif;
+    font-size:3rem;
+    font-weight:600;
+
+    color:#f1d66b;
+
+    text-shadow:
+        0 0 15px rgba(212,175,55,.25);
 }
 
-/* CARDS */
+.time-label{
+    color:#f8ead0;
+    letter-spacing:3px;
+    font-size:.85rem;
+    text-transform:uppercase;
+}
+
+/* =========================
+   CARDS
+========================= */
 
 .card{
-background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-max-width:900px;
-margin:auto;
-text-align:center;
-border:1px solid #eee2dc;
+    max-width:950px;
+    margin:35px auto 0;
+
+    padding:45px 35px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+        145deg,
+        rgba(91,7,7,.95),
+        rgba(38,2,2,.98)
+        );
+
+    border:1px solid #b8860b;
+    border-radius:12px;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.45),
+        inset 0 0 35px rgba(212,175,55,.04);
 }
 
 .card h3{
-color:#8B0000;
+    font-family:'Cinzel',serif;
+    color:#e3c04b;
+    font-size:1.4rem;
+    letter-spacing:3px;
+    margin-bottom:20px;
 }
 
-/* GALLERY */
+.card p{
+    line-height:1.9;
+    color:#f3e6d0;
+}
+
+/* =========================
+   EVENT DETAILS
+========================= */
+
+.event-icon{
+    font-size:42px;
+    color:#d4af37;
+    margin-bottom:15px;
+}
+
+/* =========================
+   GALLERY
+========================= */
 
 .gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(230px,1fr));
+
+    gap:25px;
+    max-width:1100px;
+    margin:40px auto 0;
 }
 
 .placeholder{
-height:250px;
-border-radius:20px;
+    height:270px;
 
-background:
-linear-gradient(135deg,#f5e6e1,#fffaf7);
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-display:flex;
-align-items:center;
-justify-content:center;
+    text-align:center;
 
-font-weight:600;
-color:#8B0000;
+    background:
+        radial-gradient(
+        circle at center,
+        #700909,
+        #300202 75%
+        );
 
-border:2px solid #D4AF37;
+    border:1px solid #d4af37;
+    border-radius:10px;
+
+    color:#e3c04b;
+
+    font-family:'Cinzel',serif;
+    letter-spacing:2px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.45),
+        inset 0 0 30px rgba(212,175,55,.06);
+
+    position:relative;
 }
 
-/* RSVP */
+.placeholder::before{
+    content:"♛";
+    position:absolute;
+    top:20px;
+    color:#d4af37;
+    font-size:24px;
+}
+
+.placeholder::after{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:1px solid rgba(212,175,55,.3);
+    border-radius:7px;
+}
+
+/* =========================
+   RSVP
+========================= */
+
+.rsvp-card{
+    max-width:850px;
+    margin:35px auto 0;
+
+    padding:45px;
+
+    background:
+        linear-gradient(
+        145deg,
+        #570606,
+        #250202
+        );
+
+    border:1px solid #d4af37;
+    border-radius:15px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5);
+}
 
 form{
-max-width:600px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:15px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
 }
 
 input,
 select,
 textarea{
-padding:15px;
-border:1px solid #ddd;
-border-radius:12px;
-font-size:1rem;
-font-family:'Poppins',sans-serif;
-background:white;
+    width:100%;
+
+    padding:16px 18px;
+
+    background:#260202;
+    color:#f8ead0;
+
+    border:1px solid #936f0b;
+    border-radius:7px;
+
+    font-family:'Poppins',sans-serif;
+    font-size:1rem;
+
+    transition:.3s;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#bda9a0;
 }
 
 input:focus,
 select:focus,
 textarea:focus{
-outline:none;
-border-color:#8B0000;
-box-shadow:0 0 0 2px rgba(139,0,0,.1);
+    outline:none;
+
+    border-color:#d4af37;
+
+    box-shadow:
+        0 0 15px rgba(212,175,55,.15);
+}
+
+select option{
+    background:#260202;
+    color:#f8ead0;
 }
 
 button{
-padding:15px;
-border:none;
-border-radius:12px;
-background:#8B0000;
-color:white;
-font-size:1rem;
-cursor:pointer;
-font-weight:600;
-transition:.3s;
+    padding:17px;
+
+    border:2px solid #f0d76b;
+    border-radius:7px;
+
+    background:
+        linear-gradient(
+        180deg,
+        #f0d76b,
+        #d4af37,
+        #a67c00
+        );
+
+    color:#310303;
+
+    font-family:'Cinzel',serif;
+    font-size:1rem;
+    font-weight:700;
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+    transition:.3s;
 }
 
 button:hover{
-background:#6f0000;
-transform:translateY(-2px);
-}
+    transform:translateY(-3px);
 
-/* MESSAGE */
+    box-shadow:
+        0 0 25px rgba(212,175,55,.4);
+}
 
 #message{
-margin-top:15px;
-font-weight:600;
-text-align:center;
-color:#8B0000;
+    text-align:center;
+    color:#e6c957;
+    font-weight:600;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-text-align:center;
-padding:50px 20px;
-background:#fff;
-margin-top:50px;
-border-top:3px solid #D4AF37;
+    padding:70px 20px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+        180deg,
+        #250202,
+        #100101
+        );
+
+    border-top:2px solid #d4af37;
 }
 
 footer h3{
-color:#8B0000;
-margin-bottom:10px;
+    font-family:'Great Vibes',cursive;
+    font-size:3.5rem;
+    color:#d4af37;
+    font-weight:400;
 }
 
 footer p{
-color:#555;
+    margin-top:15px;
+    color:#f3e6d0;
+    letter-spacing:2px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .hero::before{
+        inset:10px;
+    }
+
+    .hero::after{
+        inset:18px;
+    }
+
+    .hero h1{
+        font-size:4rem;
+    }
+
+    .hero-subtitle{
+        font-size:.75rem;
+        letter-spacing:3px;
+    }
+
+    .hero-date{
+        font-size:1.1rem;
+    }
+
+    section{
+        padding:70px 5%;
+    }
+
+    .section-title{
+        font-size:1.5rem;
+        letter-spacing:3px;
+    }
+
+    .time-box{
+        padding:25px 10px;
+    }
+
+    .time-box span{
+        font-size:2.3rem;
+    }
+
+    .rsvp-card{
+        padding:25px 18px;
+    }
+
+    footer h3{
+        font-size:2.8rem;
+    }
 }
 
 </style>
@@ -239,57 +613,77 @@ color:#555;
 
 <body>
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
-<div>
+<div class="hero-content">
+
+<div class="crown">♛</div>
 
 <h1>
 Yathziry Quirino
 <br>
-&
+<span class="ampersand">&</span>
 <br>
 Alexandra Garcia
 </h1>
 
-<p>A Joint Quinceañera Celebration</p>
+<div class="ornament">✦ ─── ✧ ─── ✦</div>
 
-<p>October 23, 2027</p>
+<p class="hero-subtitle">
+A JOINT QUINCEAÑERA CELEBRATION
+</p>
 
-<a href="#rsvp" class="btn">RSVP</a>
+<p class="hero-date">
+October 23, 2027
+</p>
+
+<a href="#rsvp" class="btn">
+♛ &nbsp; RSVP &nbsp; ♛
+</a>
 
 </div>
 
 </section>
 
 
-<!-- COUNTDOWN -->
+<!-- =========================
+     COUNTDOWN
+========================= -->
 
 <section>
 
-<h2 class="section-title">Countdown</h2>
+<h2 class="section-title">
+COUNTDOWN
+</h2>
+
+<div class="ornament">
+✦
+</div>
 
 <div class="countdown">
 
 <div class="time-box">
 <span id="days">0</span>
-Days
+<div class="time-label">Days</div>
 </div>
 
 <div class="time-box">
 <span id="hours">0</span>
-Hours
+<div class="time-label">Hours</div>
 </div>
 
 <div class="time-box">
 <span id="minutes">0</span>
-Minutes
+<div class="time-label">Minutes</div>
 </div>
 
 <div class="time-box">
 <span id="seconds">0</span>
-Seconds
+<div class="time-label">Seconds</div>
 </div>
 
 </div>
@@ -297,35 +691,55 @@ Seconds
 </section>
 
 
-<!-- CELEBRATION -->
+<!-- =========================
+     CELEBRATION
+========================= -->
 
 <section>
 
-<h2 class="section-title">Our Celebration</h2>
+<h2 class="section-title">
+OUR CELEBRATION
+</h2>
 
 <div class="card">
 
+<div class="ornament">❦</div>
+
 <p>
-We are excited to celebrate this special milestone with our family and friends.
+We are excited to celebrate this special milestone
+with our family and friends.
+</p>
+
+<p>
 More details about our celebration will be shared soon.
 </p>
 
+<div class="ornament">❦</div>
+
 </div>
 
 </section>
 
 
-<!-- EVENT DETAILS -->
+<!-- =========================
+     EVENT DETAILS
+========================= -->
 
 <section>
 
-<h2 class="section-title">Event Details</h2>
+<h2 class="section-title">
+EVENT DETAILS
+</h2>
 
 <div class="card">
 
-<h3>Venue Coming Soon</h3>
+<div class="event-icon">
+⌖
+</div>
 
-<br>
+<h3>
+VENUE COMING SOON
+</h3>
 
 <p>
 Location details will be announced soon.
@@ -336,29 +750,50 @@ Location details will be announced soon.
 </section>
 
 
-<!-- GALLERY -->
+<!-- =========================
+     GALLERY
+========================= -->
 
 <section>
 
-<h2 class="section-title">Gallery</h2>
+<h2 class="section-title">
+GALLERY
+</h2>
 
 <div class="gallery">
 
-<div class="placeholder">Photo Coming Soon</div>
-<div class="placeholder">Photo Coming Soon</div>
-<div class="placeholder">Photo Coming Soon</div>
-<div class="placeholder">Photo Coming Soon</div>
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
+
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
+
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
+
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
 
 </div>
 
 </section>
 
 
-<!-- RSVP -->
+<!-- =========================
+     RSVP
+========================= -->
 
 <section id="rsvp">
 
-<h2 class="section-title">RSVP</h2>
+<h2 class="section-title">
+RSVP
+</h2>
+
+<div class="rsvp-card">
 
 <form id="rsvpForm">
 
@@ -402,119 +837,157 @@ placeholder="Leave a message"
 ></textarea>
 
 <button type="submit">
-Send RSVP
+♛ &nbsp; SEND RSVP &nbsp; ♛
 </button>
 
 <p id="message"></p>
 
 </form>
 
+</div>
+
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-<h3>With Love ❤️</h3>
+<div class="ornament">
+✦ ─── ❦ ─── ✦
+</div>
+
+<h3>
+With Love ❤️
+</h3>
 
 <p>
 Yathziry Quirino & Alexandra Garcia
 </p>
 
+<div class="ornament">
+✦ ─── ❦ ─── ✦
+</div>
+
 </footer>
 
 
-<!-- EMAILJS -->
+<!-- =========================
+     EMAILJS
+========================= -->
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
 
 emailjs.init({
-publicKey:"vsmZUgvnvKlx7ymca"
+    publicKey:"vsmZUgvnvKlx7ymca"
 });
 
 
-/* RSVP */
+/* =========================
+   RSVP
+========================= */
 
 document
 .getElementById("rsvpForm")
 .addEventListener("submit",function(e){
 
-e.preventDefault();
+    e.preventDefault();
 
-emailjs.sendForm(
-"service_l60yxx7",
-"template_fqkpg0u",
-this
-)
+    const message =
+    document.getElementById("message");
 
-.then(()=>{
+    message.textContent =
+    "Sending RSVP...";
 
-document.getElementById("message").innerHTML =
-"💖 Thank you! Your RSVP has been received.";
+    emailjs.sendForm(
+        "service_l60yxx7",
+        "template_fqkpg0u",
+        this
+    )
 
-this.reset();
+    .then(()=>{
 
-})
+        message.textContent =
+        "💖 Thank you! Your RSVP has been received.";
 
-.catch(()=>{
+        this.reset();
 
-document.getElementById("message").innerHTML =
-"❌ Unable to send RSVP.";
+    })
+
+    .catch(()=>{
+
+        message.textContent =
+        "❌ Unable to send RSVP. Please try again.";
+
+    });
 
 });
 
-});
 
-
-/* COUNTDOWN */
+/* =========================
+   COUNTDOWN
+========================= */
 
 const eventDate =
 new Date("October 23, 2027 17:00:00").getTime();
 
 
-setInterval(()=>{
+function updateCountdown(){
 
-const now =
-new Date().getTime();
+    const now =
+    new Date().getTime();
 
-const distance =
-eventDate - now;
+    const distance =
+    eventDate - now;
+
+    if(distance <= 0){
+
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
+
+        return;
+    }
+
+    document.getElementById("days").textContent =
+    Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+    );
+
+    document.getElementById("hours").textContent =
+    Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    document.getElementById("minutes").textContent =
+    Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    document.getElementById("seconds").textContent =
+    Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+    );
+}
 
 
-document.getElementById("days").textContent =
-Math.floor(
-distance/(1000*60*60*24)
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
 );
-
-
-document.getElementById("hours").textContent =
-Math.floor(
-(distance%(1000*60*60*24))/
-(1000*60*60)
-);
-
-
-document.getElementById("minutes").textContent =
-Math.floor(
-(distance%(1000*60*60))/
-(1000*60)
-);
-
-
-document.getElementById("seconds").textContent =
-Math.floor(
-(distance%(1000*60))/
-1000
-);
-
-},1000);
 
 </script>
 
 </body>
 </html>
 ```
-
