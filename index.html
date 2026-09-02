@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +14,9 @@
 
 <style>
 
-/* =========================
-   GLOBAL
-========================= */
+/* =========================================
+   RESET
+========================================= */
 
 *{
     margin:0;
@@ -29,419 +30,636 @@ html{
 
 body{
     font-family:'Poppins',sans-serif;
-    background:
-        radial-gradient(circle at 50% 20%, #5b0808 0%, #310303 45%, #160101 100%);
     color:#f8ead0;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            #5a0808 0%,
+            #360303 40%,
+            #190101 100%
+        );
+
     overflow-x:hidden;
 }
 
-/* Gold texture/glow */
+
+/* =========================================
+   SUBTLE GOLD BACKGROUND SPARKLES
+========================================= */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
-    background:
-        radial-gradient(circle at 20% 30%, rgba(212,175,55,.08), transparent 20%),
-        radial-gradient(circle at 80% 70%, rgba(212,175,55,.06), transparent 20%);
+    z-index:-2;
+
+    background-image:
+        radial-gradient(circle, rgba(212,175,55,.45) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,220,100,.25) 1px, transparent 1px);
+
+    background-size:180px 180px, 260px 260px;
+    background-position:20px 30px, 100px 100px;
+
+    opacity:.18;
+}
+
+
+/* =========================================
+   BUTTERFLIES
+   Only background decoration
+========================================= */
+
+.butterfly{
+    position:fixed;
+    width:55px;
+    height:45px;
     z-index:-1;
+    pointer-events:none;
+    opacity:.42;
+
+    filter:
+        drop-shadow(0 0 8px rgba(212,175,55,.35));
 }
 
-/* =========================
-   GOLD DECORATIONS
-========================= */
+.butterfly::before,
+.butterfly::after{
+    content:"";
+    position:absolute;
 
-.gold-line{
-    width:180px;
-    height:2px;
-    margin:20px auto;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #d4af37,
-        #fff0a8,
-        #d4af37,
-        transparent
-    );
+    width:25px;
+    height:34px;
+
+    top:2px;
+
+    border:1px solid #d4af37;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255,220,100,.32),
+            rgba(139,0,0,.08)
+        );
+
+    box-shadow:
+        inset 0 0 8px rgba(212,175,55,.2);
+
 }
+
+.butterfly::before{
+    left:2px;
+
+    border-radius:
+        80% 20% 60% 40%;
+
+    transform:rotate(25deg);
+}
+
+.butterfly::after{
+    right:2px;
+
+    border-radius:
+        20% 80% 40% 60%;
+
+    transform:rotate(-25deg);
+}
+
+.butterfly span{
+    position:absolute;
+
+    left:50%;
+    top:7px;
+
+    width:3px;
+    height:33px;
+
+    transform:translateX(-50%);
+
+    background:#d4af37;
+
+    border-radius:50%;
+}
+
+
+/* Butterfly positions */
+
+.b1{
+    top:9%;
+    left:7%;
+    transform:rotate(-12deg) scale(.8);
+}
+
+.b2{
+    top:18%;
+    right:8%;
+    transform:rotate(12deg) scale(1.05);
+}
+
+.b3{
+    top:43%;
+    left:4%;
+    transform:rotate(15deg) scale(.65);
+}
+
+.b4{
+    top:55%;
+    right:5%;
+    transform:rotate(-15deg) scale(.8);
+}
+
+.b5{
+    top:73%;
+    left:8%;
+    transform:rotate(-8deg) scale(.7);
+}
+
+.b6{
+    top:84%;
+    right:9%;
+    transform:rotate(10deg) scale(.9);
+}
+
+
+/* =========================================
+   GOLD ORNAMENTS
+========================================= */
 
 .ornament{
     color:#d4af37;
-    font-size:24px;
-    letter-spacing:8px;
     text-align:center;
+    font-size:22px;
+    letter-spacing:8px;
+
+    text-shadow:
+        0 0 10px rgba(212,175,55,.25);
 }
 
-/* =========================
+
+/* =========================================
    HERO
-========================= */
+========================================= */
 
 .hero{
     min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
+
     padding:40px 20px;
 
     position:relative;
 
     background:
-        radial-gradient(circle at center,
-        rgba(120,0,0,.5),
-        transparent 55%),
-        linear-gradient(
-        135deg,
-        #4d0505,
-        #210101 60%,
-        #420404
+        radial-gradient(
+            circle at center,
+            rgba(100,5,5,.65),
+            transparent 65%
         );
 
-    border-bottom:2px solid #d4af37;
+    border-bottom:1px solid #d4af37;
 }
+
 
 /* Gold frame */
 
 .hero::before{
     content:"";
+
     position:absolute;
-    inset:18px;
+
+    inset:14px;
+
     border:1px solid #d4af37;
+
     pointer-events:none;
 }
 
 .hero::after{
     content:"";
+
     position:absolute;
-    inset:28px;
+
+    inset:24px;
+
     border:1px solid rgba(212,175,55,.35);
+
     pointer-events:none;
 }
+
 
 .hero-content{
     position:relative;
     z-index:2;
+
     max-width:1000px;
 }
+
 
 /* Crown */
 
 .crown{
-    font-size:48px;
     color:#d4af37;
-    margin-bottom:15px;
+    font-size:45px;
+
+    margin-bottom:10px;
+
     text-shadow:
-        0 0 15px rgba(212,175,55,.5);
+        0 0 20px rgba(212,175,55,.5);
 }
+
 
 /* Names */
 
 .hero h1{
     font-family:'Great Vibes',cursive;
-    font-size:clamp(4rem,9vw,8rem);
+
+    font-size:
+        clamp(4rem,9vw,8rem);
+
     font-weight:400;
+
     line-height:.95;
 
-    background:linear-gradient(
-        180deg,
-        #fff3a8 0%,
-        #d4af37 35%,
-        #fff1a0 55%,
-        #b8860b 100%
-    );
+    background:
+        linear-gradient(
+            180deg,
+            #fff1a3,
+            #d4af37 40%,
+            #fff0a0 60%,
+            #a67c00
+        );
 
     -webkit-background-clip:text;
     background-clip:text;
+
     color:transparent;
 
     text-shadow:
-        0 4px 15px rgba(0,0,0,.5);
+        0 5px 20px rgba(0,0,0,.5);
 }
+
 
 .ampersand{
     font-size:.65em;
 }
 
+
 .hero-subtitle{
     font-family:'Cinzel',serif;
-    font-size:1rem;
-    letter-spacing:6px;
+
+    font-size:.95rem;
+
+    letter-spacing:5px;
+
+    margin-top:28px;
+
     color:#f8ead0;
-    margin-top:30px;
 }
+
 
 .hero-date{
     font-family:'Cinzel',serif;
+
     color:#d4af37;
-    font-size:1.5rem;
-    letter-spacing:3px;
+
+    font-size:1.4rem;
+
+    letter-spacing:4px;
+
     margin-top:18px;
 }
 
-/* RSVP button */
+
+/* =========================================
+   RSVP BUTTON
+========================================= */
 
 .btn{
     display:inline-block;
+
     margin-top:35px;
+
     padding:15px 55px;
 
-    color:#3b0505;
-    background:
-        linear-gradient(
-        180deg,
-        #fff0a0,
-        #d4af37,
-        #a67c00
-        );
-
     text-decoration:none;
+
     font-family:'Cinzel',serif;
+
     font-weight:700;
+
     letter-spacing:3px;
 
-    border:2px solid #f8df75;
-    border-radius:5px;
+    color:#3a0303;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff0a0,
+            #d4af37,
+            #a67c00
+        );
+
+    border:2px solid #f5dc6d;
+
+    border-radius:6px;
 
     box-shadow:
-        0 0 20px rgba(212,175,55,.35),
-        inset 0 1px rgba(255,255,255,.7);
+        0 0 20px rgba(212,175,55,.3);
 
     transition:.3s;
 }
 
 .btn:hover{
-    transform:translateY(-4px) scale(1.03);
+    transform:
+        translateY(-4px)
+        scale(1.03);
 
     box-shadow:
-        0 0 35px rgba(212,175,55,.6),
-        inset 0 1px rgba(255,255,255,.8);
+        0 0 35px rgba(212,175,55,.55);
 }
 
-/* =========================
+
+/* =========================================
    SECTIONS
-========================= */
+========================================= */
 
 section{
-    padding:90px 7%;
+    padding:85px 7%;
+
     position:relative;
 }
+
 
 .section-title{
     text-align:center;
 
     font-family:'Cinzel',serif;
+
     font-size:2rem;
-    letter-spacing:6px;
+
+    letter-spacing:5px;
 
     color:#d4af37;
 
     margin-bottom:15px;
 
     text-shadow:
-        0 0 15px rgba(212,175,55,.25);
+        0 0 12px rgba(212,175,55,.25);
 }
 
-.section-title::before,
+
+.section-title::before{
+    content:"✦ ";
+}
+
 .section-title::after{
-    content:" ✦ ";
-    color:#d4af37;
+    content:" ✦";
 }
 
-/* =========================
+
+/* =========================================
    COUNTDOWN
-========================= */
+========================================= */
 
 .countdown{
     display:grid;
+
     grid-template-columns:
-        repeat(auto-fit,minmax(160px,1fr));
+        repeat(auto-fit,minmax(150px,1fr));
 
     gap:20px;
+
     max-width:900px;
+
     margin:40px auto 0;
 }
 
+
 .time-box{
-    padding:35px 20px;
+    padding:32px 20px;
+
+    text-align:center;
 
     background:
         linear-gradient(
-        145deg,
-        rgba(105,8,8,.95),
-        rgba(45,2,2,.98)
+            145deg,
+            #650707,
+            #2c0202
         );
 
     border:1px solid #b8860b;
-    border-radius:12px;
 
-    text-align:center;
+    border-radius:10px;
 
     box-shadow:
         0 15px 35px rgba(0,0,0,.45),
         inset 0 0 25px rgba(212,175,55,.05);
 }
 
+
 .time-box span{
     display:block;
 
     font-family:'Cinzel',serif;
-    font-size:3rem;
-    font-weight:600;
 
-    color:#f1d66b;
+    font-size:3rem;
+
+    color:#efd66c;
 
     text-shadow:
-        0 0 15px rgba(212,175,55,.25);
+        0 0 12px rgba(212,175,55,.25);
 }
+
 
 .time-label{
-    color:#f8ead0;
+    font-size:.8rem;
+
     letter-spacing:3px;
-    font-size:.85rem;
+
     text-transform:uppercase;
+
+    color:#f8ead0;
 }
 
-/* =========================
+
+/* =========================================
    CARDS
-========================= */
+========================================= */
 
 .card{
-    max-width:950px;
+    max-width:900px;
+
     margin:35px auto 0;
 
-    padding:45px 35px;
+    padding:42px 35px;
 
     text-align:center;
 
     background:
         linear-gradient(
-        145deg,
-        rgba(91,7,7,.95),
-        rgba(38,2,2,.98)
+            145deg,
+            #650707,
+            #280202
         );
 
     border:1px solid #b8860b;
-    border-radius:12px;
+
+    border-radius:10px;
 
     box-shadow:
         0 20px 45px rgba(0,0,0,.45),
-        inset 0 0 35px rgba(212,175,55,.04);
+        inset 0 0 30px rgba(212,175,55,.04);
 }
+
 
 .card h3{
     font-family:'Cinzel',serif;
+
     color:#e3c04b;
-    font-size:1.4rem;
+
     letter-spacing:3px;
-    margin-bottom:20px;
+
+    margin-bottom:18px;
 }
+
 
 .card p{
     line-height:1.9;
+
     color:#f3e6d0;
 }
 
-/* =========================
+
+/* =========================================
    EVENT DETAILS
-========================= */
+========================================= */
 
 .event-icon{
     font-size:42px;
+
     color:#d4af37;
+
     margin-bottom:15px;
 }
 
-/* =========================
+
+/* =========================================
    GALLERY
-========================= */
+========================================= */
 
 .gallery{
     display:grid;
+
     grid-template-columns:
         repeat(auto-fit,minmax(230px,1fr));
 
-    gap:25px;
+    gap:22px;
+
     max-width:1100px;
+
     margin:40px auto 0;
 }
 
+
 .placeholder{
-    height:270px;
+    height:260px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     text-align:center;
 
+    position:relative;
+
     background:
-        radial-gradient(
-        circle at center,
-        #700909,
-        #300202 75%
+        linear-gradient(
+            145deg,
+            #690707,
+            #2b0202
         );
 
     border:1px solid #d4af37;
-    border-radius:10px;
+
+    border-radius:9px;
 
     color:#e3c04b;
 
     font-family:'Cinzel',serif;
+
     letter-spacing:2px;
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,.45),
-        inset 0 0 30px rgba(212,175,55,.06);
-
-    position:relative;
+        0 15px 35px rgba(0,0,0,.45);
 }
+
 
 .placeholder::before{
     content:"♛";
+
     position:absolute;
+
     top:20px;
+
+    font-size:25px;
+
     color:#d4af37;
-    font-size:24px;
 }
+
 
 .placeholder::after{
     content:"";
+
     position:absolute;
+
     inset:8px;
-    border:1px solid rgba(212,175,55,.3);
-    border-radius:7px;
+
+    border:1px solid rgba(212,175,55,.25);
+
+    border-radius:6px;
 }
 
-/* =========================
+
+/* =========================================
    RSVP
-========================= */
+========================================= */
 
 .rsvp-card{
     max-width:850px;
+
     margin:35px auto 0;
 
-    padding:45px;
+    padding:42px;
 
     background:
         linear-gradient(
-        145deg,
-        #570606,
-        #250202
+            145deg,
+            #620707,
+            #270202
         );
 
     border:1px solid #d4af37;
-    border-radius:15px;
+
+    border-radius:12px;
 
     box-shadow:
         0 20px 50px rgba(0,0,0,.5);
 }
 
+
 form{
     display:flex;
+
     flex-direction:column;
-    gap:18px;
+
+    gap:17px;
 }
+
 
 input,
 select,
@@ -451,21 +669,26 @@ textarea{
     padding:16px 18px;
 
     background:#260202;
+
     color:#f8ead0;
 
-    border:1px solid #936f0b;
+    border:1px solid #916d0a;
+
     border-radius:7px;
 
     font-family:'Poppins',sans-serif;
+
     font-size:1rem;
 
     transition:.3s;
 }
 
+
 input::placeholder,
 textarea::placeholder{
-    color:#bda9a0;
+    color:#b9a59d;
 }
+
 
 input:focus,
 select:focus,
@@ -478,30 +701,37 @@ textarea:focus{
         0 0 15px rgba(212,175,55,.15);
 }
 
+
 select option{
     background:#260202;
+
     color:#f8ead0;
 }
+
 
 button{
     padding:17px;
 
     border:2px solid #f0d76b;
+
     border-radius:7px;
 
     background:
         linear-gradient(
-        180deg,
-        #f0d76b,
-        #d4af37,
-        #a67c00
+            180deg,
+            #f5dc70,
+            #d4af37,
+            #a67c00
         );
 
     color:#310303;
 
     font-family:'Cinzel',serif;
+
     font-size:1rem;
+
     font-weight:700;
+
     letter-spacing:3px;
 
     cursor:pointer;
@@ -509,63 +739,76 @@ button{
     transition:.3s;
 }
 
+
 button:hover{
     transform:translateY(-3px);
 
     box-shadow:
-        0 0 25px rgba(212,175,55,.4);
+        0 0 25px rgba(212,175,55,.45);
 }
+
 
 #message{
     text-align:center;
-    color:#e6c957;
+
+    color:#e7cb5d;
+
     font-weight:600;
 }
 
-/* =========================
+
+/* =========================================
    FOOTER
-========================= */
+========================================= */
 
 footer{
-    padding:70px 20px;
+    padding:65px 20px;
 
     text-align:center;
 
     background:
         linear-gradient(
-        180deg,
-        #250202,
-        #100101
+            180deg,
+            #270202,
+            #100101
         );
 
-    border-top:2px solid #d4af37;
+    border-top:1px solid #d4af37;
 }
+
 
 footer h3{
     font-family:'Great Vibes',cursive;
+
     font-size:3.5rem;
-    color:#d4af37;
+
     font-weight:400;
+
+    color:#d4af37;
 }
+
 
 footer p{
     margin-top:15px;
+
     color:#f3e6d0;
+
     letter-spacing:2px;
 }
 
-/* =========================
+
+/* =========================================
    MOBILE
-========================= */
+========================================= */
 
 @media(max-width:600px){
 
     .hero::before{
-        inset:10px;
+        inset:9px;
     }
 
     .hero::after{
-        inset:18px;
+        inset:16px;
     }
 
     .hero h1{
@@ -573,20 +816,21 @@ footer p{
     }
 
     .hero-subtitle{
-        font-size:.75rem;
-        letter-spacing:3px;
+        font-size:.7rem;
+        letter-spacing:2px;
     }
 
     .hero-date{
-        font-size:1.1rem;
+        font-size:1rem;
+        letter-spacing:2px;
     }
 
     section{
-        padding:70px 5%;
+        padding:65px 5%;
     }
 
     .section-title{
-        font-size:1.5rem;
+        font-size:1.35rem;
         letter-spacing:3px;
     }
 
@@ -595,7 +839,7 @@ footer p{
     }
 
     .time-box span{
-        font-size:2.3rem;
+        font-size:2.2rem;
     }
 
     .rsvp-card{
@@ -605,16 +849,83 @@ footer p{
     footer h3{
         font-size:2.8rem;
     }
+
+    /* Make background butterflies smaller on phones */
+
+    .butterfly{
+        opacity:.3;
+    }
+
+}
+
+
+/* =========================================
+   BUTTERFLY ANIMATION
+========================================= */
+
+@keyframes floatButterfly{
+
+    0%{
+        margin-top:0;
+    }
+
+    50%{
+        margin-top:-12px;
+    }
+
+    100%{
+        margin-top:0;
+    }
+
+}
+
+.butterfly{
+    animation:
+        floatButterfly 5s ease-in-out infinite;
+}
+
+.b2{
+    animation-delay:1s;
+}
+
+.b3{
+    animation-delay:2s;
+}
+
+.b4{
+    animation-delay:1.5s;
+}
+
+.b5{
+    animation-delay:3s;
+}
+
+.b6{
+    animation-delay:2.5s;
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
+
+<!-- =========================================
+     SUBTLE BACKGROUND BUTTERFLIES
+========================================= -->
+
+<div class="butterfly b1"><span></span></div>
+<div class="butterfly b2"><span></span></div>
+<div class="butterfly b3"><span></span></div>
+<div class="butterfly b4"><span></span></div>
+<div class="butterfly b5"><span></span></div>
+<div class="butterfly b6"><span></span></div>
+
+
+<!-- =========================================
      HERO
-========================= -->
+========================================= -->
 
 <section class="hero">
 
@@ -630,7 +941,9 @@ Yathziry Quirino
 Alexandra Garcia
 </h1>
 
-<div class="ornament">✦ ─── ✧ ─── ✦</div>
+<div class="ornament">
+✦ ─── ✧ ─── ✦
+</div>
 
 <p class="hero-subtitle">
 A JOINT QUINCEAÑERA CELEBRATION
@@ -649,9 +962,9 @@ October 23, 2027
 </section>
 
 
-<!-- =========================
+<!-- =========================================
      COUNTDOWN
-========================= -->
+========================================= -->
 
 <section>
 
@@ -690,9 +1003,9 @@ COUNTDOWN
 </section>
 
 
-<!-- =========================
+<!-- =========================================
      CELEBRATION
-========================= -->
+========================================= -->
 
 <section>
 
@@ -702,7 +1015,9 @@ OUR CELEBRATION
 
 <div class="card">
 
-<div class="ornament">❦</div>
+<div class="ornament">
+❦
+</div>
 
 <p>
 We are excited to celebrate this special milestone
@@ -713,16 +1028,18 @@ with our family and friends.
 More details about our celebration will be shared soon.
 </p>
 
-<div class="ornament">❦</div>
+<div class="ornament">
+❦
+</div>
 
 </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =========================================
      EVENT DETAILS
-========================= -->
+========================================= -->
 
 <section>
 
@@ -749,9 +1066,9 @@ Location details will be announced soon.
 </section>
 
 
-<!-- =========================
+<!-- =========================================
      GALLERY
-========================= -->
+========================================= -->
 
 <section>
 
@@ -762,19 +1079,23 @@ GALLERY
 <div class="gallery">
 
 <div class="placeholder">
-PHOTO<br>COMING SOON
+PHOTO<br>
+COMING SOON
 </div>
 
 <div class="placeholder">
-PHOTO<br>COMING SOON
+PHOTO<br>
+COMING SOON
 </div>
 
 <div class="placeholder">
-PHOTO<br>COMING SOON
+PHOTO<br>
+COMING SOON
 </div>
 
 <div class="placeholder">
-PHOTO<br>COMING SOON
+PHOTO<br>
+COMING SOON
 </div>
 
 </div>
@@ -782,9 +1103,9 @@ PHOTO<br>COMING SOON
 </section>
 
 
-<!-- =========================
+<!-- =========================================
      RSVP
-========================= -->
+========================================= -->
 
 <section id="rsvp">
 
@@ -848,9 +1169,9 @@ placeholder="Leave a message"
 </section>
 
 
-<!-- =========================
+<!-- =========================================
      FOOTER
-========================= -->
+========================================= -->
 
 <footer>
 
@@ -873,9 +1194,9 @@ Yathziry Quirino & Alexandra Garcia
 </footer>
 
 
-<!-- =========================
+<!-- =========================================
      EMAILJS
-========================= -->
+========================================= -->
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
@@ -886,9 +1207,9 @@ emailjs.init({
 });
 
 
-/* =========================
+/* =========================================
    RSVP
-========================= */
+========================================= */
 
 document
 .getElementById("rsvpForm")
@@ -897,10 +1218,10 @@ document
     e.preventDefault();
 
     const message =
-    document.getElementById("message");
+        document.getElementById("message");
 
     message.textContent =
-    "Sending RSVP...";
+        "Sending RSVP...";
 
     emailjs.sendForm(
         "service_l60yxx7",
@@ -911,7 +1232,7 @@ document
     .then(()=>{
 
         message.textContent =
-        "💖 Thank you! Your RSVP has been received.";
+            "💖 Thank you! Your RSVP has been received.";
 
         this.reset();
 
@@ -920,28 +1241,31 @@ document
     .catch(()=>{
 
         message.textContent =
-        "❌ Unable to send RSVP. Please try again.";
+            "❌ Unable to send RSVP. Please try again.";
 
     });
 
 });
 
 
-/* =========================
+/* =========================================
    COUNTDOWN
-========================= */
+========================================= */
 
 const eventDate =
-new Date("October 23, 2027 17:00:00").getTime();
+    new Date(
+        "October 23, 2027 17:00:00"
+    ).getTime();
 
 
 function updateCountdown(){
 
     const now =
-    new Date().getTime();
+        new Date().getTime();
 
     const distance =
-    eventDate - now;
+        eventDate - now;
+
 
     if(distance <= 0){
 
@@ -953,28 +1277,37 @@ function updateCountdown(){
         return;
     }
 
+
     document.getElementById("days").textContent =
-    Math.floor(
-        distance / (1000 * 60 * 60 * 24)
-    );
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
 
     document.getElementById("hours").textContent =
-    Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
-    );
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
 
     document.getElementById("minutes").textContent =
-    Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
-    );
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
 
     document.getElementById("seconds").textContent =
-    Math.floor(
-        (distance % (1000 * 60))
-        / 1000
-    );
+        Math.floor(
+            (distance %
+            (1000 * 60)) /
+            1000
+        );
+
 }
 
 
