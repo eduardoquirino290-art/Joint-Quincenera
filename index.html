@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================
-   GLOBAL
-========================= */
 
 *{
     margin:0;
@@ -35,8 +32,6 @@ body{
     overflow-x:hidden;
 }
 
-/* Gold texture/glow */
-
 body::before{
     content:"";
     position:fixed;
@@ -47,10 +42,6 @@ body::before{
         radial-gradient(circle at 80% 70%, rgba(212,175,55,.06), transparent 20%);
     z-index:-1;
 }
-
-/* =========================
-   GOLD DECORATIONS
-========================= */
 
 .gold-line{
     width:180px;
@@ -73,9 +64,7 @@ body::before{
     text-align:center;
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
     min-height:100vh;
@@ -101,8 +90,6 @@ body::before{
     border-bottom:2px solid #d4af37;
 }
 
-/* Gold frame */
-
 .hero::before{
     content:"";
     position:absolute;
@@ -125,8 +112,6 @@ body::before{
     max-width:1000px;
 }
 
-/* Crown */
-
 .crown{
     font-size:48px;
     color:#d4af37;
@@ -134,8 +119,6 @@ body::before{
     text-shadow:
         0 0 15px rgba(212,175,55,.5);
 }
-
-/* Names */
 
 .hero h1{
     font-family:'Great Vibes',cursive;
@@ -179,14 +162,13 @@ body::before{
     margin-top:18px;
 }
 
-/* RSVP button */
-
 .btn{
     display:inline-block;
     margin-top:35px;
     padding:15px 55px;
 
     color:#3b0505;
+
     background:
         linear-gradient(
         180deg,
@@ -218,9 +200,7 @@ body::before{
         inset 0 1px rgba(255,255,255,.8);
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 
 section{
     padding:90px 7%;
@@ -248,9 +228,7 @@ section{
     color:#d4af37;
 }
 
-/* =========================
-   COUNTDOWN
-========================= */
+/* COUNTDOWN */
 
 .countdown{
     display:grid;
@@ -302,9 +280,7 @@ section{
     text-transform:uppercase;
 }
 
-/* =========================
-   CARDS
-========================= */
+/* CARDS */
 
 .card{
     max-width:950px;
@@ -342,9 +318,7 @@ section{
     color:#f3e6d0;
 }
 
-/* =========================
-   EVENT DETAILS
-========================= */
+/* EVENT DETAILS */
 
 .event-icon{
     font-size:42px;
@@ -352,9 +326,7 @@ section{
     margin-bottom:15px;
 }
 
-/* =========================
-   GALLERY
-========================= */
+/* GALLERY */
 
 .gallery{
     display:grid;
@@ -413,9 +385,7 @@ section{
     border-radius:7px;
 }
 
-/* =========================
-   RSVP
-========================= */
+/* RSVP */
 
 .rsvp-card{
     max-width:850px;
@@ -483,6 +453,16 @@ select option{
     color:#f8ead0;
 }
 
+/* GUEST FIELD */
+
+#guestContainer{
+    display:none;
+}
+
+#guestContainer.show{
+    display:block;
+}
+
 button{
     padding:17px;
 
@@ -522,9 +502,7 @@ button:hover{
     font-weight:600;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
     padding:70px 20px;
@@ -554,9 +532,7 @@ footer p{
     letter-spacing:2px;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:600px){
 
@@ -612,9 +588,7 @@ footer p{
 
 <body>
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -649,9 +623,7 @@ October 23, 2027
 </section>
 
 
-<!-- =========================
-     COUNTDOWN
-========================= -->
+<!-- COUNTDOWN -->
 
 <section>
 
@@ -690,9 +662,7 @@ COUNTDOWN
 </section>
 
 
-<!-- =========================
-     CELEBRATION
-========================= -->
+<!-- CELEBRATION -->
 
 <section>
 
@@ -720,9 +690,7 @@ More details about our celebration will be shared soon.
 </section>
 
 
-<!-- =========================
-     EVENT DETAILS
-========================= -->
+<!-- EVENT DETAILS -->
 
 <section>
 
@@ -749,9 +717,7 @@ Location details will be announced soon.
 </section>
 
 
-<!-- =========================
-     GALLERY
-========================= -->
+<!-- GALLERY -->
 
 <section>
 
@@ -782,9 +748,7 @@ PHOTO<br>COMING SOON
 </section>
 
 
-<!-- =========================
-     RSVP
-========================= -->
+<!-- RSVP -->
 
 <section id="rsvp">
 
@@ -812,6 +776,7 @@ required
 
 <select
 name="attendance"
+id="attendance"
 required
 >
 
@@ -828,6 +793,23 @@ No, I cannot attend
 </option>
 
 </select>
+
+
+<!-- NUMBER OF GUESTS -->
+
+<div id="guestContainer">
+
+<input
+type="number"
+name="guests"
+id="guests"
+min="1"
+max="20"
+placeholder="How many guests are you bringing?"
+>
+
+</div>
+
 
 <textarea
 name="message"
@@ -848,9 +830,7 @@ placeholder="Leave a message"
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -873,9 +853,7 @@ Yathziry Quirino & Alexandra Garcia
 </footer>
 
 
-<!-- =========================
-     EMAILJS
-========================= -->
+<!-- EMAILJS -->
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
@@ -883,6 +861,41 @@ Yathziry Quirino & Alexandra Garcia
 
 emailjs.init({
     publicKey:"vsmZUgvnvKlx7ymca"
+});
+
+
+/* =========================
+   SHOW GUEST BOX
+========================= */
+
+const attendance =
+document.getElementById("attendance");
+
+const guestContainer =
+document.getElementById("guestContainer");
+
+const guests =
+document.getElementById("guests");
+
+
+attendance.addEventListener("change", function(){
+
+    if(this.value === "Yes"){
+
+        guestContainer.classList.add("show");
+
+        guests.required = true;
+
+    }else{
+
+        guestContainer.classList.remove("show");
+
+        guests.required = false;
+
+        guests.value = "";
+
+    }
+
 });
 
 
@@ -902,6 +915,7 @@ document
     message.textContent =
     "Sending RSVP...";
 
+
     emailjs.sendForm(
         "service_l60yxx7",
         "template_fqkpg0u",
@@ -915,9 +929,15 @@ document
 
         this.reset();
 
+        guestContainer.classList.remove("show");
+
+        guests.required = false;
+
     })
 
-    .catch(()=>{
+    .catch((error)=>{
+
+        console.error(error);
 
         message.textContent =
         "❌ Unable to send RSVP. Please try again.";
@@ -943,6 +963,7 @@ function updateCountdown(){
     const distance =
     eventDate - now;
 
+
     if(distance <= 0){
 
         document.getElementById("days").textContent = "0";
@@ -953,10 +974,12 @@ function updateCountdown(){
         return;
     }
 
+
     document.getElementById("days").textContent =
     Math.floor(
         distance / (1000 * 60 * 60 * 24)
     );
+
 
     document.getElementById("hours").textContent =
     Math.floor(
@@ -964,17 +987,20 @@ function updateCountdown(){
         / (1000 * 60 * 60)
     );
 
+
     document.getElementById("minutes").textContent =
     Math.floor(
         (distance % (1000 * 60 * 60))
         / (1000 * 60)
     );
 
+
     document.getElementById("seconds").textContent =
     Math.floor(
         (distance % (1000 * 60))
         / 1000
     );
+
 }
 
 
