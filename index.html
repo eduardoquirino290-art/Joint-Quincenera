@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +32,10 @@ body{
     overflow-x:hidden;
 }
 
+/* =========================
+   GOLD BACKGROUND GLOW
+========================= */
+
 body::before{
     content:"";
     position:fixed;
@@ -39,8 +44,91 @@ body::before{
     background:
         radial-gradient(circle at 20% 30%, rgba(212,175,55,.08), transparent 20%),
         radial-gradient(circle at 80% 70%, rgba(212,175,55,.06), transparent 20%);
-    z-index:-1;
+    z-index:-2;
 }
+
+
+/* =========================
+   GOLD BUTTERFLIES
+========================= */
+
+.butterfly{
+    position:fixed;
+    width:100px;
+    height:100px;
+    pointer-events:none;
+    z-index:0;
+    opacity:.20;
+    filter:
+        drop-shadow(0 0 5px rgba(212,175,55,.55))
+        drop-shadow(0 0 12px rgba(212,175,55,.2));
+    animation:floatButterfly 8s ease-in-out infinite;
+}
+
+.butterfly svg{
+    width:100%;
+    height:100%;
+    overflow:visible;
+}
+
+.butterfly path{
+    fill:url(#goldGradient);
+    stroke:#f5dc72;
+    stroke-width:1.2;
+}
+
+.butterfly .body{
+    fill:#8d6500;
+    stroke:#f5dc72;
+    stroke-width:1;
+}
+
+/* Individual positions */
+
+.butterfly-1{
+    top:10%;
+    left:4%;
+    transform:rotate(-18deg) scale(.72);
+    animation-delay:0s;
+}
+
+.butterfly-2{
+    top:38%;
+    right:3%;
+    transform:rotate(15deg) scale(.55);
+    animation-delay:2s;
+}
+
+.butterfly-3{
+    bottom:15%;
+    left:7%;
+    transform:rotate(12deg) scale(.62);
+    animation-delay:4s;
+}
+
+.butterfly-4{
+    bottom:32%;
+    right:8%;
+    transform:rotate(-20deg) scale(.45);
+    animation-delay:6s;
+}
+
+@keyframes floatButterfly{
+
+    0%,100%{
+        translate:0 0;
+    }
+
+    50%{
+        translate:0 -14px;
+    }
+
+}
+
+
+/* =========================
+   GOLD DECORATIONS
+========================= */
 
 .gold-line{
     width:180px;
@@ -63,7 +151,10 @@ body::before{
     text-align:center;
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
     min-height:100vh;
@@ -74,6 +165,7 @@ body::before{
     padding:40px 20px;
 
     position:relative;
+    z-index:1;
 
     background:
         radial-gradient(circle at center,
@@ -199,11 +291,15 @@ body::before{
         inset 0 1px rgba(255,255,255,.8);
 }
 
-/* SECTIONS */
+
+/* =========================
+   SECTIONS
+========================= */
 
 section{
     padding:90px 7%;
     position:relative;
+    z-index:1;
 }
 
 .section-title{
@@ -227,7 +323,10 @@ section{
     color:#d4af37;
 }
 
-/* COUNTDOWN */
+
+/* =========================
+   COUNTDOWN
+========================= */
 
 .countdown{
     display:grid;
@@ -279,7 +378,10 @@ section{
     text-transform:uppercase;
 }
 
-/* CARDS */
+
+/* =========================
+   CARDS
+========================= */
 
 .card{
     max-width:950px;
@@ -317,7 +419,10 @@ section{
     color:#f3e6d0;
 }
 
-/* EVENT DETAILS */
+
+/* =========================
+   EVENT DETAILS
+========================= */
 
 .event-icon{
     font-size:42px;
@@ -325,7 +430,10 @@ section{
     margin-bottom:15px;
 }
 
-/* GALLERY */
+
+/* =========================
+   GALLERY
+========================= */
 
 .gallery{
     display:grid;
@@ -384,7 +492,10 @@ section{
     border-radius:7px;
 }
 
-/* RSVP */
+
+/* =========================
+   RSVP
+========================= */
 
 .rsvp-card{
     max-width:850px;
@@ -452,6 +563,7 @@ select option{
     color:#f8ead0;
 }
 
+
 /* GUEST FIELD */
 
 #guestContainer{
@@ -501,7 +613,10 @@ button:hover{
     font-weight:600;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     padding:70px 20px;
@@ -516,6 +631,9 @@ footer{
         );
 
     border-top:2px solid #d4af37;
+
+    position:relative;
+    z-index:1;
 }
 
 footer h3{
@@ -531,7 +649,10 @@ footer p{
     letter-spacing:2px;
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
@@ -580,6 +701,31 @@ footer p{
     footer h3{
         font-size:2.8rem;
     }
+
+    /* Smaller butterflies on phones */
+
+    .butterfly{
+        width:75px;
+        height:75px;
+        opacity:.15;
+    }
+
+    .butterfly-1{
+        left:-5px;
+    }
+
+    .butterfly-2{
+        right:-5px;
+    }
+
+    .butterfly-3{
+        left:0;
+    }
+
+    .butterfly-4{
+        right:0;
+    }
+
 }
 
 </style>
@@ -587,7 +733,87 @@ footer p{
 
 <body>
 
-<!-- HERO -->
+
+<!-- =========================
+     GOLD BUTTERFLIES
+========================= -->
+
+<div class="butterfly butterfly-1">
+<svg viewBox="0 0 100 100">
+
+<defs>
+<linearGradient id="goldGradient" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fff4a8"/>
+<stop offset="25%" stop-color="#d4af37"/>
+<stop offset="55%" stop-color="#fff0a0"/>
+<stop offset="100%" stop-color="#9b7200"/>
+</linearGradient>
+</defs>
+
+<path d="M47 48 C30 20 5 20 12 43 C17 58 34 61 47 53 Z"/>
+<path d="M53 48 C70 20 95 20 88 43 C83 58 66 61 53 53 Z"/>
+<path d="M47 52 C29 55 18 75 32 77 C41 78 47 65 49 55 Z"/>
+<path d="M53 52 C71 55 82 75 68 77 C59 78 53 65 51 55 Z"/>
+
+<ellipse class="body" cx="50" cy="52" rx="3" ry="14"/>
+
+</svg>
+</div>
+
+
+<div class="butterfly butterfly-2">
+<svg viewBox="0 0 100 100">
+
+<defs>
+<linearGradient id="goldGradient2" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fff4a8"/>
+<stop offset="30%" stop-color="#d4af37"/>
+<stop offset="100%" stop-color="#9b7200"/>
+</linearGradient>
+</defs>
+
+<path d="M47 48 C30 20 5 20 12 43 C17 58 34 61 47 53 Z"/>
+<path d="M53 48 C70 20 95 20 88 43 C83 58 66 61 53 53 Z"/>
+<path d="M47 52 C29 55 18 75 32 77 C41 78 47 65 49 55 Z"/>
+<path d="M53 52 C71 55 82 75 68 77 C59 78 53 65 51 55 Z"/>
+
+<ellipse class="body" cx="50" cy="52" rx="3" ry="14"/>
+
+</svg>
+</div>
+
+
+<div class="butterfly butterfly-3">
+<svg viewBox="0 0 100 100">
+
+<path d="M47 48 C30 20 5 20 12 43 C17 58 34 61 47 53 Z"/>
+<path d="M53 48 C70 20 95 20 88 43 C83 58 66 61 53 53 Z"/>
+<path d="M47 52 C29 55 18 75 32 77 C41 78 47 65 49 55 Z"/>
+<path d="M53 52 C71 55 82 75 68 77 C59 78 53 65 51 55 Z"/>
+
+<ellipse class="body" cx="50" cy="52" rx="3" ry="14"/>
+
+</svg>
+</div>
+
+
+<div class="butterfly butterfly-4">
+<svg viewBox="0 0 100 100">
+
+<path d="M47 48 C30 20 5 20 12 43 C17 58 34 61 47 53 Z"/>
+<path d="M53 48 C70 20 95 20 88 43 C83 58 66 61 53 53 Z"/>
+<path d="M47 52 C29 55 18 75 32 77 C41 78 47 65 49 55 Z"/>
+<path d="M53 52 C71 55 82 75 68 77 C59 78 53 65 51 55 Z"/>
+
+<ellipse class="body" cx="50" cy="52" rx="3" ry="14"/>
+
+</svg>
+</div>
+
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -1014,3 +1240,4 @@ setInterval(
 
 </body>
 </html>
+```
