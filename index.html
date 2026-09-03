@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,9 +14,9 @@
 
 <style>
 
-/* =========================
+/* =====================================================
    GLOBAL
-========================= */
+===================================================== */
 
 *{
     margin:0;
@@ -29,195 +30,206 @@ html{
 
 body{
     font-family:'Poppins',sans-serif;
+
     background:
-        radial-gradient(circle at 50% 20%, #5b0808 0%, #310303 45%, #160101 100%);
+        radial-gradient(
+            circle at 50% 15%,
+            #650909 0%,
+            #380303 42%,
+            #170101 100%
+        );
+
     color:#f8ead0;
+
     overflow-x:hidden;
+
+    position:relative;
 }
+
+
+/* Subtle gold atmosphere */
 
 body::before{
     content:"";
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
 
     background:
-        radial-gradient(circle at 20% 30%, rgba(212,175,55,.08), transparent 20%),
-        radial-gradient(circle at 80% 70%, rgba(212,175,55,.06), transparent 20%);
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,215,80,.07),
+            transparent 22%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(255,215,80,.06),
+            transparent 22%
+        );
 
     z-index:-1;
 }
 
 
-/* =========================
-   GOLD BUTTERFLIES
-========================= */
-
-/*
-   IMPORTANT:
-   Save your butterfly image as:
-
-   butterfly.png
-
-   and put it beside index.html.
-*/
+/* =====================================================
+   REALISTIC GOLD BUTTERFLIES
+===================================================== */
 
 .butterfly{
     position:absolute;
 
-    width:100px;
-    height:auto;
+    width:90px;
+    height:90px;
 
     z-index:1;
+
     pointer-events:none;
 
-    /*
-       Removes the appearance of the white
-       background from the uploaded image
-       against the dark red sections.
-    */
-    mix-blend-mode:multiply;
+    overflow:visible;
 
     filter:
-        brightness(1.35)
-        saturate(1.35)
-        contrast(1.12)
-        drop-shadow(0 0 4px rgba(255,215,90,.95))
+        drop-shadow(0 0 4px rgba(255,220,100,.9))
         drop-shadow(0 0 12px rgba(212,175,55,.65))
-        drop-shadow(0 0 24px rgba(212,175,55,.25));
+        drop-shadow(0 0 25px rgba(255,215,80,.3));
 
-    opacity:.95;
-}
-
-/*
-   HERO BUTTERFLIES
-*/
-
-.hero-butterfly-1{
-    top:8%;
-    left:4%;
-    width:120px;
-}
-
-.hero-butterfly-2{
-    top:12%;
-    right:5%;
-    width:100px;
-}
-
-.hero-butterfly-3{
-    bottom:9%;
-    left:8%;
-    width:75px;
-}
-
-.hero-butterfly-4{
-    bottom:12%;
-    right:7%;
-    width:90px;
+    animation:goldShimmer 4s ease-in-out infinite;
 }
 
 
-/*
-   COUNTDOWN BUTTERFLIES
-*/
+/* Butterfly placement */
 
-.countdown-butterfly-1{
-    top:12%;
-    left:2%;
+.butterfly-1{
+    top:125px;
+    left:28px;
+
+    width:82px;
+}
+
+.butterfly-2{
+    top:350px;
+    right:28px;
+
     width:70px;
+
+    animation-delay:1s;
 }
 
-.countdown-butterfly-2{
-    top:60%;
-    right:3%;
-    width:75px;
+.butterfly-3{
+    top:900px;
+    left:25px;
+
+    width:65px;
+
+    animation-delay:2s;
 }
 
+.butterfly-4{
+    top:1280px;
+    right:25px;
 
-/*
-   CELEBRATION BUTTERFLIES
-*/
+    width:78px;
 
-.celebration-butterfly-1{
-    top:15%;
-    right:4%;
-    width:85px;
+    animation-delay:.7s;
 }
 
-.celebration-butterfly-2{
-    bottom:12%;
-    left:4%;
+.butterfly-5{
+    top:1750px;
+    left:28px;
+
+    width:62px;
+
+    animation-delay:1.7s;
+}
+
+.butterfly-6{
+    top:2150px;
+    right:28px;
+
     width:70px;
+
+    animation-delay:2.5s;
 }
 
+.butterfly-7{
+    top:2600px;
+    left:25px;
 
-/*
-   EVENT BUTTERFLIES
-*/
+    width:70px;
 
-.event-butterfly-1{
-    top:15%;
-    left:4%;
+    animation-delay:.5s;
+}
+
+.butterfly-8{
+    top:3050px;
+    right:25px;
+
     width:75px;
+
+    animation-delay:1.5s;
 }
 
-.event-butterfly-2{
-    bottom:15%;
-    right:4%;
-    width:85px;
+.butterfly-9{
+    top:3500px;
+    left:28px;
+
+    width:60px;
+
+    animation-delay:2.3s;
 }
 
+.butterfly-10{
+    top:3900px;
+    right:28px;
 
-/*
-   GALLERY BUTTERFLIES
-*/
+    width:70px;
 
-.gallery-butterfly-1{
-    top:8%;
-    right:3%;
-    width:75px;
-}
-
-.gallery-butterfly-2{
-    bottom:8%;
-    left:3%;
-    width:80px;
+    animation-delay:.9s;
 }
 
 
-/*
-   RSVP BUTTERFLIES
-*/
+/* Shimmer */
 
-.rsvp-butterfly-1{
-    top:10%;
-    left:3%;
-    width:75px;
+@keyframes goldShimmer{
+
+    0%,100%{
+        opacity:.82;
+
+        filter:
+            drop-shadow(0 0 4px rgba(255,220,100,.7))
+            drop-shadow(0 0 10px rgba(212,175,55,.5))
+            drop-shadow(0 0 20px rgba(255,215,80,.25));
+    }
+
+    50%{
+        opacity:1;
+
+        filter:
+            drop-shadow(0 0 7px rgba(255,235,150,1))
+            drop-shadow(0 0 17px rgba(212,175,55,.9))
+            drop-shadow(0 0 30px rgba(255,220,100,.5));
+    }
 }
 
-.rsvp-butterfly-2{
-    bottom:8%;
-    right:3%;
-    width:85px;
-}
 
-
-/* =========================
+/* =====================================================
    GOLD DECORATIONS
-========================= */
+===================================================== */
 
 .gold-line{
     width:180px;
     height:2px;
+
     margin:20px auto;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            #d4af37,
-            #fff0a8,
+            #b8860b,
+            #fff1a0,
             #d4af37,
             transparent
         );
@@ -225,21 +237,26 @@ body::before{
 
 .ornament{
     color:#d4af37;
+
     font-size:24px;
+
     letter-spacing:8px;
+
     text-align:center;
 }
 
 
-/* =========================
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero{
     min-height:100vh;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     text-align:center;
@@ -248,19 +265,17 @@ body::before{
 
     position:relative;
 
-    overflow:hidden;
-
     background:
         radial-gradient(
             circle at center,
-            rgba(120,0,0,.5),
+            rgba(120,0,0,.55),
             transparent 55%
         ),
         linear-gradient(
             135deg,
-            #4d0505,
+            #520606,
             #210101 60%,
-            #420404
+            #450404
         );
 
     border-bottom:2px solid #d4af37;
@@ -279,8 +294,6 @@ body::before{
     border:1px solid #d4af37;
 
     pointer-events:none;
-
-    z-index:3;
 }
 
 .hero::after{
@@ -293,15 +306,13 @@ body::before{
     border:1px solid rgba(212,175,55,.35);
 
     pointer-events:none;
-
-    z-index:3;
 }
 
 
 .hero-content{
     position:relative;
 
-    z-index:4;
+    z-index:3;
 
     max-width:1000px;
 }
@@ -317,12 +328,14 @@ body::before{
     margin-bottom:15px;
 
     text-shadow:
-        0 0 15px rgba(212,175,55,.5),
-        0 0 30px rgba(212,175,55,.25);
+        0 0 10px rgba(255,220,100,.5),
+        0 0 25px rgba(212,175,55,.3);
 }
 
 
-/* Names */
+/* =====================================================
+   GOLD TITLE
+===================================================== */
 
 .hero h1{
     font-family:'Great Vibes',cursive;
@@ -336,24 +349,31 @@ body::before{
     background:
         linear-gradient(
             180deg,
-            #fff3a8 0%,
-            #d4af37 35%,
-            #fff1a0 55%,
-            #b8860b 100%
+            #fff8c7 0%,
+            #ffe77a 18%,
+            #d4af37 40%,
+            #fff0a0 58%,
+            #c28e12 78%,
+            #fff1a3 100%
         );
 
     -webkit-background-clip:text;
+
     background-clip:text;
 
     color:transparent;
 
-    text-shadow:
-        0 4px 15px rgba(0,0,0,.5);
+    filter:
+        drop-shadow(0 3px 3px rgba(0,0,0,.65))
+        drop-shadow(0 0 10px rgba(212,175,55,.25));
 }
 
 .ampersand{
     font-size:.65em;
 }
+
+
+/* Hero subtitle */
 
 .hero-subtitle{
     font-family:'Cinzel',serif;
@@ -370,7 +390,7 @@ body::before{
 .hero-date{
     font-family:'Cinzel',serif;
 
-    color:#d4af37;
+    color:#e6c957;
 
     font-size:1.5rem;
 
@@ -380,7 +400,9 @@ body::before{
 }
 
 
-/* RSVP BUTTON */
+/* =====================================================
+   RSVP BUTTON
+===================================================== */
 
 .btn{
     display:inline-block;
@@ -394,7 +416,7 @@ body::before{
     background:
         linear-gradient(
             180deg,
-            #fff0a0,
+            #fff3a5,
             #d4af37,
             #a67c00
         );
@@ -413,7 +435,7 @@ body::before{
 
     box-shadow:
         0 0 20px rgba(212,175,55,.35),
-        inset 0 1px rgba(255,255,255,.7);
+        inset 0 1px rgba(255,255,255,.8);
 
     transition:.3s;
 }
@@ -422,22 +444,21 @@ body::before{
     transform:translateY(-4px) scale(1.03);
 
     box-shadow:
-        0 0 35px rgba(212,175,55,.6),
-        inset 0 1px rgba(255,255,255,.8);
+        0 0 35px rgba(212,175,55,.65),
+        inset 0 1px rgba(255,255,255,.9);
 }
 
 
-/* =========================
+/* =====================================================
    SECTIONS
-========================= */
+===================================================== */
 
 section{
     padding:90px 7%;
 
     position:relative;
-
-    overflow:hidden;
 }
+
 
 .section-title{
     text-align:center;
@@ -453,7 +474,7 @@ section{
     margin-bottom:15px;
 
     text-shadow:
-        0 0 15px rgba(212,175,55,.25);
+        0 0 15px rgba(212,175,55,.3);
 }
 
 .section-title::before,
@@ -464,9 +485,9 @@ section{
 }
 
 
-/* =========================
+/* =====================================================
    COUNTDOWN
-========================= */
+===================================================== */
 
 .countdown{
     display:grid;
@@ -479,10 +500,6 @@ section{
     max-width:900px;
 
     margin:40px auto 0;
-
-    position:relative;
-
-    z-index:2;
 }
 
 .time-box{
@@ -518,7 +535,7 @@ section{
     color:#f1d66b;
 
     text-shadow:
-        0 0 15px rgba(212,175,55,.25);
+        0 0 15px rgba(212,175,55,.3);
 }
 
 .time-label{
@@ -532,9 +549,9 @@ section{
 }
 
 
-/* =========================
+/* =====================================================
    CARDS
-========================= */
+===================================================== */
 
 .card{
     max-width:950px;
@@ -559,10 +576,6 @@ section{
     box-shadow:
         0 20px 45px rgba(0,0,0,.45),
         inset 0 0 35px rgba(212,175,55,.04);
-
-    position:relative;
-
-    z-index:2;
 }
 
 .card h3{
@@ -584,9 +597,9 @@ section{
 }
 
 
-/* =========================
+/* =====================================================
    EVENT DETAILS
-========================= */
+===================================================== */
 
 .event-icon{
     font-size:42px;
@@ -597,9 +610,9 @@ section{
 }
 
 
-/* =========================
+/* =====================================================
    GALLERY
-========================= */
+===================================================== */
 
 .gallery{
     display:grid;
@@ -612,10 +625,6 @@ section{
     max-width:1100px;
 
     margin:40px auto 0;
-
-    position:relative;
-
-    z-index:2;
 }
 
 .placeholder{
@@ -678,9 +687,9 @@ section{
 }
 
 
-/* =========================
+/* =====================================================
    RSVP
-========================= */
+===================================================== */
 
 .rsvp-card{
     max-width:850px;
@@ -702,10 +711,6 @@ section{
 
     box-shadow:
         0 20px 50px rgba(0,0,0,.5);
-
-    position:relative;
-
-    z-index:2;
 }
 
 form{
@@ -761,9 +766,9 @@ select option{
 }
 
 
-/* =========================
-   GUEST FIELD
-========================= */
+/* =====================================================
+   GUEST COUNT
+===================================================== */
 
 #guestContainer{
     display:none;
@@ -771,16 +776,29 @@ select option{
 
 #guestContainer.show{
     display:block;
+
+    animation:guestAppear .3s ease;
 }
 
-#guests{
-    width:100%;
+@keyframes guestAppear{
+
+    from{
+        opacity:0;
+
+        transform:translateY(-8px);
+    }
+
+    to{
+        opacity:1;
+
+        transform:translateY(0);
+    }
 }
 
 
-/* =========================
-   BUTTON
-========================= */
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
 
 button{
     padding:17px;
@@ -828,9 +846,9 @@ button:hover{
 }
 
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
     padding:70px 20px;
@@ -845,10 +863,6 @@ footer{
         );
 
     border-top:2px solid #d4af37;
-
-    position:relative;
-
-    overflow:hidden;
 }
 
 footer h3{
@@ -859,6 +873,9 @@ footer h3{
     color:#d4af37;
 
     font-weight:400;
+
+    text-shadow:
+        0 0 12px rgba(212,175,55,.25);
 }
 
 footer p{
@@ -870,16 +887,16 @@ footer p{
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:600px){
 
     .hero{
-        min-height:100svh;
-
         padding:30px 15px;
+
+        min-height:100svh;
     }
 
     .hero::before{
@@ -895,13 +912,27 @@ footer p{
     }
 
     .hero-subtitle{
-        font-size:.75rem;
+        font-size:.72rem;
 
-        letter-spacing:3px;
+        letter-spacing:2.5px;
+
+        margin-top:25px;
     }
 
     .hero-date{
-        font-size:1.1rem;
+        font-size:1.05rem;
+
+        letter-spacing:2px;
+    }
+
+    .crown{
+        font-size:38px;
+    }
+
+    .btn{
+        padding:14px 35px;
+
+        font-size:.85rem;
     }
 
     section{
@@ -909,9 +940,15 @@ footer p{
     }
 
     .section-title{
-        font-size:1.5rem;
+        font-size:1.45rem;
 
-        letter-spacing:3px;
+        letter-spacing:2px;
+    }
+
+    .countdown{
+        grid-template-columns:repeat(2,1fr);
+
+        gap:12px;
     }
 
     .time-box{
@@ -919,7 +956,27 @@ footer p{
     }
 
     .time-box span{
-        font-size:2.3rem;
+        font-size:2.2rem;
+    }
+
+    .time-label{
+        font-size:.7rem;
+
+        letter-spacing:1.5px;
+    }
+
+    .card{
+        padding:30px 20px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+
+        gap:18px;
+    }
+
+    .placeholder{
+        height:230px;
     }
 
     .rsvp-card{
@@ -934,520 +991,1017 @@ footer p{
     /* MOBILE BUTTERFLIES */
 
     .butterfly{
-        opacity:.92;
-
-        filter:
-            brightness(1.4)
-            saturate(1.4)
-            contrast(1.12)
-            drop-shadow(0 0 4px rgba(255,215,90,.95))
-            drop-shadow(0 0 10px rgba(212,175,55,.65));
-    }
-
-    .hero-butterfly-1{
-        top:7%;
-        left:1%;
-        width:65px;
-    }
-
-    .hero-butterfly-2{
-        top:8%;
-        right:1%;
-        width:60px;
-    }
-
-    .hero-butterfly-3{
-        bottom:8%;
-        left:3%;
-        width:50px;
-    }
-
-    .hero-butterfly-4{
-        bottom:9%;
-        right:3%;
-        width:55px;
-    }
-
-    .countdown-butterfly-1{
-        top:8%;
-        left:1%;
         width:48px;
     }
 
-    .countdown-butterfly-2{
-        top:70%;
-        right:1%;
-        width:50px;
-    }
+    .butterfly-1{
+        top:100px;
+        left:8px;
 
-    .celebration-butterfly-1{
-        top:10%;
-        right:1%;
-        width:55px;
-    }
-
-    .celebration-butterfly-2{
-        bottom:8%;
-        left:1%;
         width:48px;
     }
 
-    .event-butterfly-1{
-        top:10%;
-        left:1%;
-        width:50px;
+    .butterfly-2{
+        top:380px;
+        right:8px;
+
+        width:42px;
     }
 
-    .event-butterfly-2{
-        bottom:10%;
-        right:1%;
-        width:55px;
+    .butterfly-3{
+        top:880px;
+        left:7px;
+
+        width:40px;
     }
 
-    .gallery-butterfly-1{
-        top:5%;
-        right:1%;
-        width:50px;
+    .butterfly-4{
+        top:1260px;
+        right:7px;
+
+        width:45px;
     }
 
-    .gallery-butterfly-2{
-        bottom:5%;
-        left:1%;
-        width:50px;
+    .butterfly-5{
+        top:1740px;
+        left:8px;
+
+        width:38px;
     }
 
-    .rsvp-butterfly-1{
-        top:7%;
-        left:1%;
-        width:50px;
+    .butterfly-6{
+        top:2150px;
+        right:8px;
+
+        width:42px;
     }
 
-    .rsvp-butterfly-2{
-        bottom:6%;
-        right:1%;
-        width:55px;
+    .butterfly-7{
+        top:2580px;
+        left:7px;
+
+        width:42px;
     }
 
-}
+    .butterfly-8{
+        top:3020px;
+        right:7px;
 
-
-/* Extra-small phones */
-
-@media(max-width:380px){
-
-    .hero h1{
-        font-size:3.4rem;
+        width:45px;
     }
 
-    .hero-subtitle{
-        font-size:.65rem;
+    .butterfly-9{
+        top:3460px;
+        left:8px;
+
+        width:38px;
     }
 
-    .butterfly{
-        opacity:.85;
-    }
+    .butterfly-10{
+        top:3880px;
+        right:8px;
 
+        width:42px;
+    }
 }
 
 </style>
 </head>
 
-
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
+     GOLD BUTTERFLIES
+     These are built directly into the HTML.
+     No uploaded image is being used.
+===================================================== -->
+
+
+<!-- Butterfly 1 -->
+
+<svg class="butterfly butterfly-1"
+     viewBox="0 0 160 160"
+     aria-hidden="true">
+
+    <defs>
+
+        <linearGradient id="gold1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff6b0"/>
+            <stop offset="20%" stop-color="#ffd84d"/>
+            <stop offset="45%" stop-color="#d4af37"/>
+            <stop offset="70%" stop-color="#9b6b05"/>
+            <stop offset="100%" stop-color="#ffe98a"/>
+        </linearGradient>
+
+        <radialGradient id="shine1">
+            <stop offset="0%" stop-color="#fffde0"/>
+            <stop offset="35%" stop-color="#ffe77a"/>
+            <stop offset="100%" stop-color="#b8860b"/>
+        </radialGradient>
+
+    </defs>
+
+    <!-- Left upper wing -->
+    <path
+        d="M78 75
+        C48 20 10 15 16 58
+        C19 82 42 91 73 86
+        Z"
+        fill="url(#gold1)"
+        stroke="#fff0a0"
+        stroke-width="2"/>
+
+    <!-- Right upper wing -->
+    <path
+        d="M82 75
+        C112 20 150 15 144 58
+        C141 82 118 91 87 86
+        Z"
+        fill="url(#gold1)"
+        stroke="#fff0a0"
+        stroke-width="2"/>
+
+    <!-- Left lower wing -->
+    <path
+        d="M76 84
+        C48 88 27 101 42 123
+        C53 139 72 112 79 91
+        Z"
+        fill="url(#shine1)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <!-- Right lower wing -->
+    <path
+        d="M84 84
+        C112 88 133 101 118 123
+        C107 139 88 112 81 91
+        Z"
+        fill="url(#shine1)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <!-- Body -->
+    <ellipse
+        cx="80"
+        cy="86"
+        rx="6"
+        ry="25"
+        fill="#8a5c08"/>
+
+    <ellipse
+        cx="78"
+        cy="80"
+        rx="2"
+        ry="13"
+        fill="#fff1a0"/>
+
+    <!-- Antennae -->
+    <path
+        d="M77 64 C68 48 59 47 53 43"
+        fill="none"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <path
+        d="M83 64 C92 48 101 47 107 43"
+        fill="none"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <!-- Wing highlights -->
+    <ellipse
+        cx="48"
+        cy="53"
+        rx="13"
+        ry="7"
+        fill="rgba(255,255,255,.55)"
+        transform="rotate(25 48 53)"/>
+
+    <ellipse
+        cx="112"
+        cy="53"
+        rx="13"
+        ry="7"
+        fill="rgba(255,255,255,.55)"
+        transform="rotate(-25 112 53)"/>
+
+</svg>
+
+
+<!-- Butterfly 2 -->
+
+<svg class="butterfly butterfly-2"
+     viewBox="0 0 160 160"
+     aria-hidden="true">
+
+    <defs>
+
+        <linearGradient id="gold2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff7b8"/>
+            <stop offset="25%" stop-color="#f9d95c"/>
+            <stop offset="50%" stop-color="#c79b20"/>
+            <stop offset="75%" stop-color="#8e6207"/>
+            <stop offset="100%" stop-color="#ffeaa0"/>
+        </linearGradient>
+
+    </defs>
+
+    <path
+        d="M78 76
+        C42 29 13 26 19 64
+        C22 87 45 92 73 86Z"
+        fill="url(#gold2)"
+        stroke="#ffe98a"
+        stroke-width="2"/>
+
+    <path
+        d="M82 76
+        C118 29 147 26 141 64
+        C138 87 115 92 87 86Z"
+        fill="url(#gold2)"
+        stroke="#ffe98a"
+        stroke-width="2"/>
+
+    <path
+        d="M76 87
+        C49 89 32 107 48 124
+        C59 135 74 111 79 92Z"
+        fill="url(#gold2)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <path
+        d="M84 87
+        C111 89 128 107 112 124
+        C101 135 86 111 81 92Z"
+        fill="url(#gold2)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <ellipse
+        cx="80"
+        cy="88"
+        rx="6"
+        ry="24"
+        fill="#815607"/>
+
+    <path
+        d="M77 66 C68 52 61 49 54 46"
+        stroke="#d4af37"
+        stroke-width="2"
+        fill="none"/>
+
+    <path
+        d="M83 66 C92 52 99 49 106 46"
+        stroke="#d4af37"
+        stroke-width="2"
+        fill="none"/>
+
+</svg>
+
+
+<!-- Butterfly 3 -->
+
+<svg class="butterfly butterfly-3"
+     viewBox="0 0 160 160"
+     aria-hidden="true">
+
+    <defs>
+
+        <linearGradient id="gold3" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff8c4"/>
+            <stop offset="30%" stop-color="#f6d65e"/>
+            <stop offset="55%" stop-color="#d4af37"/>
+            <stop offset="100%" stop-color="#8c6105"/>
+        </linearGradient>
+
+    </defs>
+
+    <path
+        d="M78 78 C50 35 17 27 22 64 C25 86 46 94 73 87Z"
+        fill="url(#gold3)"
+        stroke="#ffe88a"
+        stroke-width="2"/>
+
+    <path
+        d="M82 78 C110 35 143 27 138 64 C135 86 114 94 87 87Z"
+        fill="url(#gold3)"
+        stroke="#ffe88a"
+        stroke-width="2"/>
+
+    <path
+        d="M76 88 C51 92 37 106 49 121 C59 133 73 110 79 93Z"
+        fill="url(#gold3)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <path
+        d="M84 88 C109 92 123 106 111 121 C101 133 87 110 81 93Z"
+        fill="url(#gold3)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <ellipse
+        cx="80"
+        cy="88"
+        rx="5"
+        ry="23"
+        fill="#795006"/>
+
+</svg>
+
+
+<!-- Butterfly 4 -->
+
+<svg class="butterfly butterfly-4"
+     viewBox="0 0 160 160"
+     aria-hidden="true">
+
+    <defs>
+
+        <linearGradient id="gold4" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff9c9"/>
+            <stop offset="20%" stop-color="#ffe56b"/>
+            <stop offset="48%" stop-color="#d4af37"/>
+            <stop offset="72%" stop-color="#996c08"/>
+            <stop offset="100%" stop-color="#ffed9b"/>
+        </linearGradient>
+
+    </defs>
+
+    <path
+        d="M78 77 C45 24 12 22 18 61 C21 85 44 94 73 87Z"
+        fill="url(#gold4)"
+        stroke="#fff0a0"
+        stroke-width="2"/>
+
+    <path
+        d="M82 77 C115 24 148 22 142 61 C139 85 116 94 87 87Z"
+        fill="url(#gold4)"
+        stroke="#fff0a0"
+        stroke-width="2"/>
+
+    <path
+        d="M76 88 C47 91 31 108 47 126 C59 138 75 110 79 93Z"
+        fill="url(#gold4)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <path
+        d="M84 88 C113 91 129 108 113 126 C101 138 85 110 81 93Z"
+        fill="url(#gold4)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <ellipse
+        cx="80"
+        cy="87"
+        rx="6"
+        ry="25"
+        fill="#805506"/>
+
+</svg>
+
+
+<!-- Butterfly 5 -->
+
+<svg class="butterfly butterfly-5"
+     viewBox="0 0 160 160"
+     aria-hidden="true">
+
+    <defs>
+
+        <linearGradient id="gold5" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff8bd"/>
+            <stop offset="30%" stop-color="#f7d65c"/>
+            <stop offset="60%" stop-color="#c69b21"/>
+            <stop offset="100%" stop-color="#8c6106"/>
+        </linearGradient>
+
+    </defs>
+
+    <path
+        d="M78 77 C49 31 20 29 24 62 C27 83 47 92 73 86Z"
+        fill="url(#gold5)"
+        stroke="#ffe98c"
+        stroke-width="2"/>
+
+    <path
+        d="M82 77 C111 31 140 29 136 62 C133 83 113 92 87 86Z"
+        fill="url(#gold5)"
+        stroke="#ffe98c"
+        stroke-width="2"/>
+
+    <path
+        d="M76 88 C53 94 40 107 51 121 C60 132 73 109 79 93Z"
+        fill="url(#gold5)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <path
+        d="M84 88 C107 94 120 107 109 121 C100 132 87 109 81 93Z"
+        fill="url(#gold5)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <ellipse
+        cx="80"
+        cy="88"
+        rx="5"
+        ry="23"
+        fill="#795006"/>
+
+</svg>
+
+
+<!-- Butterfly 6 -->
+
+<svg class="butterfly butterfly-6"
+     viewBox="0 0 160 160"
+     aria-hidden="true">
+
+    <defs>
+
+        <linearGradient id="gold6" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff9c7"/>
+            <stop offset="25%" stop-color="#ffe16a"/>
+            <stop offset="55%" stop-color="#d4af37"/>
+            <stop offset="80%" stop-color="#966a08"/>
+            <stop offset="100%" stop-color="#ffefa0"/>
+        </linearGradient>
+
+    </defs>
+
+    <path
+        d="M78 77 C44 25 15 23 20 62 C23 85 45 93 73 87Z"
+        fill="url(#gold6)"
+        stroke="#fff0a0"
+        stroke-width="2"/>
+
+    <path
+        d="M82 77 C116 25 145 23 140 62 C137 85 115 93 87 87Z"
+        fill="url(#gold6)"
+        stroke="#fff0a0"
+        stroke-width="2"/>
+
+    <path
+        d="M76 88 C48 92 34 108 48 125 C59 136 74 110 79 93Z"
+        fill="url(#gold6)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <path
+        d="M84 88 C112 92 126 108 112 125 C101 136 86 110 81 93Z"
+        fill="url(#gold6)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <ellipse
+        cx="80"
+        cy="88"
+        rx="6"
+        ry="24"
+        fill="#815606"/>
+
+</svg>
+
+
+<!-- Butterfly 7 -->
+
+<svg class="butterfly butterfly-7"
+     viewBox="0 0 160 160"
+     aria-hidden="true">
+
+    <defs>
+
+        <linearGradient id="gold7" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff8c0"/>
+            <stop offset="28%" stop-color="#f8d85e"/>
+            <stop offset="58%" stop-color="#d4af37"/>
+            <stop offset="100%" stop-color="#8c6207"/>
+        </linearGradient>
+
+    </defs>
+
+    <path
+        d="M78 77 C47 27 17 24 22 62 C25 84 46 92 73 87Z"
+        fill="url(#gold7)"
+        stroke="#ffe98a"
+        stroke-width="2"/>
+
+    <path
+        d="M82 77 C113 27 143 24 138 62 C135 84 114 92 87 87Z"
+        fill="url(#gold7)"
+        stroke="#ffe98a"
+        stroke-width="2"/>
+
+    <path
+        d="M76 88 C51 93 36 108 49 124 C59 135 74 110 79 93Z"
+        fill="url(#gold7)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <path
+        d="M84 88 C109 93 124 108 111 124 C101 135 86 110 81 93Z"
+        fill="url(#gold7)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <ellipse
+        cx="80"
+        cy="88"
+        rx="5"
+        ry="24"
+        fill="#7d5305"/>
+
+</svg>
+
+
+<!-- Butterfly 8 -->
+
+<svg class="butterfly butterfly-8"
+     viewBox="0 0 160 160"
+     aria-hidden="true">
+
+    <defs>
+
+        <linearGradient id="gold8" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff9c8"/>
+            <stop offset="23%" stop-color="#ffe36d"/>
+            <stop offset="50%" stop-color="#d4af37"/>
+            <stop offset="77%" stop-color="#976a07"/>
+            <stop offset="100%" stop-color="#ffefa3"/>
+        </linearGradient>
+
+    </defs>
+
+    <path
+        d="M78 77 C43 25 13 23 19 63 C22 86 44 94 73 87Z"
+        fill="url(#gold8)"
+        stroke="#fff1a0"
+        stroke-width="2"/>
+
+    <path
+        d="M82 77 C117 25 147 23 141 63 C138 86 116 94 87 87Z"
+        fill="url(#gold8)"
+        stroke="#fff1a0"
+        stroke-width="2"/>
+
+    <path
+        d="M76 88 C47 93 32 109 48 126 C59 137 74 110 79 93Z"
+        fill="url(#gold8)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <path
+        d="M84 88 C113 93 128 109 112 126 C101 137 86 110 81 93Z"
+        fill="url(#gold8)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <ellipse
+        cx="80"
+        cy="88"
+        rx="6"
+        ry="24"
+        fill="#805506"/>
+
+</svg>
+
+
+<!-- Butterfly 9 -->
+
+<svg class="butterfly butterfly-9"
+     viewBox="0 0 160 160"
+     aria-hidden="true">
+
+    <defs>
+
+        <linearGradient id="gold9" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff9c9"/>
+            <stop offset="30%" stop-color="#f7d65b"/>
+            <stop offset="60%" stop-color="#cda42c"/>
+            <stop offset="100%" stop-color="#8a5f06"/>
+        </linearGradient>
+
+    </defs>
+
+    <path
+        d="M78 77 C49 30 20 28 24 63 C27 84 47 92 73 87Z"
+        fill="url(#gold9)"
+        stroke="#ffe98a"
+        stroke-width="2"/>
+
+    <path
+        d="M82 77 C111 30 140 28 136 63 C133 84 113 92 87 87Z"
+        fill="url(#gold9)"
+        stroke="#ffe98a"
+        stroke-width="2"/>
+
+    <path
+        d="M76 88 C53 94 40 108 51 122 C60 133 73 110 79 93Z"
+        fill="url(#gold9)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <path
+        d="M84 88 C107 94 120 108 109 122 C100 133 87 110 81 93Z"
+        fill="url(#gold9)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <ellipse
+        cx="80"
+        cy="88"
+        rx="5"
+        ry="23"
+        fill="#795006"/>
+
+</svg>
+
+
+<!-- Butterfly 10 -->
+
+<svg class="butterfly butterfly-10"
+     viewBox="0 0 160 160"
+     aria-hidden="true">
+
+    <defs>
+
+        <linearGradient id="gold10" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff9c8"/>
+            <stop offset="22%" stop-color="#ffe36a"/>
+            <stop offset="50%" stop-color="#d4af37"/>
+            <stop offset="76%" stop-color="#986c08"/>
+            <stop offset="100%" stop-color="#ffefa2"/>
+        </linearGradient>
+
+    </defs>
+
+    <path
+        d="M78 77 C44 24 14 23 20 62 C23 85 45 94 73 87Z"
+        fill="url(#gold10)"
+        stroke="#fff0a0"
+        stroke-width="2"/>
+
+    <path
+        d="M82 77 C116 24 146 23 140 62 C137 85 115 94 87 87Z"
+        fill="url(#gold10)"
+        stroke="#fff0a0"
+        stroke-width="2"/>
+
+    <path
+        d="M76 88 C48 93 33 109 48 125 C59 136 74 110 79 93Z"
+        fill="url(#gold10)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <path
+        d="M84 88 C112 93 127 109 112 125 C101 136 86 110 81 93Z"
+        fill="url(#gold10)"
+        stroke="#d4af37"
+        stroke-width="2"/>
+
+    <ellipse
+        cx="80"
+        cy="88"
+        rx="6"
+        ry="24"
+        fill="#815706"/>
+
+</svg>
+
+
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <section class="hero">
 
-<!-- Fixed-in-page butterflies -->
-<img src="butterfly.png"
-     class="butterfly hero-butterfly-1"
-     alt="">
+    <div class="hero-content">
 
-<img src="butterfly.png"
-     class="butterfly hero-butterfly-2"
-     alt="">
+        <div class="crown">♛</div>
 
-<img src="butterfly.png"
-     class="butterfly hero-butterfly-3"
-     alt="">
+        <h1>
+            Yathziry Quirino
+            <br>
 
-<img src="butterfly.png"
-     class="butterfly hero-butterfly-4"
-     alt="">
+            <span class="ampersand">&</span>
 
+            <br>
 
-<div class="hero-content">
+            Alexandra Garcia
+        </h1>
 
-<div class="crown">
-♛
-</div>
+        <div class="ornament">
+            ✦ ─── ✧ ─── ✦
+        </div>
 
-<h1>
-Yathziry Quirino
-<br>
-<span class="ampersand">&</span>
-<br>
-Alexandra Garcia
-</h1>
+        <p class="hero-subtitle">
+            A JOINT QUINCEAÑERA CELEBRATION
+        </p>
 
-<div class="ornament">
-✦ ─── ✧ ─── ✦
-</div>
+        <p class="hero-date">
+            October 23, 2027
+        </p>
 
-<p class="hero-subtitle">
-A JOINT QUINCEAÑERA CELEBRATION
-</p>
+        <a href="#rsvp" class="btn">
+            ♛ &nbsp; RSVP &nbsp; ♛
+        </a>
 
-<p class="hero-date">
-October 23, 2027
-</p>
-
-<a href="#rsvp" class="btn">
-♛ &nbsp; RSVP &nbsp; ♛
-</a>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      COUNTDOWN
-========================= -->
+===================================================== -->
 
 <section>
 
-<img src="butterfly.png"
-     class="butterfly countdown-butterfly-1"
-     alt="">
+    <h2 class="section-title">
+        COUNTDOWN
+    </h2>
 
-<img src="butterfly.png"
-     class="butterfly countdown-butterfly-2"
-     alt="">
+    <div class="ornament">
+        ✦
+    </div>
 
+    <div class="countdown">
 
-<h2 class="section-title">
-COUNTDOWN
-</h2>
+        <div class="time-box">
+            <span id="days">0</span>
+            <div class="time-label">Days</div>
+        </div>
 
-<div class="ornament">
-✦
-</div>
+        <div class="time-box">
+            <span id="hours">0</span>
+            <div class="time-label">Hours</div>
+        </div>
 
-<div class="countdown">
+        <div class="time-box">
+            <span id="minutes">0</span>
+            <div class="time-label">Minutes</div>
+        </div>
 
-<div class="time-box">
-<span id="days">0</span>
-<div class="time-label">Days</div>
-</div>
+        <div class="time-box">
+            <span id="seconds">0</span>
+            <div class="time-label">Seconds</div>
+        </div>
 
-<div class="time-box">
-<span id="hours">0</span>
-<div class="time-label">Hours</div>
-</div>
-
-<div class="time-box">
-<span id="minutes">0</span>
-<div class="time-label">Minutes</div>
-</div>
-
-<div class="time-box">
-<span id="seconds">0</span>
-<div class="time-label">Seconds</div>
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CELEBRATION
-========================= -->
+===================================================== -->
 
 <section>
 
-<img src="butterfly.png"
-     class="butterfly celebration-butterfly-1"
-     alt="">
+    <h2 class="section-title">
+        OUR CELEBRATION
+    </h2>
 
-<img src="butterfly.png"
-     class="butterfly celebration-butterfly-2"
-     alt="">
+    <div class="card">
 
+        <div class="ornament">
+            ❦
+        </div>
 
-<h2 class="section-title">
-OUR CELEBRATION
-</h2>
+        <p>
+            We are excited to celebrate this special milestone
+            with our family and friends.
+        </p>
 
-<div class="card">
+        <br>
 
-<div class="ornament">
-❦
-</div>
+        <p>
+            More details about our celebration will be shared soon.
+        </p>
 
-<p>
-We are excited to celebrate this special milestone
-with our family and friends.
-</p>
+        <br>
 
-<p>
-More details about our celebration will be shared soon.
-</p>
+        <div class="ornament">
+            ❦
+        </div>
 
-<div class="ornament">
-❦
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      EVENT DETAILS
-========================= -->
+===================================================== -->
 
 <section>
 
-<img src="butterfly.png"
-     class="butterfly event-butterfly-1"
-     alt="">
+    <h2 class="section-title">
+        EVENT DETAILS
+    </h2>
 
-<img src="butterfly.png"
-     class="butterfly event-butterfly-2"
-     alt="">
+    <div class="card">
 
+        <div class="event-icon">
+            ⌖
+        </div>
 
-<h2 class="section-title">
-EVENT DETAILS
-</h2>
+        <h3>
+            VENUE COMING SOON
+        </h3>
 
-<div class="card">
+        <p>
+            Location details will be announced soon.
+        </p>
 
-<div class="event-icon">
-⌖
-</div>
-
-<h3>
-VENUE COMING SOON
-</h3>
-
-<p>
-Location details will be announced soon.
-</p>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      GALLERY
-========================= -->
+===================================================== -->
 
 <section>
 
-<img src="butterfly.png"
-     class="butterfly gallery-butterfly-1"
-     alt="">
+    <h2 class="section-title">
+        GALLERY
+    </h2>
 
-<img src="butterfly.png"
-     class="butterfly gallery-butterfly-2"
-     alt="">
+    <div class="gallery">
 
+        <div class="placeholder">
+            PHOTO<br>COMING SOON
+        </div>
 
-<h2 class="section-title">
-GALLERY
-</h2>
+        <div class="placeholder">
+            PHOTO<br>COMING SOON
+        </div>
 
-<div class="gallery">
+        <div class="placeholder">
+            PHOTO<br>COMING SOON
+        </div>
 
-<div class="placeholder">
-PHOTO<br>COMING SOON
-</div>
+        <div class="placeholder">
+            PHOTO<br>COMING SOON
+        </div>
 
-<div class="placeholder">
-PHOTO<br>COMING SOON
-</div>
-
-<div class="placeholder">
-PHOTO<br>COMING SOON
-</div>
-
-<div class="placeholder">
-PHOTO<br>COMING SOON
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      RSVP
-========================= -->
+===================================================== -->
 
 <section id="rsvp">
 
-<img src="butterfly.png"
-     class="butterfly rsvp-butterfly-1"
-     alt="">
+    <h2 class="section-title">
+        RSVP
+    </h2>
 
-<img src="butterfly.png"
-     class="butterfly rsvp-butterfly-2"
-     alt="">
+    <div class="rsvp-card">
 
+        <form id="rsvpForm">
 
-<h2 class="section-title">
-RSVP
-</h2>
+            <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+            >
 
-<div class="rsvp-card">
+            <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+            >
 
-<form id="rsvpForm">
+            <select
+                name="attendance"
+                id="attendance"
+                required
+            >
 
+                <option value="">
+                    Will you attend?
+                </option>
 
-<!-- NAME -->
+                <option value="Yes">
+                    Yes, I will attend
+                </option>
 
-<input
-    type="text"
-    name="name"
-    placeholder="Your Name"
-    required
->
+                <option value="No">
+                    No, I cannot attend
+                </option>
 
-
-<!-- EMAIL -->
-
-<input
-    type="email"
-    name="email"
-    placeholder="Your Email"
-    required
->
-
-
-<!-- ATTENDANCE -->
-
-<select
-    name="attendance"
-    id="attendance"
-    required
->
-
-<option value="">
-Will you attend?
-</option>
-
-<option value="Yes">
-Yes, I will attend
-</option>
-
-<option value="No">
-No, I cannot attend
-</option>
-
-</select>
+            </select>
 
 
-<!-- NUMBER OF GUESTS -->
+            <!-- =========================================
+                 NUMBER OF GUESTS
+            ========================================== -->
 
-<div id="guestContainer">
+            <div id="guestContainer">
 
-<input
-    type="number"
-    name="guests"
-    id="guests"
-    min="1"
-    max="20"
-    placeholder="How many guests are you bringing?"
->
+                <input
+                    type="number"
+                    name="guests"
+                    id="guests"
+                    min="1"
+                    max="20"
+                    placeholder="How many guests are you bringing?"
+                >
 
-</div>
-
-
-<!-- MESSAGE -->
-
-<textarea
-    name="message"
-    rows="5"
-    placeholder="Leave a message"
-></textarea>
+            </div>
 
 
-<!-- SUBMIT -->
+            <textarea
+                name="message"
+                rows="5"
+                placeholder="Leave a message"
+            ></textarea>
 
-<button type="submit">
-♛ &nbsp; SEND RSVP &nbsp; ♛
-</button>
 
-<p id="message"></p>
+            <button type="submit">
+                ♛ &nbsp; SEND RSVP &nbsp; ♛
+            </button>
 
-</form>
+            <p id="message"></p>
 
-</div>
+        </form>
+
+    </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
-<div class="ornament">
-✦ ─── ❦ ─── ✦
-</div>
+    <div class="ornament">
+        ✦ ─── ❦ ─── ✦
+    </div>
 
-<h3>
-With Love ❤️
-</h3>
+    <h3>
+        With Love ❤️
+    </h3>
 
-<p>
-Yathziry Quirino & Alexandra Garcia
-</p>
+    <p>
+        Yathziry Quirino & Alexandra Garcia
+    </p>
 
-<div class="ornament">
-✦ ─── ❦ ─── ✦
-</div>
+    <div class="ornament">
+        ✦ ─── ❦ ─── ✦
+    </div>
 
 </footer>
 
 
-<!-- =========================
+<!-- =====================================================
      EMAILJS
-========================= -->
+===================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
+
+
+/* =====================================================
+   EMAILJS INITIALIZATION
+===================================================== */
 
 emailjs.init({
     publicKey:"vsmZUgvnvKlx7ymca"
 });
 
 
-/* =========================
-   GUEST BOX
-========================= */
+/* =====================================================
+   GUEST COUNT
+===================================================== */
 
 const attendance =
-document.getElementById("attendance");
+    document.getElementById("attendance");
 
 const guestContainer =
-document.getElementById("guestContainer");
+    document.getElementById("guestContainer");
 
 const guests =
-document.getElementById("guests");
+    document.getElementById("guests");
 
 
-attendance.addEventListener("change", function(){
+attendance.addEventListener("change",function(){
 
     if(this.value === "Yes"){
 
@@ -1455,7 +2009,9 @@ attendance.addEventListener("change", function(){
 
         guests.required = true;
 
-    }else{
+    }
+
+    else{
 
         guestContainer.classList.remove("show");
 
@@ -1468,9 +2024,9 @@ attendance.addEventListener("change", function(){
 });
 
 
-/* =========================
+/* =====================================================
    RSVP
-========================= */
+===================================================== */
 
 document
 .getElementById("rsvpForm")
@@ -1479,10 +2035,10 @@ document
     e.preventDefault();
 
     const message =
-    document.getElementById("message");
+        document.getElementById("message");
 
     message.textContent =
-    "Sending RSVP...";
+        "Sending RSVP...";
 
 
     emailjs.sendForm(
@@ -1494,7 +2050,7 @@ document
     .then(()=>{
 
         message.textContent =
-        "💖 Thank you! Your RSVP has been received.";
+            "💖 Thank you! Your RSVP has been received.";
 
         this.reset();
 
@@ -1506,69 +2062,89 @@ document
 
     .catch((error)=>{
 
-        console.error(error);
+        console.error("EmailJS Error:",error);
 
         message.textContent =
-        "❌ Unable to send RSVP. Please try again.";
+            "❌ Unable to send RSVP. Please try again.";
 
     });
 
 });
 
 
-/* =========================
+/* =====================================================
    COUNTDOWN
-========================= */
+===================================================== */
 
 const eventDate =
-new Date("October 23, 2027 17:00:00").getTime();
+    new Date(
+        "October 23, 2027 17:00:00"
+    ).getTime();
 
 
 function updateCountdown(){
 
     const now =
-    new Date().getTime();
+        new Date().getTime();
 
     const distance =
-    eventDate - now;
+        eventDate - now;
 
 
     if(distance <= 0){
 
-        document.getElementById("days").textContent = "0";
-        document.getElementById("hours").textContent = "0";
-        document.getElementById("minutes").textContent = "0";
-        document.getElementById("seconds").textContent = "0";
+        document.getElementById("days")
+            .textContent = "0";
+
+        document.getElementById("hours")
+            .textContent = "0";
+
+        document.getElementById("minutes")
+            .textContent = "0";
+
+        document.getElementById("seconds")
+            .textContent = "0";
 
         return;
     }
 
 
-    document.getElementById("days").textContent =
-    Math.floor(
-        distance / (1000 * 60 * 60 * 24)
-    );
+    document.getElementById("days")
+        .textContent =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
 
 
-    document.getElementById("hours").textContent =
-    Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
-    );
+    document.getElementById("hours")
+        .textContent =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60 * 24))
+            /
+            (1000 * 60 * 60)
+        );
 
 
-    document.getElementById("minutes").textContent =
-    Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
-    );
+    document.getElementById("minutes")
+        .textContent =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60))
+            /
+            (1000 * 60)
+        );
 
 
-    document.getElementById("seconds").textContent =
-    Math.floor(
-        (distance % (1000 * 60))
-        / 1000
-    );
+    document.getElementById("seconds")
+        .textContent =
+        Math.floor(
+            (distance %
+            (1000 * 60))
+            /
+            1000
+        );
 
 }
 
