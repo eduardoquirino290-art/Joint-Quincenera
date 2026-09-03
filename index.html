@@ -13,6 +13,10 @@
 
 <style>
 
+/* =========================
+   GLOBAL
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -25,101 +29,245 @@ html{
 
 body{
     font-family:'Poppins',sans-serif;
+
     background:
-        radial-gradient(circle at 50% 20%, #5b0808 0%, #310303 45%, #160101 100%);
+        radial-gradient(
+            circle at 50% 20%,
+            #5b0808 0%,
+            #310303 45%,
+            #160101 100%
+        );
+
     color:#f8ead0;
     overflow-x:hidden;
-}
 
-/* =========================
-   GOLD BACKGROUND GLOW
-========================= */
+    position:relative;
+}
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
+
     pointer-events:none;
+
     background:
-        radial-gradient(circle at 20% 30%, rgba(212,175,55,.08), transparent 20%),
-        radial-gradient(circle at 80% 70%, rgba(212,175,55,.06), transparent 20%);
-    z-index:-2;
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(212,175,55,.10),
+            transparent 20%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(212,175,55,.08),
+            transparent 20%
+        );
+
+    z-index:0;
 }
 
 
 /* =========================
-   GOLD BUTTERFLIES
+   SHINY GOLD BUTTERFLIES
 ========================= */
 
 .butterfly{
-    position:fixed;
-    width:100px;
-    height:100px;
+    position:absolute;
+
+    width:115px;
+    height:115px;
+
     pointer-events:none;
+
     z-index:0;
-    opacity:.20;
+
+    opacity:.65;
+
     filter:
-        drop-shadow(0 0 5px rgba(212,175,55,.55))
-        drop-shadow(0 0 12px rgba(212,175,55,.2));
-    animation:floatButterfly 8s ease-in-out infinite;
+        drop-shadow(0 0 5px rgba(255,235,120,.9))
+        drop-shadow(0 0 12px rgba(212,175,55,.75))
+        drop-shadow(0 0 25px rgba(212,175,55,.25));
+
+    animation:
+        butterflyFloat 6s ease-in-out infinite;
 }
+
+
+/* Butterfly SVG */
 
 .butterfly svg{
     width:100%;
     height:100%;
+
     overflow:visible;
 }
 
-.butterfly path{
-    fill:url(#goldGradient);
-    stroke:#f5dc72;
+
+/* Shiny metallic wings */
+
+.butterfly-wing{
+    fill:url(#goldMetal);
+
+    stroke:#ffe98a;
+
+    stroke-width:1.4;
+
+    filter:
+        drop-shadow(0 0 3px #fff0a0);
+}
+
+
+/* Wing highlights */
+
+.butterfly-highlight{
+    fill:url(#goldHighlight);
+
+    opacity:.9;
+}
+
+
+/* Body */
+
+.butterfly-body{
+    fill:#8f6500;
+
+    stroke:#ffe98a;
+
     stroke-width:1.2;
 }
 
-.butterfly .body{
-    fill:#8d6500;
-    stroke:#f5dc72;
-    stroke-width:1;
+
+/* Tiny shine */
+
+.butterfly-shine{
+    fill:#fff8c7;
+
+    opacity:.95;
 }
 
-/* Individual positions */
+
+/* Locations throughout page */
 
 .butterfly-1{
-    top:10%;
+    top:8%;
     left:4%;
-    transform:rotate(-18deg) scale(.72);
+
+    transform:rotate(-18deg) scale(.75);
+
     animation-delay:0s;
 }
 
 .butterfly-2{
-    top:38%;
-    right:3%;
-    transform:rotate(15deg) scale(.55);
-    animation-delay:2s;
+    top:25%;
+    right:5%;
+
+    transform:rotate(18deg) scale(.55);
+
+    animation-delay:1s;
 }
 
 .butterfly-3{
-    bottom:15%;
+    top:43%;
     left:7%;
-    transform:rotate(12deg) scale(.62);
-    animation-delay:4s;
+
+    transform:rotate(12deg) scale(.65);
+
+    animation-delay:2s;
 }
 
 .butterfly-4{
-    bottom:32%;
-    right:8%;
-    transform:rotate(-20deg) scale(.45);
-    animation-delay:6s;
+    top:58%;
+    right:6%;
+
+    transform:rotate(-15deg) scale(.48);
+
+    animation-delay:3s;
 }
 
-@keyframes floatButterfly{
+.butterfly-5{
+    top:72%;
+    left:3%;
+
+    transform:rotate(-10deg) scale(.58);
+
+    animation-delay:4s;
+}
+
+.butterfly-6{
+    top:87%;
+    right:8%;
+
+    transform:rotate(20deg) scale(.70);
+
+    animation-delay:5s;
+}
+
+.butterfly-7{
+    top:103%;
+    left:10%;
+
+    transform:rotate(-20deg) scale(.42);
+
+    animation-delay:1.5s;
+}
+
+.butterfly-8{
+    top:119%;
+    right:4%;
+
+    transform:rotate(15deg) scale(.62);
+
+    animation-delay:3.5s;
+}
+
+.butterfly-9{
+    top:137%;
+    left:5%;
+
+    transform:rotate(10deg) scale(.52);
+
+    animation-delay:5.5s;
+}
+
+.butterfly-10{
+    top:153%;
+    right:9%;
+
+    transform:rotate(-12deg) scale(.72);
+
+    animation-delay:2.5s;
+}
+
+.butterfly-11{
+    top:171%;
+    left:8%;
+
+    transform:rotate(-18deg) scale(.45);
+
+    animation-delay:4.5s;
+}
+
+.butterfly-12{
+    top:188%;
+    right:5%;
+
+    transform:rotate(20deg) scale(.58);
+
+    animation-delay:1s;
+}
+
+
+/* Gentle movement while staying in place */
+
+@keyframes butterflyFloat{
 
     0%,100%{
-        translate:0 0;
+        margin-top:0;
     }
 
     50%{
-        translate:0 -14px;
+        margin-top:-10px;
     }
 
 }
@@ -132,21 +280,27 @@ body::before{
 .gold-line{
     width:180px;
     height:2px;
+
     margin:20px auto;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #d4af37,
-        #fff0a8,
-        #d4af37,
-        transparent
-    );
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d4af37,
+            #fff0a8,
+            #d4af37,
+            transparent
+        );
 }
 
 .ornament{
     color:#d4af37;
+
     font-size:24px;
+
     letter-spacing:8px;
+
     text-align:center;
 }
 
@@ -157,24 +311,32 @@ body::before{
 
 .hero{
     min-height:100vh;
+
     display:flex;
+
     justify-content:center;
     align-items:center;
+
     text-align:center;
+
     padding:40px 20px;
 
     position:relative;
+
     z-index:1;
 
     background:
-        radial-gradient(circle at center,
-        rgba(120,0,0,.5),
-        transparent 55%),
+        radial-gradient(
+            circle at center,
+            rgba(120,0,0,.5),
+            transparent 55%
+        ),
+
         linear-gradient(
-        135deg,
-        #4d0505,
-        #210101 60%,
-        #420404
+            135deg,
+            #4d0505,
+            #210101 60%,
+            #420404
         );
 
     border-bottom:2px solid #d4af37;
@@ -182,50 +344,69 @@ body::before{
 
 .hero::before{
     content:"";
+
     position:absolute;
+
     inset:18px;
+
     border:1px solid #d4af37;
+
     pointer-events:none;
 }
 
 .hero::after{
     content:"";
+
     position:absolute;
+
     inset:28px;
+
     border:1px solid rgba(212,175,55,.35);
+
     pointer-events:none;
 }
 
 .hero-content{
     position:relative;
+
     z-index:2;
+
     max-width:1000px;
 }
 
 .crown{
     font-size:48px;
+
     color:#d4af37;
+
     margin-bottom:15px;
+
     text-shadow:
         0 0 15px rgba(212,175,55,.5);
 }
 
 .hero h1{
     font-family:'Great Vibes',cursive;
-    font-size:clamp(4rem,9vw,8rem);
+
+    font-size:
+        clamp(4rem,9vw,8rem);
+
     font-weight:400;
+
     line-height:.95;
 
-    background:linear-gradient(
-        180deg,
-        #fff3a8 0%,
-        #d4af37 35%,
-        #fff1a0 55%,
-        #b8860b 100%
-    );
+    background:
+        linear-gradient(
+            180deg,
+            #fff3a8 0%,
+            #d4af37 35%,
+            #fff1a0 55%,
+            #b8860b 100%
+        );
 
     -webkit-background-clip:text;
     background-clip:text;
+
     color:transparent;
 
     text-shadow:
@@ -238,41 +419,55 @@ body::before{
 
 .hero-subtitle{
     font-family:'Cinzel',serif;
+
     font-size:1rem;
+
     letter-spacing:6px;
+
     color:#f8ead0;
+
     margin-top:30px;
 }
 
 .hero-date{
     font-family:'Cinzel',serif;
+
     color:#d4af37;
+
     font-size:1.5rem;
+
     letter-spacing:3px;
+
     margin-top:18px;
 }
 
 .btn{
     display:inline-block;
+
     margin-top:35px;
+
     padding:15px 55px;
 
     color:#3b0505;
 
     background:
         linear-gradient(
-        180deg,
-        #fff0a0,
-        #d4af37,
-        #a67c00
+            180deg,
+            #fff0a0,
+            #d4af37,
+            #a67c00
         );
 
     text-decoration:none;
+
     font-family:'Cinzel',serif;
+
     font-weight:700;
+
     letter-spacing:3px;
 
     border:2px solid #f8df75;
+
     border-radius:5px;
 
     box-shadow:
@@ -297,7 +492,9 @@ body::before{
 
 section{
     padding:90px 7%;
+
     position:relative;
+
     z-index:1;
 }
 
@@ -305,7 +502,9 @@ section{
     text-align:center;
 
     font-family:'Cinzel',serif;
+
     font-size:2rem;
+
     letter-spacing:6px;
 
     color:#d4af37;
@@ -319,6 +518,7 @@ section{
 .section-title::before,
 .section-title::after{
     content:" ✦ ";
+
     color:#d4af37;
 }
 
@@ -329,11 +529,14 @@ section{
 
 .countdown{
     display:grid;
+
     grid-template-columns:
         repeat(auto-fit,minmax(160px,1fr));
 
     gap:20px;
+
     max-width:900px;
+
     margin:40px auto 0;
 }
 
@@ -342,12 +545,13 @@ section{
 
     background:
         linear-gradient(
-        145deg,
-        rgba(105,8,8,.95),
-        rgba(45,2,2,.98)
+            145deg,
+            rgba(105,8,8,.95),
+            rgba(45,2,2,.98)
         );
 
     border:1px solid #b8860b;
+
     border-radius:12px;
 
     text-align:center;
@@ -361,7 +565,9 @@ section{
     display:block;
 
     font-family:'Cinzel',serif;
+
     font-size:3rem;
+
     font-weight:600;
 
     color:#f1d66b;
@@ -372,8 +578,11 @@ section{
 
 .time-label{
     color:#f8ead0;
+
     letter-spacing:3px;
+
     font-size:.85rem;
+
     text-transform:uppercase;
 }
 
@@ -384,6 +593,7 @@ section{
 
 .card{
     max-width:950px;
+
     margin:35px auto 0;
 
     padding:45px 35px;
@@ -392,12 +602,13 @@ section{
 
     background:
         linear-gradient(
-        145deg,
-        rgba(91,7,7,.95),
-        rgba(38,2,2,.98)
+            145deg,
+            rgba(91,7,7,.95),
+            rgba(38,2,2,.98)
         );
 
     border:1px solid #b8860b;
+
     border-radius:12px;
 
     box-shadow:
@@ -407,14 +618,19 @@ section{
 
 .card h3{
     font-family:'Cinzel',serif;
+
     color:#e3c04b;
+
     font-size:1.4rem;
+
     letter-spacing:3px;
+
     margin-bottom:20px;
 }
 
 .card p{
     line-height:1.9;
+
     color:#f3e6d0;
 }
 
@@ -425,7 +641,9 @@ section{
 
 .event-icon{
     font-size:42px;
+
     color:#d4af37;
+
     margin-bottom:15px;
 }
 
@@ -436,11 +654,14 @@ section{
 
 .gallery{
     display:grid;
+
     grid-template-columns:
         repeat(auto-fit,minmax(230px,1fr));
 
     gap:25px;
+
     max-width:1100px;
+
     margin:40px auto 0;
 }
 
@@ -448,6 +669,7 @@ section{
     height:270px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -455,17 +677,19 @@ section{
 
     background:
         radial-gradient(
-        circle at center,
-        #700909,
-        #300202 75%
+            circle at center,
+            #700909,
+            #300202 75%
         );
 
     border:1px solid #d4af37;
+
     border-radius:10px;
 
     color:#e3c04b;
 
     font-family:'Cinzel',serif;
+
     letter-spacing:2px;
 
     box-shadow:
@@ -477,17 +701,25 @@ section{
 
 .placeholder::before{
     content:"♛";
+
     position:absolute;
+
     top:20px;
+
     color:#d4af37;
+
     font-size:24px;
 }
 
 .placeholder::after{
     content:"";
+
     position:absolute;
+
     inset:8px;
+
     border:1px solid rgba(212,175,55,.3);
+
     border-radius:7px;
 }
 
@@ -498,18 +730,20 @@ section{
 
 .rsvp-card{
     max-width:850px;
+
     margin:35px auto 0;
 
     padding:45px;
 
     background:
         linear-gradient(
-        145deg,
-        #570606,
-        #250202
+            145deg,
+            #570606,
+            #250202
         );
 
     border:1px solid #d4af37;
+
     border-radius:15px;
 
     box-shadow:
@@ -518,7 +752,9 @@ section{
 
 form{
     display:flex;
+
     flex-direction:column;
+
     gap:18px;
 }
 
@@ -530,12 +766,15 @@ textarea{
     padding:16px 18px;
 
     background:#260202;
+
     color:#f8ead0;
 
     border:1px solid #936f0b;
+
     border-radius:7px;
 
     font-family:'Poppins',sans-serif;
+
     font-size:1rem;
 
     transition:.3s;
@@ -559,11 +798,14 @@ textarea:focus{
 
 select option{
     background:#260202;
+
     color:#f8ead0;
 }
 
 
-/* GUEST FIELD */
+/* =========================
+   GUEST FIELD
+========================= */
 
 #guestContainer{
     display:none;
@@ -573,25 +815,30 @@ select option{
     display:block;
 }
 
+
 button{
     padding:17px;
 
     border:2px solid #f0d76b;
+
     border-radius:7px;
 
     background:
         linear-gradient(
-        180deg,
-        #f0d76b,
-        #d4af37,
-        #a67c00
+            180deg,
+            #f0d76b,
+            #d4af37,
+            #a67c00
         );
 
     color:#310303;
 
     font-family:'Cinzel',serif;
+
     font-size:1rem;
+
     font-weight:700;
+
     letter-spacing:3px;
 
     cursor:pointer;
@@ -608,7 +855,9 @@ button:hover{
 
 #message{
     text-align:center;
+
     color:#e6c957;
+
     font-weight:600;
 }
 
@@ -624,27 +873,33 @@ footer{
 
     background:
         linear-gradient(
-        180deg,
-        #250202,
-        #100101
+            180deg,
+            #250202,
+            #100101
         );
 
     border-top:2px solid #d4af37;
 
     position:relative;
+
     z-index:1;
 }
 
 footer h3{
     font-family:'Great Vibes',cursive;
+
     font-size:3.5rem;
+
     color:#d4af37;
+
     font-weight:400;
 }
 
 footer p{
     margin-top:15px;
+
     color:#f3e6d0;
+
     letter-spacing:2px;
 }
 
@@ -669,6 +924,7 @@ footer p{
 
     .hero-subtitle{
         font-size:.75rem;
+
         letter-spacing:3px;
     }
 
@@ -682,6 +938,7 @@ footer p{
 
     .section-title{
         font-size:1.5rem;
+
         letter-spacing:3px;
     }
 
@@ -701,30 +958,45 @@ footer p{
         font-size:2.8rem;
     }
 
-    /* Smaller butterflies on phones */
-
     .butterfly{
         width:75px;
         height:75px;
-        opacity:.15;
+        opacity:.58;
     }
 
     .butterfly-1{
-        left:-5px;
+        left:-10px;
     }
 
     .butterfly-2{
-        right:-5px;
+        right:-10px;
     }
 
     .butterfly-3{
-        left:0;
+        left:-8px;
     }
 
     .butterfly-4{
-        right:0;
+        right:-8px;
     }
 
+    .butterfly-5{
+        left:-10px;
+    }
+
+    .butterfly-6{
+        right:-10px;
+    }
+
+}
+
+
+/* =========================
+   BUTTERFLY GOLD GRADIENTS
+========================= */
+
+.goldMetal{
+    stop-color:#d4af37;
 }
 
 </style>
@@ -734,77 +1006,357 @@ footer p{
 
 
 <!-- =========================
-     GOLD BUTTERFLIES
+     SHINY GOLD BUTTERFLIES
 ========================= -->
 
+
+<!-- Butterfly 1 -->
 <div class="butterfly butterfly-1">
 <svg viewBox="0 0 100 100">
 
 <defs>
-<linearGradient id="goldGradient" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#fff4a8"/>
-<stop offset="25%" stop-color="#d4af37"/>
-<stop offset="55%" stop-color="#fff0a0"/>
-<stop offset="100%" stop-color="#9b7200"/>
+
+<linearGradient id="goldMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+
+<stop offset="0%" stop-color="#fff8c7"/>
+<stop offset="12%" stop-color="#fff0a0"/>
+<stop offset="28%" stop-color="#d4af37"/>
+<stop offset="45%" stop-color="#fff4a8"/>
+<stop offset="60%" stop-color="#b8860b"/>
+<stop offset="78%" stop-color="#f5d75b"/>
+<stop offset="100%" stop-color="#8c6500"/>
+
 </linearGradient>
+
+<linearGradient id="goldHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+
+<stop offset="0%" stop-color="#ffffff"/>
+<stop offset="35%" stop-color="#fff4a8"/>
+<stop offset="100%" stop-color="#d4af37"/>
+
+</linearGradient>
+
 </defs>
 
-<path d="M47 48 C30 20 5 20 12 43 C17 58 34 61 47 53 Z"/>
-<path d="M53 48 C70 20 95 20 88 43 C83 58 66 61 53 53 Z"/>
-<path d="M47 52 C29 55 18 75 32 77 C41 78 47 65 49 55 Z"/>
-<path d="M53 52 C71 55 82 75 68 77 C59 78 53 65 51 55 Z"/>
+<path class="butterfly-wing"
+d="M47 48
+C35 18 8 12 10 36
+C11 51 27 61 47 54 Z"/>
 
-<ellipse class="body" cx="50" cy="52" rx="3" ry="14"/>
+<path class="butterfly-wing"
+d="M53 48
+C65 18 92 12 90 36
+C89 51 73 61 53 54 Z"/>
+
+<path class="butterfly-wing"
+d="M47 53
+C28 54 17 76 32 78
+C42 79 48 65 49 55 Z"/>
+
+<path class="butterfly-wing"
+d="M53 53
+C72 54 83 76 68 78
+C58 79 52 65 51 55 Z"/>
+
+<path class="butterfly-highlight"
+d="M15 35 C23 23 34 29 42 45 C30 42 22 40 15 35Z"/>
+
+<path class="butterfly-highlight"
+d="M85 35 C77 23 66 29 58 45 C70 42 78 40 85 35Z"/>
+
+<ellipse
+class="butterfly-body"
+cx="50"
+cy="53"
+rx="3"
+ry="15"/>
+
+<circle
+class="butterfly-shine"
+cx="43"
+cy="35"
+r="2"/>
+
+<circle
+class="butterfly-shine"
+cx="57"
+cy="35"
+r="2"/>
 
 </svg>
 </div>
 
 
+<!-- Butterfly 2 -->
 <div class="butterfly butterfly-2">
 <svg viewBox="0 0 100 100">
 
-<defs>
-<linearGradient id="goldGradient2" x1="0" y1="0" x2="1" y2="1">
-<stop offset="0%" stop-color="#fff4a8"/>
-<stop offset="30%" stop-color="#d4af37"/>
-<stop offset="100%" stop-color="#9b7200"/>
-</linearGradient>
-</defs>
+<path class="butterfly-wing"
+d="M47 48 C35 18 8 12 10 36 C11 51 27 61 47 54 Z"/>
 
-<path d="M47 48 C30 20 5 20 12 43 C17 58 34 61 47 53 Z"/>
-<path d="M53 48 C70 20 95 20 88 43 C83 58 66 61 53 53 Z"/>
-<path d="M47 52 C29 55 18 75 32 77 C41 78 47 65 49 55 Z"/>
-<path d="M53 52 C71 55 82 75 68 77 C59 78 53 65 51 55 Z"/>
+<path class="butterfly-wing"
+d="M53 48 C65 18 92 12 90 36 C89 51 73 61 53 54 Z"/>
 
-<ellipse class="body" cx="50" cy="52" rx="3" ry="14"/>
+<path class="butterfly-wing"
+d="M47 53 C28 54 17 76 32 78 C42 79 48 65 49 55 Z"/>
+
+<path class="butterfly-wing"
+d="M53 53 C72 54 83 76 68 78 C58 79 52 65 51 55 Z"/>
+
+<ellipse class="butterfly-body" cx="50" cy="53" rx="3" ry="15"/>
+
+<circle class="butterfly-shine" cx="43" cy="35" r="2"/>
+<circle class="butterfly-shine" cx="57" cy="35" r="2"/>
 
 </svg>
 </div>
 
 
+<!-- Butterfly 3 -->
 <div class="butterfly butterfly-3">
 <svg viewBox="0 0 100 100">
 
-<path d="M47 48 C30 20 5 20 12 43 C17 58 34 61 47 53 Z"/>
-<path d="M53 48 C70 20 95 20 88 43 C83 58 66 61 53 53 Z"/>
-<path d="M47 52 C29 55 18 75 32 77 C41 78 47 65 49 55 Z"/>
-<path d="M53 52 C71 55 82 75 68 77 C59 78 53 65 51 55 Z"/>
+<path class="butterfly-wing"
+d="M47 48 C35 18 8 12 10 36 C11 51 27 61 47 54 Z"/>
 
-<ellipse class="body" cx="50" cy="52" rx="3" ry="14"/>
+<path class="butterfly-wing"
+d="M53 48 C65 18 92 12 90 36 C89 51 73 61 53 54 Z"/>
+
+<path class="butterfly-wing"
+d="M47 53 C28 54 17 76 32 78 C42 79 48 65 49 55 Z"/>
+
+<path class="butterfly-wing"
+d="M53 53 C72 54 83 76 68 78 C58 79 52 65 51 55 Z"/>
+
+<ellipse class="butterfly-body" cx="50" cy="53" rx="3" ry="15"/>
+
+<circle class="butterfly-shine" cx="43" cy="35" r="2"/>
+<circle class="butterfly-shine" cx="57" cy="35" r="2"/>
 
 </svg>
 </div>
 
 
+<!-- Butterfly 4 -->
 <div class="butterfly butterfly-4">
 <svg viewBox="0 0 100 100">
 
-<path d="M47 48 C30 20 5 20 12 43 C17 58 34 61 47 53 Z"/>
-<path d="M53 48 C70 20 95 20 88 43 C83 58 66 61 53 53 Z"/>
-<path d="M47 52 C29 55 18 75 32 77 C41 78 47 65 49 55 Z"/>
-<path d="M53 52 C71 55 82 75 68 77 C59 78 53 65 51 55 Z"/>
+<path class="butterfly-wing"
+d="M47 48 C35 18 8 12 10 36 C11 51 27 61 47 54 Z"/>
 
-<ellipse class="body" cx="50" cy="52" rx="3" ry="14"/>
+<path class="butterfly-wing"
+d="M53 48 C65 18 92 12 90 36 C89 51 73 61 53 54 Z"/>
+
+<path class="butterfly-wing"
+d="M47 53 C28 54 17 76 32 78 C42 79 48 65 49 55 Z"/>
+
+<path class="butterfly-wing"
+d="M53 53 C72 54 83 76 68 78 C58 79 52 65 51 55 Z"/>
+
+<ellipse class="butterfly-body" cx="50" cy="53" rx="3" ry="15"/>
+
+<circle class="butterfly-shine" cx="43" cy="35" r="2"/>
+<circle class="butterfly-shine" cx="57" cy="35" r="2"/>
+
+</svg>
+</div>
+
+
+<!-- Butterfly 5 -->
+<div class="butterfly butterfly-5">
+<svg viewBox="0 0 100 100">
+
+<path class="butterfly-wing"
+d="M47 48 C35 18 8 12 10 36 C11 51 27 61 47 54 Z"/>
+
+<path class="butterfly-wing"
+d="M53 48 C65 18 92 12 90 36 C89 51 73 61 53 54 Z"/>
+
+<path class="butterfly-wing"
+d="M47 53 C28 54 17 76 32 78 C42 79 48 65 49 55 Z"/>
+
+<path class="butterfly-wing"
+d="M53 53 C72 54 83 76 68 78 C58 79 52 65 51 55 Z"/>
+
+<ellipse class="butterfly-body" cx="50" cy="53" rx="3" ry="15"/>
+
+<circle class="butterfly-shine" cx="43" cy="35" r="2"/>
+<circle class="butterfly-shine" cx="57" cy="35" r="2"/>
+
+</svg>
+</div>
+
+
+<!-- Butterfly 6 -->
+<div class="butterfly butterfly-6">
+<svg viewBox="0 0 100 100">
+
+<path class="butterfly-wing"
+d="M47 48 C35 18 8 12 10 36 C11 51 27 61 47 54 Z"/>
+
+<path class="butterfly-wing"
+d="M53 48 C65 18 92 12 90 36 C89 51 73 61 53 54 Z"/>
+
+<path class="butterfly-wing"
+d="M47 53 C28 54 17 76 32 78 C42 79 48 65 49 55 Z"/>
+
+<path class="butterfly-wing"
+d="M53 53 C72 54 83 76 68 78 C58 79 52 65 51 55 Z"/>
+
+<ellipse class="butterfly-body" cx="50" cy="53" rx="3" ry="15"/>
+
+<circle class="butterfly-shine" cx="43" cy="35" r="2"/>
+<circle class="butterfly-shine" cx="57" cy="35" r="2"/>
+
+</svg>
+</div>
+
+
+<!-- Butterfly 7 -->
+<div class="butterfly butterfly-7">
+<svg viewBox="0 0 100 100">
+
+<path class="butterfly-wing"
+d="M47 48 C35 18 8 12 10 36 C11 51 27 61 47 54 Z"/>
+
+<path class="butterfly-wing"
+d="M53 48 C65 18 92 12 90 36 C89 51 73 61 53 54 Z"/>
+
+<path class="butterfly-wing"
+d="M47 53 C28 54 17 76 32 78 C42 79 48 65 49 55 Z"/>
+
+<path class="butterfly-wing"
+d="M53 53 C72 54 83 76 68 78 C58 79 52 65 51 55 Z"/>
+
+<ellipse class="butterfly-body" cx="50" cy="53" rx="3" ry="15"/>
+
+<circle class="butterfly-shine" cx="43" cy="35" r="2"/>
+<circle class="butterfly-shine" cx="57" cy="35" r="2"/>
+
+</svg>
+</div>
+
+
+<!-- Butterfly 8 -->
+<div class="butterfly butterfly-8">
+<svg viewBox="0 0 100 100">
+
+<path class="butterfly-wing"
+d="M47 48 C35 18 8 12 10 36 C11 51 27 61 47 54 Z"/>
+
+<path class="butterfly-wing"
+d="M53 48 C65 18 92 12 90 36 C89 51 73 61 53 54 Z"/>
+
+<path class="butterfly-wing"
+d="M47 53 C28 54 17 76 32 78 C42 79 48 65 49 55 Z"/>
+
+<path class="butterfly-wing"
+d="M53 53 C72 54 83 76 68 78 C58 79 52 65 51 55 Z"/>
+
+<ellipse class="butterfly-body" cx="50" cy="53" rx="3" ry="15"/>
+
+<circle class="butterfly-shine" cx="43" cy="35" r="2"/>
+<circle class="butterfly-shine" cx="57" cy="35" r="2"/>
+
+</svg>
+</div>
+
+
+<!-- Butterfly 9 -->
+<div class="butterfly butterfly-9">
+<svg viewBox="0 0 100 100">
+
+<path class="butterfly-wing"
+d="M47 48 C35 18 8 12 10 36 C11 51 27 61 47 54 Z"/>
+
+<path class="butterfly-wing"
+d="M53 48 C65 18 92 12 90 36 C89 51 73 61 53 54 Z"/>
+
+<path class="butterfly-wing"
+d="M47 53 C28 54 17 76 32 78 C42 79 48 65 49 55 Z"/>
+
+<path class="butterfly-wing"
+d="M53 53 C72 54 83 76 68 78 C58 79 52 65 51 55 Z"/>
+
+<ellipse class="butterfly-body" cx="50" cy="53" rx="3" ry="15"/>
+
+<circle class="butterfly-shine" cx="43" cy="35" r="2"/>
+<circle class="butterfly-shine" cx="57" cy="35" r="2"/>
+
+</svg>
+</div>
+
+
+<!-- Butterfly 10 -->
+<div class="butterfly butterfly-10">
+<svg viewBox="0 0 100 100">
+
+<path class="butterfly-wing"
+d="M47 48 C35 18 8 12 10 36 C11 51 27 61 47 54 Z"/>
+
+<path class="butterfly-wing"
+d="M53 48 C65 18 92 12 90 36 C89 51 73 61 53 54 Z"/>
+
+<path class="butterfly-wing"
+d="M47 53 C28 54 17 76 32 78 C42 79 48 65 49 55 Z"/>
+
+<path class="butterfly-wing"
+d="M53 53 C72 54 83 76 68 78 C58 79 52 65 51 55 Z"/>
+
+<ellipse class="butterfly-body" cx="50" cy="53" rx="3" ry="15"/>
+
+<circle class="butterfly-shine" cx="43" cy="35" r="2"/>
+<circle class="butterfly-shine" cx="57" cy="35" r="2"/>
+
+</svg>
+</div>
+
+
+<!-- Butterfly 11 -->
+<div class="butterfly butterfly-11">
+<svg viewBox="0 0 100 100">
+
+<path class="butterfly-wing"
+d="M47 48 C35 18 8 12 10 36 C11 51 27 61 47 54 Z"/>
+
+<path class="butterfly-wing"
+d="M53 48 C65 18 92 12 90 36 C89 51 73 61 53 54 Z"/>
+
+<path class="butterfly-wing"
+d="M47 53 C28 54 17 76 32 78 C42 79 48 65 49 55 Z"/>
+
+<path class="butterfly-wing"
+d="M53 53 C72 54 83 76 68 78 C58 79 52 65 51 55 Z"/>
+
+<ellipse class="butterfly-body" cx="50" cy="53" rx="3" ry="15"/>
+
+<circle class="butterfly-shine" cx="43" cy="35" r="2"/>
+<circle class="butterfly-shine" cx="57" cy="35" r="2"/>
+
+</svg>
+</div>
+
+
+<!-- Butterfly 12 -->
+<div class="butterfly butterfly-12">
+<svg viewBox="0 0 100 100">
+
+<path class="butterfly-wing"
+d="M47 48 C35 18 8 12 10 36 C11 51 27 61 47 54 Z"/>
+
+<path class="butterfly-wing"
+d="M53 48 C65 18 92 12 90 36 C89 51 73 61 53 54 Z"/>
+
+<path class="butterfly-wing"
+d="M47 53 C28 54 17 76 32 78 C42 79 48 65 49 55 Z"/>
+
+<path class="butterfly-wing"
+d="M53 53 C72 54 83 76 68 78 C58 79 52 65 51 55 Z"/>
+
+<ellipse class="butterfly-body" cx="50" cy="53" rx="3" ry="15"/>
+
+<circle class="butterfly-shine" cx="43" cy="35" r="2"/>
+<circle class="butterfly-shine" cx="57" cy="35" r="2"/>
 
 </svg>
 </div>
@@ -847,7 +1399,9 @@ October 23, 2027
 </section>
 
 
-<!-- COUNTDOWN -->
+<!-- =========================
+     COUNTDOWN
+========================= -->
 
 <section>
 
@@ -886,7 +1440,9 @@ COUNTDOWN
 </section>
 
 
-<!-- CELEBRATION -->
+<!-- =========================
+     CELEBRATION
+========================= -->
 
 <section>
 
@@ -914,7 +1470,9 @@ More details about our celebration will be shared soon.
 </section>
 
 
-<!-- EVENT DETAILS -->
+<!-- =========================
+     EVENT DETAILS
+========================= -->
 
 <section>
 
@@ -941,7 +1499,9 @@ Location details will be announced soon.
 </section>
 
 
-<!-- GALLERY -->
+<!-- =========================
+     GALLERY
+========================= -->
 
 <section>
 
@@ -972,7 +1532,9 @@ PHOTO<br>COMING SOON
 </section>
 
 
-<!-- RSVP -->
+<!-- =========================
+     RSVP
+========================= -->
 
 <section id="rsvp">
 
@@ -1041,6 +1603,7 @@ rows="5"
 placeholder="Leave a message"
 ></textarea>
 
+
 <button type="submit">
 ♛ &nbsp; SEND RSVP &nbsp; ♛
 </button>
@@ -1054,7 +1617,9 @@ placeholder="Leave a message"
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -1077,7 +1642,9 @@ Yathziry Quirino & Alexandra Garcia
 </footer>
 
 
-<!-- EMAILJS -->
+<!-- =========================
+     EMAILJS
+========================= -->
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
@@ -1102,7 +1669,7 @@ const guests =
 document.getElementById("guests");
 
 
-attendance.addEventListener("change", function(){
+attendance.addEventListener("change",function(){
 
     if(this.value === "Yes"){
 
@@ -1239,4 +1806,3 @@ setInterval(
 
 </body>
 </html>
-
