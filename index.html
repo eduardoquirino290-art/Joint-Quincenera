@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +14,6 @@
 
 <style>
 
-/* =========================
-   GLOBAL
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -30,11 +27,210 @@ html{
 body{
     font-family:'Poppins',sans-serif;
     background:
-        radial-gradient(circle at 50% 20%, #5b0808 0%, #310303 45%, #160101 100%);
+        radial-gradient(circle at 50% 20%,#5b0808 0%,#310303 45%,#160101 100%);
     color:#f8ead0;
     overflow-x:hidden;
-    position:relative;
 }
+
+/* =====================================================
+   GOLD BUTTERFLIES
+===================================================== */
+
+.butterfly{
+    position:absolute;
+    z-index:1;
+    pointer-events:none;
+
+    width:55px;
+    height:55px;
+
+    opacity:.82;
+
+    filter:
+        drop-shadow(0 0 5px rgba(255,215,80,.8))
+        drop-shadow(0 0 14px rgba(212,175,55,.35));
+
+    animation:
+        butterflyFloat 6s ease-in-out infinite,
+        butterflyShine 3s ease-in-out infinite;
+}
+
+/* Realistic butterfly shape */
+
+.butterfly::before,
+.butterfly::after{
+    content:"";
+    position:absolute;
+
+    top:5px;
+
+    width:25px;
+    height:40px;
+
+    background:
+        radial-gradient(
+            ellipse at 35% 30%,
+            #fffbe0 0%,
+            #ffe98a 12%,
+            #d4af37 38%,
+            #b8860b 68%,
+            #6f4d00 100%
+        );
+
+    border:1px solid rgba(255,239,150,.9);
+
+    box-shadow:
+        inset 3px 3px 6px rgba(255,255,255,.65),
+        inset -4px -5px 8px rgba(90,55,0,.45),
+        0 0 7px rgba(255,215,70,.8);
+
+    transform-origin:bottom center;
+}
+
+.butterfly::before{
+    left:3px;
+    border-radius:80% 20% 70% 35%;
+    transform:rotate(-25deg);
+}
+
+.butterfly::after{
+    right:3px;
+    border-radius:20% 80% 35% 70%;
+    transform:rotate(25deg);
+}
+
+/* Butterfly body */
+
+.butterfly-body{
+    position:absolute;
+    z-index:3;
+
+    left:50%;
+    top:7px;
+
+    width:6px;
+    height:42px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6e4a00,
+            #fff1a0,
+            #b8860b,
+            #5b3c00
+        );
+
+    box-shadow:
+        0 0 5px rgba(255,220,100,.9);
+}
+
+/* Antennae */
+
+.butterfly-body::before,
+.butterfly-body::after{
+    content:"";
+    position:absolute;
+
+    width:14px;
+    height:14px;
+
+    top:-9px;
+
+    border-top:1px solid #f6d76b;
+}
+
+.butterfly-body::before{
+    left:-9px;
+    transform:rotate(30deg);
+}
+
+.butterfly-body::after{
+    right:-9px;
+    transform:rotate(-30deg);
+}
+
+/* Fixed-looking positions */
+
+.butterfly-1{
+    top:8%;
+    left:7%;
+    transform:scale(.8) rotate(-12deg);
+    animation-delay:-1s;
+}
+
+.butterfly-2{
+    top:28%;
+    right:7%;
+    transform:scale(.65) rotate(15deg);
+    animation-delay:-3s;
+}
+
+.butterfly-3{
+    top:48%;
+    left:4%;
+    transform:scale(.55) rotate(-18deg);
+    animation-delay:-4s;
+}
+
+.butterfly-4{
+    top:66%;
+    right:5%;
+    transform:scale(.75) rotate(12deg);
+    animation-delay:-2s;
+}
+
+.butterfly-5{
+    top:84%;
+    left:8%;
+    transform:scale(.55) rotate(-8deg);
+    animation-delay:-5s;
+}
+
+.butterfly-6{
+    top:92%;
+    right:10%;
+    transform:scale(.65) rotate(14deg);
+    animation-delay:-2.5s;
+}
+
+/* Subtle movement — they stay in their areas */
+
+@keyframes butterflyFloat{
+
+    0%,100%{
+        margin-top:0;
+    }
+
+    50%{
+        margin-top:-8px;
+    }
+
+}
+
+@keyframes butterflyShine{
+
+    0%,100%{
+        filter:
+            drop-shadow(0 0 4px rgba(255,215,80,.65))
+            drop-shadow(0 0 10px rgba(212,175,55,.25));
+    }
+
+    50%{
+        filter:
+            brightness(1.35)
+            drop-shadow(0 0 8px rgba(255,235,130,1))
+            drop-shadow(0 0 20px rgba(212,175,55,.55));
+    }
+
+}
+
+/* =====================================================
+   GOLD TEXTURE
+===================================================== */
 
 body::before{
     content:"";
@@ -43,178 +239,15 @@ body::before{
     pointer-events:none;
 
     background:
-        radial-gradient(circle at 20% 30%, rgba(212,175,55,.08), transparent 20%),
-        radial-gradient(circle at 80% 70%, rgba(212,175,55,.06), transparent 20%);
+        radial-gradient(circle at 20% 30%,rgba(212,175,55,.08),transparent 20%),
+        radial-gradient(circle at 80% 70%,rgba(212,175,55,.06),transparent 20%);
 
     z-index:-1;
 }
 
-/* =========================
-   GOLD BUTTERFLIES
-   These are decorative and
-   stay in their page positions.
-========================= */
-
-.butterfly{
-    position:absolute;
-    width:52px;
-    height:45px;
-    z-index:1;
-    pointer-events:none;
-    filter:
-        drop-shadow(0 0 5px rgba(255,215,80,.8))
-        drop-shadow(0 0 14px rgba(212,175,55,.35));
-
-    animation: butterflyGlow 3.5s ease-in-out infinite;
-}
-
-/* Butterfly body */
-
-.butterfly .body{
-    position:absolute;
-    width:7px;
-    height:32px;
-    left:50%;
-    top:7px;
-    transform:translateX(-50%);
-    border-radius:50%;
-    background:linear-gradient(
-        90deg,
-        #8f6500,
-        #fff3a0,
-        #d4af37,
-        #fff0a0,
-        #8f6500
-    );
-    box-shadow:
-        0 0 5px #fff0a0,
-        0 0 10px rgba(212,175,55,.8);
-}
-
-/* Antennae */
-
-.butterfly .body::before,
-.butterfly .body::after{
-    content:"";
-    position:absolute;
-    width:14px;
-    height:10px;
-    top:-6px;
-    border-top:1px solid #f8df75;
-    border-radius:50%;
-}
-
-.butterfly .body::before{
-    right:2px;
-    transform:rotate(-25deg);
-}
-
-.butterfly .body::after{
-    left:2px;
-    transform:rotate(25deg);
-}
-
-/* Wings */
-
-.butterfly .wing{
-    position:absolute;
-    width:26px;
-    height:31px;
-
-    background:
-        radial-gradient(
-            circle at 40% 30%,
-            #fff9cf 0%,
-            #ffe879 15%,
-            #d4af37 42%,
-            #a67c00 72%,
-            #704f00 100%
-        );
-
-    border:1px solid #ffe99a;
-
-    box-shadow:
-        inset 0 0 8px rgba(255,255,255,.65),
-        0 0 7px rgba(255,215,80,.7);
-
-    opacity:.92;
-}
-
-.butterfly .left{
-    left:0;
-    top:2px;
-    border-radius:70% 35% 65% 40%;
-    transform:rotate(-20deg);
-}
-
-.butterfly .right{
-    right:0;
-    top:2px;
-    border-radius:35% 70% 40% 65%;
-    transform:rotate(20deg);
-}
-
-/* Shiny highlight */
-
-.butterfly .wing::after{
-    content:"";
-    position:absolute;
-    width:7px;
-    height:18px;
-    background:rgba(255,255,255,.65);
-    border-radius:50%;
-    filter:blur(2px);
-    top:5px;
-    left:8px;
-    transform:rotate(-25deg);
-}
-
-/* Subtle shimmer */
-
-@keyframes butterflyGlow{
-
-    0%,100%{
-        transform:scale(1) rotate(0deg);
-        opacity:.82;
-    }
-
-    50%{
-        transform:scale(1.06) rotate(2deg);
-        opacity:1;
-        filter:
-            drop-shadow(0 0 7px rgba(255,225,100,1))
-            drop-shadow(0 0 18px rgba(212,175,55,.55));
-    }
-}
-
-/* Different butterfly sizes */
-
-.butterfly.small{
-    transform:scale(.7);
-}
-
-.butterfly.large{
-    transform:scale(1.25);
-}
-
-/* =========================
-   GOLD DECORATIONS
-========================= */
-
-.gold-line{
-    width:180px;
-    height:2px;
-    margin:20px auto;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #d4af37,
-        #fff0a8,
-        #d4af37,
-        transparent
-    );
-}
+/* =====================================================
+   DECORATIONS
+===================================================== */
 
 .ornament{
     color:#d4af37;
@@ -223,9 +256,9 @@ body::before{
     text-align:center;
 }
 
-/* =========================
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero{
     min-height:100vh;
@@ -256,11 +289,8 @@ body::before{
     border-bottom:2px solid #d4af37;
 }
 
-/* Gold frame */
-
 .hero::before{
     content:"";
-
     position:absolute;
     inset:18px;
 
@@ -271,7 +301,6 @@ body::before{
 
 .hero::after{
     content:"";
-
     position:absolute;
     inset:28px;
 
@@ -286,39 +315,6 @@ body::before{
     max-width:1000px;
 }
 
-/* =========================
-   HERO BUTTERFLIES
-========================= */
-
-.hero-b1{
-    top:17%;
-    left:8%;
-}
-
-.hero-b2{
-    top:25%;
-    right:8%;
-    animation-delay:1s;
-}
-
-.hero-b3{
-    bottom:18%;
-    left:12%;
-    transform:scale(.72);
-    animation-delay:2s;
-}
-
-.hero-b4{
-    bottom:22%;
-    right:13%;
-    transform:scale(.85);
-    animation-delay:.5s;
-}
-
-/* =========================
-   CROWN
-========================= */
-
 .crown{
     font-size:48px;
     color:#d4af37;
@@ -328,26 +324,22 @@ body::before{
         0 0 15px rgba(212,175,55,.5);
 }
 
-/* =========================
-   NAMES
-========================= */
-
 .hero h1{
     font-family:'Great Vibes',cursive;
 
     font-size:clamp(4rem,9vw,8rem);
 
     font-weight:400;
-
     line-height:.95;
 
-    background:linear-gradient(
-        180deg,
-        #fff3a8 0%,
-        #d4af37 35%,
-        #fff1a0 55%,
-        #b8860b 100%
-    );
+    background:
+        linear-gradient(
+            180deg,
+            #fff3a8 0%,
+            #d4af37 35%,
+            #fff1a0 55%,
+            #b8860b 100%
+        );
 
     -webkit-background-clip:text;
     background-clip:text;
@@ -366,7 +358,6 @@ body::before{
     font-family:'Cinzel',serif;
 
     font-size:1rem;
-
     letter-spacing:6px;
 
     color:#f8ead0;
@@ -385,10 +376,6 @@ body::before{
 
     margin-top:18px;
 }
-
-/* =========================
-   RSVP BUTTON
-========================= */
 
 .btn{
     display:inline-block;
@@ -434,81 +421,14 @@ body::before{
         inset 0 1px rgba(255,255,255,.8);
 }
 
-/* =========================
+/* =====================================================
    SECTIONS
-========================= */
+===================================================== */
 
 section{
     padding:90px 7%;
     position:relative;
 }
-
-/* =========================
-   SECTION BUTTERFLIES
-========================= */
-
-.countdown-b1{
-    top:100px;
-    left:3%;
-}
-
-.countdown-b2{
-    top:310px;
-    right:4%;
-    transform:scale(.72);
-}
-
-.celebration-b1{
-    top:80px;
-    right:5%;
-    transform:scale(.8);
-}
-
-.celebration-b2{
-    bottom:70px;
-    left:4%;
-    transform:scale(.65);
-}
-
-.details-b1{
-    top:100px;
-    left:5%;
-    transform:scale(.7);
-}
-
-.details-b2{
-    bottom:80px;
-    right:5%;
-    transform:scale(.8);
-}
-
-.gallery-b1{
-    top:80px;
-    right:4%;
-    transform:scale(.65);
-}
-
-.gallery-b2{
-    bottom:80px;
-    left:3%;
-    transform:scale(.8);
-}
-
-.rsvp-b1{
-    top:90px;
-    left:4%;
-    transform:scale(.7);
-}
-
-.rsvp-b2{
-    bottom:100px;
-    right:4%;
-    transform:scale(.8);
-}
-
-/* =========================
-   SECTION TITLE
-========================= */
 
 .section-title{
     text-align:center;
@@ -533,9 +453,9 @@ section{
     color:#d4af37;
 }
 
-/* =========================
+/* =====================================================
    COUNTDOWN
-========================= */
+===================================================== */
 
 .countdown{
     display:grid;
@@ -548,9 +468,6 @@ section{
     max-width:900px;
 
     margin:40px auto 0;
-
-    position:relative;
-    z-index:2;
 }
 
 .time-box{
@@ -599,9 +516,9 @@ section{
     text-transform:uppercase;
 }
 
-/* =========================
+/* =====================================================
    CARDS
-========================= */
+===================================================== */
 
 .card{
     max-width:950px;
@@ -626,9 +543,6 @@ section{
     box-shadow:
         0 20px 45px rgba(0,0,0,.45),
         inset 0 0 35px rgba(212,175,55,.04);
-
-    position:relative;
-    z-index:2;
 }
 
 .card h3{
@@ -645,13 +559,12 @@ section{
 
 .card p{
     line-height:1.9;
-
     color:#f3e6d0;
 }
 
-/* =========================
+/* =====================================================
    EVENT DETAILS
-========================= */
+===================================================== */
 
 .event-icon{
     font-size:42px;
@@ -661,9 +574,9 @@ section{
     margin-bottom:15px;
 }
 
-/* =========================
+/* =====================================================
    GALLERY
-========================= */
+===================================================== */
 
 .gallery{
     display:grid;
@@ -676,9 +589,6 @@ section{
     max-width:1100px;
 
     margin:40px auto 0;
-
-    position:relative;
-    z-index:2;
 }
 
 .placeholder{
@@ -740,9 +650,9 @@ section{
     border-radius:7px;
 }
 
-/* =========================
+/* =====================================================
    RSVP
-========================= */
+===================================================== */
 
 .rsvp-card{
     max-width:850px;
@@ -764,9 +674,6 @@ section{
 
     box-shadow:
         0 20px 50px rgba(0,0,0,.5);
-
-    position:relative;
-    z-index:2;
 }
 
 form{
@@ -817,13 +724,12 @@ textarea:focus{
 
 select option{
     background:#260202;
-
     color:#f8ead0;
 }
 
-/* =========================
+/* =====================================================
    GUEST FIELD
-========================= */
+===================================================== */
 
 #guestContainer{
     display:none;
@@ -833,23 +739,9 @@ select option{
     display:block;
 }
 
-.guest-label{
-    display:block;
-
-    color:#e3c04b;
-
-    font-family:'Cinzel',serif;
-
-    font-size:.9rem;
-
-    letter-spacing:2px;
-
-    margin-bottom:8px;
-}
-
-/* =========================
+/* =====================================================
    BUTTON
-========================= */
+===================================================== */
 
 button{
     padding:17px;
@@ -896,9 +788,9 @@ button:hover{
     font-weight:600;
 }
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
     padding:70px 20px;
@@ -913,8 +805,6 @@ footer{
         );
 
     border-top:2px solid #d4af37;
-
-    position:relative;
 }
 
 footer h3{
@@ -935,17 +825,11 @@ footer p{
     letter-spacing:2px;
 }
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media(max-width:600px){
-
-    .hero{
-        min-height:100svh;
-
-        padding:30px 15px;
-    }
 
     .hero::before{
         inset:10px;
@@ -956,27 +840,16 @@ footer p{
     }
 
     .hero h1{
-        font-size:3.7rem;
+        font-size:4rem;
     }
 
     .hero-subtitle{
-        font-size:.7rem;
-        letter-spacing:2.5px;
-        margin-top:25px;
+        font-size:.75rem;
+        letter-spacing:3px;
     }
 
     .hero-date{
-        font-size:1rem;
-        letter-spacing:2px;
-    }
-
-    .crown{
-        font-size:38px;
-    }
-
-    .btn{
-        padding:14px 35px;
-        font-size:.85rem;
+        font-size:1.1rem;
     }
 
     section{
@@ -984,8 +857,8 @@ footer p{
     }
 
     .section-title{
-        font-size:1.35rem;
-        letter-spacing:2.5px;
+        font-size:1.5rem;
+        letter-spacing:3px;
     }
 
     .time-box{
@@ -993,24 +866,7 @@ footer p{
     }
 
     .time-box span{
-        font-size:2.2rem;
-    }
-
-    .time-label{
-        font-size:.7rem;
-        letter-spacing:2px;
-    }
-
-    .card{
-        padding:35px 20px;
-    }
-
-    .gallery{
-        grid-template-columns:1fr;
-    }
-
-    .placeholder{
-        height:250px;
+        font-size:2.3rem;
     }
 
     .rsvp-card{
@@ -1024,107 +880,73 @@ footer p{
     /* Smaller butterflies on phones */
 
     .butterfly{
-        width:42px;
-        height:37px;
+        width:40px;
+        height:40px;
 
-        opacity:.85;
+        opacity:.9;
     }
 
-    .butterfly .wing{
-        width:21px;
-        height:27px;
+    .butterfly::before,
+    .butterfly::after{
+        width:18px;
+        height:30px;
     }
 
-    .butterfly .body{
-        height:27px;
-        width:6px;
+    .butterfly-body{
+        height:32px;
+        width:5px;
     }
 
-    /* Keep butterflies away
-       from important mobile content */
+    /* Mobile positions */
 
-    .hero-b1{
+    .butterfly-1{
+        top:7%;
         left:2%;
-        top:13%;
-        transform:scale(.55);
+        transform:scale(.65) rotate(-12deg);
     }
 
-    .hero-b2{
-        right:1%;
-        top:17%;
-        transform:scale(.55);
-    }
-
-    .hero-b3{
-        left:2%;
-        bottom:10%;
-        transform:scale(.5);
-    }
-
-    .hero-b4{
+    .butterfly-2{
+        top:25%;
         right:2%;
-        bottom:12%;
-        transform:scale(.55);
+        transform:scale(.55) rotate(15deg);
     }
 
-    .countdown-b1,
-    .celebration-b1,
-    .details-b1,
-    .gallery-b1,
-    .rsvp-b1{
+    .butterfly-3{
+        top:47%;
         left:1%;
-        transform:scale(.48);
+        transform:scale(.5) rotate(-15deg);
     }
 
-    .countdown-b2,
-    .celebration-b2,
-    .details-b2,
-    .gallery-b2,
-    .rsvp-b2{
-        right:1%;
-        transform:scale(.48);
+    .butterfly-4{
+        top:68%;
+        right:2%;
+        transform:scale(.6) rotate(12deg);
     }
 
-    .countdown-b1{
-        top:80px;
+    .butterfly-5{
+        top:84%;
+        left:3%;
+        transform:scale(.5) rotate(-8deg);
     }
 
-    .countdown-b2{
-        top:auto;
-        bottom:40px;
+    .butterfly-6{
+        top:94%;
+        right:4%;
+        transform:scale(.55) rotate(12deg);
     }
 
-    .celebration-b1{
-        top:70px;
+}
+
+/* =====================================================
+   REDUCE ANIMATION FOR ACCESSIBILITY
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    .butterfly{
+        animation:none;
     }
 
-    .celebration-b2{
-        bottom:45px;
-    }
-
-    .details-b1{
-        top:70px;
-    }
-
-    .details-b2{
-        bottom:45px;
-    }
-
-    .gallery-b1{
-        top:70px;
-    }
-
-    .gallery-b2{
-        bottom:45px;
-    }
-
-    .rsvp-b1{
-        top:70px;
-    }
-
-    .rsvp-b2{
-        bottom:50px;
-    }
 }
 
 </style>
@@ -1132,386 +954,326 @@ footer p{
 
 <body>
 
+<!-- =====================================================
+     GOLD BUTTERFLIES
+===================================================== -->
 
-<!-- =========================
+<div class="butterfly butterfly-1">
+    <div class="butterfly-body"></div>
+</div>
+
+<div class="butterfly butterfly-2">
+    <div class="butterfly-body"></div>
+</div>
+
+<div class="butterfly butterfly-3">
+    <div class="butterfly-body"></div>
+</div>
+
+<div class="butterfly butterfly-4">
+    <div class="butterfly-body"></div>
+</div>
+
+<div class="butterfly butterfly-5">
+    <div class="butterfly-body"></div>
+</div>
+
+<div class="butterfly butterfly-6">
+    <div class="butterfly-body"></div>
+</div>
+
+
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <section class="hero">
 
-    <!-- Gold butterflies -->
-    <div class="butterfly hero-b1">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<div class="hero-content">
 
-    <div class="butterfly hero-b2">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<div class="crown">♛</div>
 
-    <div class="butterfly hero-b3 small">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<h1>
+Yathziry Quirino
+<br>
+<span class="ampersand">&</span>
+<br>
+Alexandra Garcia
+</h1>
 
-    <div class="butterfly hero-b4">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<div class="ornament">
+✦ ─── ✧ ─── ✦
+</div>
 
+<p class="hero-subtitle">
+A JOINT QUINCEAÑERA CELEBRATION
+</p>
 
-    <div class="hero-content">
+<p class="hero-date">
+October 23, 2027
+</p>
 
-        <div class="crown">♛</div>
+<a href="#rsvp" class="btn">
+♛ &nbsp; RSVP &nbsp; ♛
+</a>
 
-        <h1>
-            Yathziry Quirino
-            <br>
-            <span class="ampersand">&</span>
-            <br>
-            Alexandra Garcia
-        </h1>
-
-        <div class="ornament">
-            ✦ ─── ✧ ─── ✦
-        </div>
-
-        <p class="hero-subtitle">
-            A JOINT QUINCEAÑERA CELEBRATION
-        </p>
-
-        <p class="hero-date">
-            October 23, 2027
-        </p>
-
-        <a href="#rsvp" class="btn">
-            ♛ &nbsp; RSVP &nbsp; ♛
-        </a>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      COUNTDOWN
-========================= -->
+===================================================== -->
 
 <section>
 
-    <div class="butterfly countdown-b1 small">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<h2 class="section-title">
+COUNTDOWN
+</h2>
 
-    <div class="butterfly countdown-b2">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<div class="ornament">
+✦
+</div>
 
-    <h2 class="section-title">
-        COUNTDOWN
-    </h2>
+<div class="countdown">
 
-    <div class="ornament">
-        ✦
-    </div>
+<div class="time-box">
+<span id="days">0</span>
+<div class="time-label">Days</div>
+</div>
 
-    <div class="countdown">
+<div class="time-box">
+<span id="hours">0</span>
+<div class="time-label">Hours</div>
+</div>
 
-        <div class="time-box">
-            <span id="days">0</span>
-            <div class="time-label">Days</div>
-        </div>
+<div class="time-box">
+<span id="minutes">0</span>
+<div class="time-label">Minutes</div>
+</div>
 
-        <div class="time-box">
-            <span id="hours">0</span>
-            <div class="time-label">Hours</div>
-        </div>
+<div class="time-box">
+<span id="seconds">0</span>
+<div class="time-label">Seconds</div>
+</div>
 
-        <div class="time-box">
-            <span id="minutes">0</span>
-            <div class="time-label">Minutes</div>
-        </div>
-
-        <div class="time-box">
-            <span id="seconds">0</span>
-            <div class="time-label">Seconds</div>
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CELEBRATION
-========================= -->
+===================================================== -->
 
 <section>
 
-    <div class="butterfly celebration-b1">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<h2 class="section-title">
+OUR CELEBRATION
+</h2>
 
-    <div class="butterfly celebration-b2 small">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<div class="card">
 
-    <h2 class="section-title">
-        OUR CELEBRATION
-    </h2>
+<div class="ornament">
+❦
+</div>
 
-    <div class="card">
+<p>
+We are excited to celebrate this special milestone
+with our family and friends.
+</p>
 
-        <div class="ornament">
-            ❦
-        </div>
+<p>
+More details about our celebration will be shared soon.
+</p>
 
-        <p>
-            We are excited to celebrate this special milestone
-            with our family and friends.
-        </p>
+<div class="ornament">
+❦
+</div>
 
-        <p>
-            More details about our celebration will be shared soon.
-        </p>
-
-        <div class="ornament">
-            ❦
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      EVENT DETAILS
-========================= -->
+===================================================== -->
 
 <section>
 
-    <div class="butterfly details-b1 small">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<h2 class="section-title">
+EVENT DETAILS
+</h2>
 
-    <div class="butterfly details-b2">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<div class="card">
 
-    <h2 class="section-title">
-        EVENT DETAILS
-    </h2>
+<div class="event-icon">
+⌖
+</div>
 
-    <div class="card">
+<h3>
+VENUE COMING SOON
+</h3>
 
-        <div class="event-icon">
-            ⌖
-        </div>
+<p>
+Location details will be announced soon.
+</p>
 
-        <h3>
-            VENUE COMING SOON
-        </h3>
-
-        <p>
-            Location details will be announced soon.
-        </p>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      GALLERY
-========================= -->
+===================================================== -->
 
 <section>
 
-    <div class="butterfly gallery-b1 small">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<h2 class="section-title">
+GALLERY
+</h2>
 
-    <div class="butterfly gallery-b2">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<div class="gallery">
 
-    <h2 class="section-title">
-        GALLERY
-    </h2>
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
 
-    <div class="gallery">
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
 
-        <div class="placeholder">
-            PHOTO<br>COMING SOON
-        </div>
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
 
-        <div class="placeholder">
-            PHOTO<br>COMING SOON
-        </div>
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
 
-        <div class="placeholder">
-            PHOTO<br>COMING SOON
-        </div>
-
-        <div class="placeholder">
-            PHOTO<br>COMING SOON
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      RSVP
-========================= -->
+===================================================== -->
 
 <section id="rsvp">
 
-    <div class="butterfly rsvp-b1 small">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<h2 class="section-title">
+RSVP
+</h2>
 
-    <div class="butterfly rsvp-b2">
-        <div class="wing left"></div>
-        <div class="wing right"></div>
-        <div class="body"></div>
-    </div>
+<div class="rsvp-card">
 
-    <h2 class="section-title">
-        RSVP
-    </h2>
+<form id="rsvpForm">
 
-    <div class="rsvp-card">
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required
+>
 
-        <form id="rsvpForm">
+<input
+type="email"
+name="email"
+placeholder="Your Email"
+required
+>
 
-            <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                required
-            >
+<select
+name="attendance"
+id="attendance"
+required
+>
 
-            <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-            >
+<option value="">
+Will you attend?
+</option>
 
-            <select
-                name="attendance"
-                id="attendance"
-                required
-            >
+<option value="Yes">
+Yes, I will attend
+</option>
 
-                <option value="">
-                    Will you attend?
-                </option>
+<option value="No">
+No, I cannot attend
+</option>
 
-                <option value="Yes">
-                    Yes, I will attend
-                </option>
-
-                <option value="No">
-                    No, I cannot attend
-                </option>
-
-            </select>
+</select>
 
 
-            <!-- NUMBER OF GUESTS -->
+<!-- =====================================================
+     NUMBER OF GUESTS
+===================================================== -->
 
-            <div id="guestContainer">
+<div id="guestContainer">
 
-                <label class="guest-label">
-                    NUMBER OF GUESTS
-                </label>
+<input
+type="number"
+name="guests"
+id="guests"
+min="1"
+max="20"
+placeholder="How many guests are you bringing?"
+>
 
-                <input
-                    type="number"
-                    name="guests"
-                    id="guests"
-                    min="1"
-                    max="20"
-                    placeholder="How many guests are you bringing?"
-                >
-
-            </div>
+</div>
 
 
-            <textarea
-                name="message"
-                rows="5"
-                placeholder="Leave a message"
-            ></textarea>
+<textarea
+name="message"
+rows="5"
+placeholder="Leave a message"
+></textarea>
 
 
-            <button type="submit">
-                ♛ &nbsp; SEND RSVP &nbsp; ♛
-            </button>
+<button type="submit">
+♛ &nbsp; SEND RSVP &nbsp; ♛
+</button>
 
-            <p id="message"></p>
+<p id="message"></p>
 
-        </form>
+</form>
 
-    </div>
+</div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
-    <div class="ornament">
-        ✦ ─── ❦ ─── ✦
-    </div>
+<div class="ornament">
+✦ ─── ❦ ─── ✦
+</div>
 
-    <h3>
-        With Love ❤️
-    </h3>
+<h3>
+With Love ❤️
+</h3>
 
-    <p>
-        Yathziry Quirino & Alexandra Garcia
-    </p>
+<p>
+Yathziry Quirino & Alexandra Garcia
+</p>
 
-    <div class="ornament">
-        ✦ ─── ❦ ─── ✦
-    </div>
+<div class="ornament">
+✦ ─── ❦ ─── ✦
+</div>
 
 </footer>
 
 
-<!-- =========================
+<!-- =====================================================
      EMAILJS
-========================= -->
+===================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
@@ -1522,9 +1284,9 @@ emailjs.init({
 });
 
 
-/* =========================
-   SHOW GUEST BOX
-========================= */
+/* =====================================================
+   GUEST BOX
+===================================================== */
 
 const attendance =
 document.getElementById("attendance");
@@ -1536,7 +1298,7 @@ const guests =
 document.getElementById("guests");
 
 
-attendance.addEventListener("change", function(){
+attendance.addEventListener("change",function(){
 
     if(this.value === "Yes"){
 
@@ -1557,9 +1319,9 @@ attendance.addEventListener("change", function(){
 });
 
 
-/* =========================
+/* =====================================================
    RSVP
-========================= */
+===================================================== */
 
 document
 .getElementById("rsvpForm")
@@ -1605,9 +1367,9 @@ document
 });
 
 
-/* =========================
+/* =====================================================
    COUNTDOWN
-========================= */
+===================================================== */
 
 const eventDate =
 new Date("October 23, 2027 17:00:00").getTime();
@@ -1624,10 +1386,10 @@ function updateCountdown(){
 
     if(distance <= 0){
 
-        document.getElementById("days").textContent = "0";
-        document.getElementById("hours").textContent = "0";
-        document.getElementById("minutes").textContent = "0";
-        document.getElementById("seconds").textContent = "0";
+        document.getElementById("days").textContent="0";
+        document.getElementById("hours").textContent="0";
+        document.getElementById("minutes").textContent="0";
+        document.getElementById("seconds").textContent="0";
 
         return;
     }
@@ -1635,28 +1397,28 @@ function updateCountdown(){
 
     document.getElementById("days").textContent =
     Math.floor(
-        distance / (1000 * 60 * 60 * 24)
+        distance/(1000*60*60*24)
     );
 
 
     document.getElementById("hours").textContent =
     Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
+        (distance%(1000*60*60*24))
+        /(1000*60*60)
     );
 
 
     document.getElementById("minutes").textContent =
     Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
+        (distance%(1000*60*60))
+        /(1000*60)
     );
 
 
     document.getElementById("seconds").textContent =
     Math.floor(
-        (distance % (1000 * 60))
-        / 1000
+        (distance%(1000*60))
+        /1000
     );
 
 }
@@ -1673,3 +1435,4 @@ setInterval(
 
 </body>
 </html>
+```
