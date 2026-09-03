@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +13,9 @@
 
 <style>
 
-/* =========================
+/* =====================================================
    GLOBAL
-========================= */
+===================================================== */
 
 *{
     margin:0;
@@ -30,146 +29,173 @@ html{
 
 body{
     font-family:'Poppins',sans-serif;
+
     background:
-        radial-gradient(circle at 50% 20%, #5b0808 0%, #310303 45%, #160101 100%);
+        radial-gradient(
+            circle at 50% 20%,
+            #5b0808 0%,
+            #310303 45%,
+            #160101 100%
+        );
+
     color:#f8ead0;
+
     overflow-x:hidden;
 }
 
-/* =========================
-   GOLD BUTTERFLIES
-========================= */
+
+/* =====================================================
+   GOLD SHINY BUTTERFLIES
+   Fixed in the background
+===================================================== */
 
 .butterfly{
     position:fixed;
-    z-index:1;
+
+    z-index:0;
+
     pointer-events:none;
 
     color:#ffd95a;
+
+    opacity:.88;
+
     font-size:42px;
 
-    text-shadow:
-        0 0 5px #fff4a8,
-        0 0 12px #f5c542,
-        0 0 25px rgba(255,215,70,.8),
-        0 0 45px rgba(212,175,55,.45);
-
-    opacity:.9;
-
     filter:
-        drop-shadow(0 0 5px #ffd95a)
-        drop-shadow(0 0 12px rgba(255,215,70,.7));
+        drop-shadow(0 0 4px #fff4a8)
+        drop-shadow(0 0 9px #ffd95a)
+        drop-shadow(0 0 18px rgba(255,215,70,.9))
+        drop-shadow(0 0 30px rgba(212,175,55,.65));
+
+    text-shadow:
+        0 0 4px #fff8c7,
+        0 0 10px #ffd95a,
+        0 0 20px #f0c341,
+        0 0 35px rgba(255,215,70,.8);
+
+    user-select:none;
 }
 
-/* Different butterfly positions */
 
-.butterfly1{
+/* =====================================================
+   BUTTERFLY POSITIONS
+   These are intentionally placed away from content
+===================================================== */
+
+.butterfly-1{
     top:8%;
-    left:5%;
-    transform:rotate(-18deg);
-}
-
-.butterfly2{
-    top:18%;
-    right:7%;
-    font-size:34px;
-    transform:rotate(15deg);
-}
-
-.butterfly3{
-    top:39%;
-    left:3%;
-    font-size:30px;
-    transform:rotate(20deg);
-}
-
-.butterfly4{
-    top:48%;
-    right:4%;
-    font-size:45px;
-    transform:rotate(-15deg);
-}
-
-.butterfly5{
-    top:67%;
-    left:7%;
-    font-size:36px;
-    transform:rotate(-8deg);
-}
-
-.butterfly6{
-    top:76%;
-    right:8%;
-    font-size:30px;
-    transform:rotate(18deg);
-}
-
-.butterfly7{
-    top:90%;
     left:4%;
-    font-size:28px;
-    transform:rotate(-20deg);
-}
-
-.butterfly8{
-    top:94%;
-    right:5%;
+    transform:rotate(-18deg);
     font-size:40px;
-    transform:rotate(12deg);
 }
 
-/* Gold texture/glow */
+.butterfly-2{
+    top:12%;
+    right:4%;
+    transform:rotate(16deg);
+    font-size:32px;
+}
+
+.butterfly-3{
+    top:31%;
+    left:2%;
+    transform:rotate(14deg);
+    font-size:29px;
+}
+
+.butterfly-4{
+    top:39%;
+    right:3%;
+    transform:rotate(-15deg);
+    font-size:38px;
+}
+
+.butterfly-5{
+    top:57%;
+    left:4%;
+    transform:rotate(-12deg);
+    font-size:34px;
+}
+
+.butterfly-6{
+    top:63%;
+    right:4%;
+    transform:rotate(17deg);
+    font-size:29px;
+}
+
+.butterfly-7{
+    top:78%;
+    left:3%;
+    transform:rotate(15deg);
+    font-size:38px;
+}
+
+.butterfly-8{
+    top:86%;
+    right:3%;
+    transform:rotate(-16deg);
+    font-size:33px;
+}
+
+
+/* =====================================================
+   GOLD BACKGROUND GLOW
+===================================================== */
 
 body::before{
     content:"";
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
 
     background:
-        radial-gradient(circle at 20% 30%,
-        rgba(212,175,55,.08),
-        transparent 20%),
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(212,175,55,.08),
+            transparent 20%
+        ),
 
-        radial-gradient(circle at 80% 70%,
-        rgba(212,175,55,.06),
-        transparent 20%);
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(212,175,55,.07),
+            transparent 22%
+        );
 
     z-index:-1;
 }
 
-.gold-line{
-    width:180px;
-    height:2px;
-    margin:20px auto;
 
-    background:
-        linear-gradient(
-        90deg,
-        transparent,
-        #d4af37,
-        #fff0a8,
-        #d4af37,
-        transparent
-        );
-}
+/* =====================================================
+   ORNAMENTS
+===================================================== */
 
 .ornament{
     color:#d4af37;
+
     font-size:24px;
+
     letter-spacing:8px;
+
     text-align:center;
 }
 
-/* =========================
+
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero{
     min-height:100svh;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     text-align:center;
@@ -180,16 +206,16 @@ body::before{
 
     background:
         radial-gradient(
-        circle at center,
-        rgba(120,0,0,.5),
-        transparent 55%
+            circle at center,
+            rgba(120,0,0,.5),
+            transparent 55%
         ),
 
         linear-gradient(
-        135deg,
-        #4d0505,
-        #210101 60%,
-        #420404
+            135deg,
+            #4d0505,
+            #210101 60%,
+            #420404
         );
 
     border-bottom:2px solid #d4af37;
@@ -197,6 +223,7 @@ body::before{
 
 .hero::before{
     content:"";
+
     position:absolute;
 
     inset:18px;
@@ -208,6 +235,7 @@ body::before{
 
 .hero::after{
     content:"";
+
     position:absolute;
 
     inset:28px;
@@ -219,6 +247,7 @@ body::before{
 
 .hero-content{
     position:relative;
+
     z-index:2;
 
     max-width:1000px;
@@ -228,6 +257,7 @@ body::before{
 
 .crown{
     font-size:48px;
+
     color:#d4af37;
 
     margin-bottom:15px;
@@ -247,14 +277,15 @@ body::before{
 
     background:
         linear-gradient(
-        180deg,
-        #fff3a8 0%,
-        #d4af37 35%,
-        #fff1a0 55%,
-        #b8860b 100%
+            180deg,
+            #fff3a8 0%,
+            #d4af37 35%,
+            #fff1a0 55%,
+            #b8860b 100%
         );
 
     -webkit-background-clip:text;
+
     background-clip:text;
 
     color:transparent;
@@ -291,6 +322,11 @@ body::before{
     margin-top:18px;
 }
 
+
+/* =====================================================
+   RSVP BUTTON
+===================================================== */
+
 .btn{
     display:inline-block;
 
@@ -302,10 +338,10 @@ body::before{
 
     background:
         linear-gradient(
-        180deg,
-        #fff0a0,
-        #d4af37,
-        #a67c00
+            180deg,
+            #fff0a0,
+            #d4af37,
+            #a67c00
         );
 
     text-decoration:none;
@@ -331,18 +367,20 @@ body::before{
     transform:translateY(-4px) scale(1.03);
 
     box-shadow:
-        0 0 35px rgba(212,175,55,.6),
-        inset 0 1px rgba(255,255,255,.8);
+        0 0 35px rgba(212,175,55,.6);
 }
 
-/* =========================
+
+/* =====================================================
    SECTIONS
-========================= */
+===================================================== */
 
 section{
     padding:90px 7%;
 
     position:relative;
+
+    z-index:2;
 }
 
 .section-title{
@@ -365,18 +403,19 @@ section{
 .section-title::before,
 .section-title::after{
     content:" ✦ ";
+
     color:#d4af37;
 }
 
-/* =========================
+
+/* =====================================================
    COUNTDOWN
-========================= */
+===================================================== */
 
 .countdown{
     display:grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:20px;
 
@@ -390,9 +429,9 @@ section{
 
     background:
         linear-gradient(
-        145deg,
-        rgba(105,8,8,.95),
-        rgba(45,2,2,.98)
+            145deg,
+            rgba(105,8,8,.95),
+            rgba(45,2,2,.98)
         );
 
     border:1px solid #b8860b;
@@ -431,9 +470,10 @@ section{
     text-transform:uppercase;
 }
 
-/* =========================
+
+/* =====================================================
    CARDS
-========================= */
+===================================================== */
 
 .card{
     max-width:950px;
@@ -446,9 +486,9 @@ section{
 
     background:
         linear-gradient(
-        145deg,
-        rgba(91,7,7,.95),
-        rgba(38,2,2,.98)
+            145deg,
+            rgba(91,7,7,.95),
+            rgba(38,2,2,.98)
         );
 
     border:1px solid #b8860b;
@@ -480,9 +520,10 @@ section{
     margin:10px 0;
 }
 
-/* =========================
+
+/* =====================================================
    EVENT DETAILS
-========================= */
+===================================================== */
 
 .event-icon{
     font-size:42px;
@@ -492,15 +533,15 @@ section{
     margin-bottom:15px;
 }
 
-/* =========================
+
+/* =====================================================
    GALLERY
-========================= */
+===================================================== */
 
 .gallery{
     display:grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:25px;
 
@@ -522,9 +563,9 @@ section{
 
     background:
         radial-gradient(
-        circle at center,
-        #700909,
-        #300202 75%
+            circle at center,
+            #700909,
+            #300202 75%
         );
 
     border:1px solid #d4af37;
@@ -568,9 +609,10 @@ section{
     border-radius:7px;
 }
 
-/* =========================
+
+/* =====================================================
    RSVP
-========================= */
+===================================================== */
 
 .rsvp-card{
     max-width:850px;
@@ -581,9 +623,9 @@ section{
 
     background:
         linear-gradient(
-        145deg,
-        #570606,
-        #250202
+            145deg,
+            #570606,
+            #250202
         );
 
     border:1px solid #d4af37;
@@ -646,21 +688,39 @@ select option{
     color:#f8ead0;
 }
 
-/* =========================
-   GUEST FIELD
-========================= */
+
+/* =====================================================
+   GUEST COUNT
+===================================================== */
 
 #guestContainer{
     display:none;
+
+    animation:guestAppear .25s ease;
 }
 
 #guestContainer.show{
     display:block;
 }
 
-/* =========================
-   BUTTON
-========================= */
+@keyframes guestAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(-5px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
 
 button{
     padding:17px;
@@ -671,10 +731,10 @@ button{
 
     background:
         linear-gradient(
-        180deg,
-        #f0d76b,
-        #d4af37,
-        #a67c00
+            180deg,
+            #f0d76b,
+            #d4af37,
+            #a67c00
         );
 
     color:#310303;
@@ -699,17 +759,28 @@ button:hover{
         0 0 25px rgba(212,175,55,.4);
 }
 
+button:disabled{
+    opacity:.7;
+
+    cursor:wait;
+
+    transform:none;
+}
+
 #message{
     text-align:center;
 
     color:#e6c957;
 
     font-weight:600;
+
+    min-height:24px;
 }
 
-/* =========================
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer{
     padding:70px 20px;
@@ -718,12 +789,16 @@ footer{
 
     background:
         linear-gradient(
-        180deg,
-        #250202,
-        #100101
+            180deg,
+            #250202,
+            #100101
         );
 
     border-top:2px solid #d4af37;
+
+    position:relative;
+
+    z-index:2;
 }
 
 footer h3{
@@ -744,20 +819,19 @@ footer p{
     letter-spacing:2px;
 }
 
-/* =================================================
+
+/* =====================================================
    TABLET
-================================================= */
+===================================================== */
 
 @media(max-width:900px){
 
     .countdown{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .gallery{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     section{
@@ -766,9 +840,10 @@ footer p{
 
 }
 
-/* =================================================
+
+/* =====================================================
    MOBILE
-================================================= */
+===================================================== */
 
 @media(max-width:600px){
 
@@ -776,35 +851,80 @@ footer p{
         font-size:15px;
     }
 
-    /* Smaller butterflies on phones */
+
+    /* -------------------------
+       MOBILE BUTTERFLIES
+       Smaller + repositioned
+    ------------------------- */
 
     .butterfly{
-        font-size:27px;
-        opacity:.75;
+        opacity:.78;
+
+        font-size:25px;
+
+        filter:
+            drop-shadow(0 0 3px #fff4a8)
+            drop-shadow(0 0 7px #ffd95a)
+            drop-shadow(0 0 14px rgba(255,215,70,.8));
     }
 
-    .butterfly2,
-    .butterfly6{
+    .butterfly-1{
+        top:6%;
+        left:2%;
+        font-size:26px;
+    }
+
+    .butterfly-2{
+        top:13%;
+        right:2%;
         font-size:22px;
     }
 
-    .butterfly3,
-    .butterfly7{
+    .butterfly-3{
+        top:34%;
+        left:1%;
         font-size:20px;
     }
 
-    .butterfly4,
-    .butterfly8{
-        font-size:28px;
+    .butterfly-4{
+        top:42%;
+        right:1%;
+        font-size:26px;
     }
 
-    /* Hero */
+    .butterfly-5{
+        top:58%;
+        left:2%;
+        font-size:23px;
+    }
+
+    .butterfly-6{
+        top:66%;
+        right:2%;
+        font-size:20px;
+    }
+
+    .butterfly-7{
+        top:81%;
+        left:1%;
+        font-size:26px;
+    }
+
+    .butterfly-8{
+        top:91%;
+        right:2%;
+        font-size:23px;
+    }
+
+
+    /* -------------------------
+       HERO
+    ------------------------- */
 
     .hero{
         min-height:100svh;
 
-        padding:
-            60px 15px;
+        padding:60px 15px;
     }
 
     .hero::before{
@@ -815,17 +935,12 @@ footer p{
         inset:18px;
     }
 
-    .hero-content{
-        max-width:100%;
-    }
-
     .crown{
         font-size:38px;
     }
 
     .hero h1{
-        font-size:
-            clamp(3.4rem,16vw,5rem);
+        font-size:clamp(3.4rem,16vw,5rem);
 
         line-height:.9;
     }
@@ -852,7 +967,10 @@ footer p{
         letter-spacing:2px;
     }
 
-    /* Sections */
+
+    /* -------------------------
+       SECTIONS
+    ------------------------- */
 
     section{
         padding:65px 15px;
@@ -872,11 +990,13 @@ footer p{
         letter-spacing:5px;
     }
 
-    /* Countdown */
+
+    /* -------------------------
+       COUNTDOWN
+    ------------------------- */
 
     .countdown{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
 
         gap:12px;
 
@@ -899,7 +1019,10 @@ footer p{
         letter-spacing:1.5px;
     }
 
-    /* Cards */
+
+    /* -------------------------
+       CARDS
+    ------------------------- */
 
     .card{
         padding:30px 20px;
@@ -919,11 +1042,13 @@ footer p{
         line-height:1.8;
     }
 
-    /* Gallery */
+
+    /* -------------------------
+       GALLERY
+    ------------------------- */
 
     .gallery{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
 
         gap:12px;
 
@@ -944,7 +1069,10 @@ footer p{
         font-size:18px;
     }
 
-    /* RSVP */
+
+    /* -------------------------
+       RSVP
+    ------------------------- */
 
     .rsvp-card{
         padding:25px 15px;
@@ -970,7 +1098,10 @@ footer p{
         letter-spacing:2px;
     }
 
-    /* Footer */
+
+    /* -------------------------
+       FOOTER
+    ------------------------- */
 
     footer{
         padding:55px 15px;
@@ -988,9 +1119,10 @@ footer p{
 
 }
 
-/* =================================================
+
+/* =====================================================
    VERY SMALL PHONES
-================================================= */
+===================================================== */
 
 @media(max-width:380px){
 
@@ -1026,30 +1158,36 @@ footer p{
         height:150px;
     }
 
+    .rsvp-card{
+        padding:22px 12px;
+    }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     FIXED GOLD BUTTERFLIES
-========================= -->
 
-<div class="butterfly butterfly1">🦋</div>
-<div class="butterfly butterfly2">🦋</div>
-<div class="butterfly butterfly3">🦋</div>
-<div class="butterfly butterfly4">🦋</div>
-<div class="butterfly butterfly5">🦋</div>
-<div class="butterfly butterfly6">🦋</div>
-<div class="butterfly butterfly7">🦋</div>
-<div class="butterfly butterfly8">🦋</div>
+<!-- =====================================================
+     SHINY GOLD BUTTERFLIES
+===================================================== -->
+
+<div class="butterfly butterfly-1">🦋</div>
+<div class="butterfly butterfly-2">🦋</div>
+<div class="butterfly butterfly-3">🦋</div>
+<div class="butterfly butterfly-4">🦋</div>
+<div class="butterfly butterfly-5">🦋</div>
+<div class="butterfly butterfly-6">🦋</div>
+<div class="butterfly butterfly-7">🦋</div>
+<div class="butterfly butterfly-8">🦋</div>
 
 
-<!-- =========================
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <section class="hero">
 
@@ -1086,9 +1224,9 @@ October 23, 2027
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      COUNTDOWN
-========================= -->
+===================================================== -->
 
 <section>
 
@@ -1127,9 +1265,9 @@ COUNTDOWN
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CELEBRATION
-========================= -->
+===================================================== -->
 
 <section>
 
@@ -1161,9 +1299,9 @@ More details about our celebration will be shared soon.
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      EVENT DETAILS
-========================= -->
+===================================================== -->
 
 <section>
 
@@ -1190,9 +1328,9 @@ Location details will be announced soon.
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      GALLERY
-========================= -->
+===================================================== -->
 
 <section>
 
@@ -1223,9 +1361,9 @@ PHOTO<br>COMING SOON
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      RSVP
-========================= -->
+===================================================== -->
 
 <section id="rsvp">
 
@@ -1237,6 +1375,9 @@ RSVP
 
 <form id="rsvpForm">
 
+
+<!-- NAME -->
+
 <input
 type="text"
 name="name"
@@ -1244,12 +1385,18 @@ placeholder="Your Name"
 required
 >
 
+
+<!-- EMAIL -->
+
 <input
 type="email"
 name="email"
 placeholder="Your Email"
 required
 >
+
+
+<!-- ATTENDANCE -->
 
 <select
 name="attendance"
@@ -1272,7 +1419,9 @@ No, I cannot attend
 </select>
 
 
-<!-- NUMBER OF GUESTS -->
+<!-- =================================================
+     NUMBER OF GUESTS
+================================================= -->
 
 <div id="guestContainer">
 
@@ -1288,6 +1437,8 @@ placeholder="How many guests are you bringing?"
 </div>
 
 
+<!-- MESSAGE -->
+
 <textarea
 name="message"
 rows="5"
@@ -1295,9 +1446,15 @@ placeholder="Leave a message"
 ></textarea>
 
 
-<button type="submit">
+<!-- SUBMIT -->
+
+<button
+type="submit"
+id="submitButton"
+>
 ♛ &nbsp; SEND RSVP &nbsp; ♛
 </button>
+
 
 <p id="message"></p>
 
@@ -1308,9 +1465,9 @@ placeholder="Leave a message"
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
@@ -1333,9 +1490,9 @@ Yathziry Quirino & Alexandra Garcia
 </footer>
 
 
-<!-- =========================
+<!-- =====================================================
      EMAILJS
-========================= -->
+===================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
@@ -1346,9 +1503,9 @@ emailjs.init({
 });
 
 
-/* =========================
-   SHOW GUEST BOX
-========================= */
+/* =====================================================
+   GUEST BOX
+===================================================== */
 
 const attendance =
 document.getElementById("attendance");
@@ -1360,7 +1517,7 @@ const guests =
 document.getElementById("guests");
 
 
-attendance.addEventListener("change", function(){
+attendance.addEventListener("change",function(){
 
     if(this.value === "Yes"){
 
@@ -1381,57 +1538,113 @@ attendance.addEventListener("change", function(){
 });
 
 
-/* =========================
+/* =====================================================
    RSVP
-========================= */
+===================================================== */
 
-document
-.getElementById("rsvpForm")
-.addEventListener("submit",function(e){
+const form =
+document.getElementById("rsvpForm");
+
+const message =
+document.getElementById("message");
+
+const submitButton =
+document.getElementById("submitButton");
+
+
+form.addEventListener("submit",function(e){
 
     e.preventDefault();
 
-    const message =
-    document.getElementById("message");
+
+    /* Make sure guests are entered */
+
+    if(attendance.value === "Yes" && !guests.value){
+
+        message.textContent =
+        "Please enter how many guests you are bringing.";
+
+        guests.focus();
+
+        return;
+
+    }
+
 
     message.textContent =
     "Sending RSVP...";
 
+    submitButton.disabled = true;
 
-    emailjs.sendForm(
+
+    /*
+       These parameters are sent directly to EmailJS.
+
+       Your EmailJS template can use:
+
+       {{name}}
+       {{email}}
+       {{attendance}}
+       {{guests}}
+       {{message}}
+    */
+
+    const templateParams = {
+
+        name: form.name.value,
+
+        email: form.email.value,
+
+        attendance: form.attendance.value,
+
+        guests:
+            attendance.value === "Yes"
+            ? guests.value
+            : "0",
+
+        message: form.message.value
+
+    };
+
+
+    emailjs.send(
         "service_l60yxx7",
         "template_fqkpg0u",
-        this
+        templateParams
     )
 
-    .then(()=>{
+    .then(function(){
 
         message.textContent =
         "💖 Thank you! Your RSVP has been received.";
 
-        this.reset();
+        form.reset();
 
         guestContainer.classList.remove("show");
 
         guests.required = false;
 
+        submitButton.disabled = false;
+
     })
 
-    .catch((error)=>{
+    .catch(function(error){
 
-        console.error(error);
+        console.error("EmailJS Error:",error);
 
         message.textContent =
         "❌ Unable to send RSVP. Please try again.";
+
+        submitButton.disabled = false;
 
     });
 
 });
 
 
-/* =========================
+/* =====================================================
    COUNTDOWN
-========================= */
+===================================================== */
 
 const eventDate =
 new Date("October 23, 2027 17:00:00").getTime();
@@ -1449,38 +1662,49 @@ function updateCountdown(){
     if(distance <= 0){
 
         document.getElementById("days").textContent = "0";
+
         document.getElementById("hours").textContent = "0";
+
         document.getElementById("minutes").textContent = "0";
+
         document.getElementById("seconds").textContent = "0";
 
         return;
+
     }
 
 
     document.getElementById("days").textContent =
     Math.floor(
-        distance / (1000 * 60 * 60 * 24)
+        distance /
+        (1000 * 60 * 60 * 24)
     );
 
 
     document.getElementById("hours").textContent =
     Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
+        (distance %
+        (1000 * 60 * 60 * 24))
+        /
+        (1000 * 60 * 60)
     );
 
 
     document.getElementById("minutes").textContent =
     Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
+        (distance %
+        (1000 * 60 * 60))
+        /
+        (1000 * 60)
     );
 
 
     document.getElementById("seconds").textContent =
     Math.floor(
-        (distance % (1000 * 60))
-        / 1000
+        (distance %
+        (1000 * 60))
+        /
+        1000
     );
 
 }
@@ -1497,4 +1721,3 @@ setInterval(
 
 </body>
 </html>
-```
