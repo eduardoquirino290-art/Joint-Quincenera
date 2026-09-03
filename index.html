@@ -13,9 +13,9 @@
 
 <style>
 
-/* =========================================================
+/* =====================================================
    GLOBAL
-========================================================= */
+===================================================== */
 
 *{
     margin:0;
@@ -54,6 +54,7 @@ body::before{
             rgba(212,175,55,.08),
             transparent 20%
         ),
+
         radial-gradient(
             circle at 80% 70%,
             rgba(212,175,55,.06),
@@ -63,329 +64,209 @@ body::before{
     z-index:-1;
 }
 
-/* =========================================================
+
+/* =====================================================
    GOLD BUTTERFLIES
-   These are ABSOLUTE, not fixed.
-   They stay in their section and DO NOT follow the screen.
-========================================================= */
+===================================================== */
+
+/*
+   IMPORTANT:
+   Put your butterfly image beside this HTML file:
+
+   gold-butterfly.webp
+*/
 
 .butterfly{
     position:absolute;
 
-    width:48px;
-    height:42px;
+    width:115px;
+    height:auto;
 
-    z-index:1;
+    object-fit:contain;
+
+    /*
+       Makes the white background of the supplied
+       butterfly image blend into the dark red page.
+    */
+    mix-blend-mode:multiply;
+
+    filter:
+        drop-shadow(0 0 5px rgba(255,215,80,.85))
+        drop-shadow(0 0 15px rgba(212,175,55,.45))
+        brightness(1.12)
+        saturate(1.2);
+
+    opacity:.92;
 
     pointer-events:none;
 
-    filter:
-        drop-shadow(0 0 5px rgba(255,215,80,.75))
-        drop-shadow(0 0 12px rgba(212,175,55,.35));
+    z-index:1;
 
-    opacity:.95;
+    /*
+       They are NOT fixed.
+       They belong to their section and therefore
+       scroll naturally with the page.
+    */
 }
 
-/* Body */
 
-.butterfly::before{
-    content:"";
-
-    position:absolute;
-
-    width:5px;
-    height:29px;
-
-    left:21px;
-    top:7px;
-
-    border-radius:50%;
-
-    background:
-        linear-gradient(
-            90deg,
-            #7a5700,
-            #fff0a0,
-            #d4af37,
-            #fff5bd,
-            #8d6500
-        );
-
-    box-shadow:
-        0 0 5px rgba(255,235,140,.9);
-
-    z-index:3;
-}
-
-/* Wings */
+/* Extra realistic golden glow */
 
 .butterfly::after{
     content:"";
-
-    position:absolute;
-
-    width:100%;
-    height:100%;
-
-    left:0;
-    top:0;
-
-    background:
-
-        /* LEFT UPPER WING */
-        radial-gradient(
-            ellipse at 25% 27%,
-            #fffbd0 0%,
-            #f8dc63 14%,
-            #d4af37 35%,
-            #a87800 58%,
-            #4c3300 100%
-        );
-
-    clip-path:polygon(
-        48% 28%,
-        38% 5%,
-        18% 0%,
-        2% 13%,
-        0% 35%,
-        14% 52%,
-        34% 48%
-    );
-
-    filter:
-        drop-shadow(0 0 4px rgba(255,224,100,.7));
-
-    z-index:2;
 }
 
-/* Extra wing using inner element */
 
-.butterfly .wing-right{
-    position:absolute;
+/* =====================================================
+   HERO BUTTERFLIES
+===================================================== */
 
-    width:100%;
-    height:100%;
-
-    left:0;
-    top:0;
-
-    background:
-        radial-gradient(
-            ellipse at 75% 27%,
-            #fffbd0 0%,
-            #f8dc63 14%,
-            #d4af37 35%,
-            #a87800 58%,
-            #4c3300 100%
-        );
-
-    clip-path:polygon(
-        52% 28%,
-        62% 5%,
-        82% 0%,
-        98% 13%,
-        100% 35%,
-        86% 52%,
-        66% 48%
-    );
-
-    filter:
-        drop-shadow(0 0 4px rgba(255,224,100,.7));
-
+.hero-butterfly{
     z-index:1;
 }
 
-/* Lower wings */
 
-.butterfly .wing-left-bottom{
-    position:absolute;
+/* Left butterfly */
 
-    width:100%;
-    height:100%;
+.hero-butterfly.one{
+    width:125px;
 
-    left:0;
-    top:0;
-
-    background:
-        radial-gradient(
-            ellipse at 29% 65%,
-            #fff7b5 0%,
-            #e6c44d 18%,
-            #b88708 48%,
-            #614400 100%
-        );
-
-    clip-path:polygon(
-        45% 43%,
-        30% 48%,
-        8% 56%,
-        7% 72%,
-        22% 83%,
-        38% 72%
-    );
-
-    z-index:1;
-}
-
-.butterfly .wing-right-bottom{
-    position:absolute;
-
-    width:100%;
-    height:100%;
-
-    left:0;
-    top:0;
-
-    background:
-        radial-gradient(
-            ellipse at 71% 65%,
-            #fff7b5 0%,
-            #e6c44d 18%,
-            #b88708 48%,
-            #614400 100%
-        );
-
-    clip-path:polygon(
-        55% 43%,
-        70% 48%,
-        92% 56%,
-        93% 72%,
-        78% 83%,
-        62% 72%
-    );
-
-    z-index:1;
-}
-
-/* Antennae */
-
-.butterfly .antenna-left,
-.butterfly .antenna-right{
-    position:absolute;
-
-    width:15px;
-    height:10px;
-
-    top:0;
-
-    border-top:1px solid #e8c64e;
-
-    z-index:4;
-}
-
-.butterfly .antenna-left{
-    left:20px;
-    transform:rotate(-30deg);
-}
-
-.butterfly .antenna-right{
-    left:24px;
-    transform:rotate(30deg);
-}
-
-/* =========================================================
-   BUTTERFLY LOCATIONS
-========================================================= */
-
-/* Hero butterflies */
-
-.hero-butterfly-1{
-    top:14%;
-    left:9%;
-    transform:rotate(-15deg) scale(1.15);
-}
-
-.hero-butterfly-2{
-    top:25%;
-    right:8%;
-    transform:rotate(18deg) scale(.9);
-}
-
-.hero-butterfly-3{
-    bottom:17%;
-    left:15%;
-    transform:rotate(12deg) scale(.75);
-}
-
-.hero-butterfly-4{
-    bottom:13%;
-    right:13%;
-    transform:rotate(-12deg) scale(1);
-}
-
-/* Countdown */
-
-.countdown-butterfly-left{
-    top:13%;
-    left:3%;
-    transform:rotate(-18deg) scale(.8);
-}
-
-.countdown-butterfly-right{
-    top:15%;
-    right:3%;
-    transform:rotate(20deg) scale(.75);
-}
-
-/* Celebration */
-
-.celebration-butterfly-left{
-    bottom:14%;
-    left:5%;
-    transform:rotate(-15deg) scale(.85);
-}
-
-.celebration-butterfly-right{
+    left:7%;
     top:18%;
-    right:5%;
-    transform:rotate(15deg) scale(.7);
+
+    transform:rotate(-12deg);
+
+    animation:
+        butterflyPop 1.2s ease-out,
+        gentleFloatOne 5s ease-in-out infinite 1.2s;
 }
 
-/* Event */
 
-.event-butterfly-left{
-    top:20%;
-    left:5%;
-    transform:rotate(15deg) scale(.75);
+/* Right butterfly */
+
+.hero-butterfly.two{
+    width:110px;
+
+    right:7%;
+    top:24%;
+
+    transform:rotate(13deg);
+
+    animation:
+        butterflyPop 1.5s ease-out,
+        gentleFloatTwo 6s ease-in-out infinite 1.5s;
 }
 
-.event-butterfly-right{
-    bottom:18%;
-    right:5%;
-    transform:rotate(-15deg) scale(.85);
+
+/* Lower left */
+
+.hero-butterfly.three{
+    width:82px;
+
+    left:13%;
+    bottom:17%;
+
+    transform:rotate(18deg);
+
+    opacity:.72;
+
+    animation:
+        butterflyPop 1.8s ease-out,
+        gentleFloatThree 7s ease-in-out infinite 1.8s;
 }
 
-/* Gallery */
 
-.gallery-butterfly-left{
-    top:10%;
-    left:3%;
-    transform:rotate(-12deg) scale(.75);
+/* Lower right */
+
+.hero-butterfly.four{
+    width:90px;
+
+    right:13%;
+    bottom:14%;
+
+    transform:rotate(-15deg);
+
+    opacity:.72;
+
+    animation:
+        butterflyPop 2s ease-out,
+        gentleFloatFour 6.5s ease-in-out infinite 2s;
 }
 
-.gallery-butterfly-right{
-    top:10%;
-    right:3%;
-    transform:rotate(15deg) scale(.8);
+
+/* =====================================================
+   BUTTERFLY ANIMATIONS
+===================================================== */
+
+@keyframes butterflyPop{
+
+    0%{
+        opacity:0;
+        transform:scale(.2) rotate(0deg);
+    }
+
+    60%{
+        opacity:1;
+        transform:scale(1.12) rotate(3deg);
+    }
+
+    100%{
+        opacity:.92;
+    }
 }
 
-/* RSVP */
 
-.rsvp-butterfly-left{
-    top:15%;
-    left:4%;
-    transform:rotate(-15deg) scale(.8);
+@keyframes gentleFloatOne{
+
+    0%,100%{
+        margin-top:0;
+    }
+
+    50%{
+        margin-top:-12px;
+    }
 }
 
-.rsvp-butterfly-right{
-    bottom:15%;
-    right:4%;
-    transform:rotate(15deg) scale(.8);
+
+@keyframes gentleFloatTwo{
+
+    0%,100%{
+        margin-top:0;
+    }
+
+    50%{
+        margin-top:14px;
+    }
 }
 
-/* =========================================================
+
+@keyframes gentleFloatThree{
+
+    0%,100%{
+        margin-top:0;
+    }
+
+    50%{
+        margin-top:-10px;
+    }
+}
+
+
+@keyframes gentleFloatFour{
+
+    0%,100%{
+        margin-top:0;
+    }
+
+    50%{
+        margin-top:11px;
+    }
+}
+
+
+/* =====================================================
    GOLD DECORATIONS
-========================================================= */
+===================================================== */
 
 .gold-line{
     width:180px;
@@ -410,9 +291,10 @@ body::before{
     text-align:center;
 }
 
-/* =========================================================
+
+/* =====================================================
    HERO
-========================================================= */
+===================================================== */
 
 .hero{
     min-height:100vh;
@@ -435,6 +317,7 @@ body::before{
             rgba(120,0,0,.5),
             transparent 55%
         ),
+
         linear-gradient(
             135deg,
             #4d0505,
@@ -445,37 +328,53 @@ body::before{
     border-bottom:2px solid #d4af37;
 }
 
+
+/* Gold frame */
+
 .hero::before{
     content:"";
 
     position:absolute;
+
     inset:18px;
 
     border:1px solid #d4af37;
 
     pointer-events:none;
+
+    z-index:3;
 }
+
 
 .hero::after{
     content:"";
 
     position:absolute;
+
     inset:28px;
 
     border:1px solid rgba(212,175,55,.35);
 
     pointer-events:none;
+
+    z-index:3;
 }
+
 
 .hero-content{
     position:relative;
-    z-index:3;
+
+    z-index:5;
 
     max-width:1000px;
 }
 
+
+/* Crown */
+
 .crown{
     font-size:48px;
+
     color:#d4af37;
 
     margin-bottom:15px;
@@ -483,6 +382,9 @@ body::before{
     text-shadow:
         0 0 15px rgba(212,175,55,.5);
 }
+
+
+/* Names */
 
 .hero h1{
     font-family:'Great Vibes',cursive;
@@ -515,6 +417,7 @@ body::before{
     font-size:.65em;
 }
 
+
 .hero-subtitle{
     font-family:'Cinzel',serif;
 
@@ -526,6 +429,7 @@ body::before{
 
     margin-top:30px;
 }
+
 
 .hero-date{
     font-family:'Cinzel',serif;
@@ -539,9 +443,10 @@ body::before{
     margin-top:18px;
 }
 
-/* =========================================================
-   BUTTON
-========================================================= */
+
+/* =====================================================
+   RSVP BUTTON
+===================================================== */
 
 .btn{
     display:inline-block;
@@ -577,7 +482,12 @@ body::before{
         inset 0 1px rgba(255,255,255,.7);
 
     transition:.3s;
+
+    position:relative;
+
+    z-index:6;
 }
+
 
 .btn:hover{
     transform:translateY(-4px) scale(1.03);
@@ -587,9 +497,10 @@ body::before{
         inset 0 1px rgba(255,255,255,.8);
 }
 
-/* =========================================================
+
+/* =====================================================
    SECTIONS
-========================================================= */
+===================================================== */
 
 section{
     padding:90px 7%;
@@ -598,6 +509,7 @@ section{
 
     overflow:hidden;
 }
+
 
 .section-title{
     text-align:center;
@@ -616,8 +528,10 @@ section{
         0 0 15px rgba(212,175,55,.25);
 
     position:relative;
-    z-index:2;
+
+    z-index:3;
 }
+
 
 .section-title::before,
 .section-title::after{
@@ -626,9 +540,145 @@ section{
     color:#d4af37;
 }
 
-/* =========================================================
+
+/* =====================================================
+   DECORATIVE BUTTERFLIES THROUGHOUT PAGE
+===================================================== */
+
+.section-butterfly{
+    width:95px;
+
+    opacity:.65;
+
+    z-index:1;
+}
+
+
+/* Countdown */
+
+.countdown-butterfly{
+    left:3%;
+    top:25%;
+
+    transform:rotate(-15deg);
+}
+
+
+.countdown-butterfly-right{
+    right:4%;
+    bottom:12%;
+
+    width:75px;
+
+    transform:rotate(14deg);
+
+    opacity:.55;
+}
+
+
+/* Celebration */
+
+.celebration-butterfly{
+    right:4%;
+    top:25%;
+
+    transform:rotate(18deg);
+}
+
+
+.celebration-butterfly-left{
+    left:5%;
+    bottom:15%;
+
+    width:75px;
+
+    transform:rotate(-18deg);
+
+    opacity:.5;
+}
+
+
+/* Event */
+
+.event-butterfly{
+    left:4%;
+    top:30%;
+
+    width:80px;
+
+    transform:rotate(-12deg);
+
+    opacity:.55;
+}
+
+
+.event-butterfly-right{
+    right:5%;
+    bottom:20%;
+
+    width:95px;
+
+    transform:rotate(15deg);
+
+    opacity:.55;
+}
+
+
+/* Gallery */
+
+.gallery-butterfly{
+    right:3%;
+    top:17%;
+
+    width:85px;
+
+    transform:rotate(20deg);
+
+    opacity:.55;
+}
+
+
+.gallery-butterfly-left{
+    left:3%;
+    bottom:12%;
+
+    width:80px;
+
+    transform:rotate(-20deg);
+
+    opacity:.5;
+}
+
+
+/* RSVP */
+
+.rsvp-butterfly{
+    left:3%;
+    top:18%;
+
+    width:90px;
+
+    transform:rotate(-15deg);
+
+    opacity:.55;
+}
+
+
+.rsvp-butterfly-right{
+    right:3%;
+    bottom:15%;
+
+    width:85px;
+
+    transform:rotate(18deg);
+
+    opacity:.55;
+}
+
+
+/* =====================================================
    COUNTDOWN
-========================================================= */
+===================================================== */
 
 .countdown{
     display:grid;
@@ -643,8 +693,10 @@ section{
     margin:40px auto 0;
 
     position:relative;
-    z-index:2;
+
+    z-index:3;
 }
+
 
 .time-box{
     padding:35px 20px;
@@ -667,6 +719,7 @@ section{
         inset 0 0 25px rgba(212,175,55,.05);
 }
 
+
 .time-box span{
     display:block;
 
@@ -682,6 +735,7 @@ section{
         0 0 15px rgba(212,175,55,.25);
 }
 
+
 .time-label{
     color:#f8ead0;
 
@@ -692,9 +746,10 @@ section{
     text-transform:uppercase;
 }
 
-/* =========================================================
+
+/* =====================================================
    CARDS
-========================================================= */
+===================================================== */
 
 .card{
     max-width:950px;
@@ -722,8 +777,9 @@ section{
 
     position:relative;
 
-    z-index:2;
+    z-index:3;
 }
+
 
 .card h3{
     font-family:'Cinzel',serif;
@@ -737,15 +793,19 @@ section{
     margin-bottom:20px;
 }
 
+
 .card p{
     line-height:1.9;
 
     color:#f3e6d0;
+
+    margin:10px 0;
 }
 
-/* =========================================================
+
+/* =====================================================
    EVENT DETAILS
-========================================================= */
+===================================================== */
 
 .event-icon{
     font-size:42px;
@@ -755,9 +815,10 @@ section{
     margin-bottom:15px;
 }
 
-/* =========================================================
+
+/* =====================================================
    GALLERY
-========================================================= */
+===================================================== */
 
 .gallery{
     display:grid;
@@ -773,14 +834,17 @@ section{
 
     position:relative;
 
-    z-index:2;
+    z-index:3;
 }
+
 
 .placeholder{
     height:270px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
@@ -809,6 +873,7 @@ section{
     position:relative;
 }
 
+
 .placeholder::before{
     content:"♛";
 
@@ -820,6 +885,7 @@ section{
 
     font-size:24px;
 }
+
 
 .placeholder::after{
     content:"";
@@ -833,9 +899,10 @@ section{
     border-radius:7px;
 }
 
-/* =========================================================
+
+/* =====================================================
    RSVP
-========================================================= */
+===================================================== */
 
 .rsvp-card{
     max-width:850px;
@@ -860,8 +927,9 @@ section{
 
     position:relative;
 
-    z-index:2;
+    z-index:3;
 }
+
 
 form{
     display:flex;
@@ -870,6 +938,7 @@ form{
 
     gap:18px;
 }
+
 
 input,
 select,
@@ -893,10 +962,12 @@ textarea{
     transition:.3s;
 }
 
+
 input::placeholder,
 textarea::placeholder{
     color:#bda9a0;
 }
+
 
 input:focus,
 select:focus,
@@ -909,40 +980,46 @@ textarea:focus{
         0 0 15px rgba(212,175,55,.15);
 }
 
+
 select option{
     background:#260202;
+
     color:#f8ead0;
 }
 
-/* =========================================================
+
+/* =====================================================
    GUEST FIELD
-========================================================= */
+===================================================== */
 
 #guestContainer{
     display:none;
-
-    animation:guestAppear .3s ease;
 }
+
 
 #guestContainer.show{
     display:block;
 }
 
-@keyframes guestAppear{
-    from{
-        opacity:0;
-        transform:translateY(-8px);
-    }
 
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.guest-label{
+    display:block;
+
+    color:#e3c04b;
+
+    font-family:'Cinzel',serif;
+
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+
+    font-size:.9rem;
 }
 
-/* =========================================================
+
+/* =====================================================
    BUTTON
-========================================================= */
+===================================================== */
 
 button{
     padding:17px;
@@ -974,6 +1051,7 @@ button{
     transition:.3s;
 }
 
+
 button:hover{
     transform:translateY(-3px);
 
@@ -981,17 +1059,30 @@ button:hover{
         0 0 25px rgba(212,175,55,.4);
 }
 
+
+button:disabled{
+    opacity:.6;
+
+    cursor:not-allowed;
+
+    transform:none;
+}
+
+
 #message{
     text-align:center;
 
     color:#e6c957;
 
     font-weight:600;
+
+    min-height:24px;
 }
 
-/* =========================================================
+
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
 footer{
     padding:70px 20px;
@@ -1012,6 +1103,7 @@ footer{
     overflow:hidden;
 }
 
+
 footer h3{
     font-family:'Great Vibes',cursive;
 
@@ -1022,6 +1114,7 @@ footer h3{
     font-weight:400;
 }
 
+
 footer p{
     margin-top:15px;
 
@@ -1030,196 +1123,355 @@ footer p{
     letter-spacing:2px;
 }
 
-/* =========================================================
+
+/* Footer butterflies */
+
+.footer-butterfly{
+    position:absolute;
+
+    width:75px;
+
+    opacity:.5;
+
+    mix-blend-mode:multiply;
+
+    filter:
+        drop-shadow(0 0 8px rgba(255,215,80,.7))
+        brightness(1.15);
+}
+
+
+.footer-butterfly.left{
+    left:8%;
+
+    top:30%;
+
+    transform:rotate(-15deg);
+}
+
+
+.footer-butterfly.right{
+    right:8%;
+
+    top:35%;
+
+    transform:rotate(15deg);
+}
+
+
+/* =====================================================
    MOBILE
-========================================================= */
+===================================================== */
 
-@media(max-width:700px){
-
-    section{
-        padding:70px 5%;
-    }
+@media(max-width:600px){
 
     .hero{
         min-height:100svh;
 
-        padding:35px 18px;
+        padding:30px 18px;
     }
+
 
     .hero::before{
         inset:10px;
     }
 
+
     .hero::after{
         inset:18px;
     }
 
+
     .hero h1{
-        font-size:clamp(3.4rem,16vw,5rem);
+        font-size:3.8rem;
+
+        line-height:.92;
     }
+
 
     .hero-subtitle{
         font-size:.68rem;
+
         letter-spacing:2.5px;
-        margin-top:25px;
+
+        margin-top:24px;
     }
+
 
     .hero-date{
         font-size:1rem;
+
         letter-spacing:2px;
     }
+
 
     .crown{
         font-size:38px;
     }
 
+
     .btn{
         padding:14px 35px;
+
         font-size:.85rem;
-    }
 
-    .section-title{
-        font-size:1.35rem;
-        letter-spacing:3px;
-    }
-
-    .countdown{
-        grid-template-columns:repeat(2,1fr);
-        gap:12px;
-        margin-top:30px;
-    }
-
-    .time-box{
-        padding:23px 8px;
-    }
-
-    .time-box span{
-        font-size:2rem;
-    }
-
-    .time-label{
-        font-size:.7rem;
         letter-spacing:2px;
     }
 
-    .card{
-        padding:35px 20px;
+
+    /*
+       MOBILE HERO BUTTERFLIES
+
+       Kept toward the corners so they don't
+       cover the names or RSVP button.
+    */
+
+    .hero-butterfly.one{
+        width:70px;
+
+        left:3%;
+
+        top:12%;
     }
+
+
+    .hero-butterfly.two{
+        width:68px;
+
+        right:2%;
+
+        top:14%;
+    }
+
+
+    .hero-butterfly.three{
+        width:55px;
+
+        left:5%;
+
+        bottom:10%;
+    }
+
+
+    .hero-butterfly.four{
+        width:58px;
+
+        right:5%;
+
+        bottom:9%;
+    }
+
+
+    section{
+        padding:70px 5%;
+    }
+
+
+    .section-title{
+        font-size:1.35rem;
+
+        letter-spacing:3px;
+    }
+
+
+    .countdown{
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:12px;
+
+        margin-top:30px;
+    }
+
+
+    .time-box{
+        padding:24px 8px;
+    }
+
+
+    .time-box span{
+        font-size:2.1rem;
+    }
+
+
+    .time-label{
+        font-size:.68rem;
+
+        letter-spacing:2px;
+    }
+
+
+    .card{
+        padding:30px 20px;
+    }
+
 
     .gallery{
         grid-template-columns:1fr 1fr;
+
         gap:12px;
     }
 
+
     .placeholder{
-        height:190px;
-        font-size:.75rem;
+        height:200px;
+
+        font-size:.8rem;
     }
+
 
     .rsvp-card{
         padding:25px 18px;
     }
 
+
+    input,
+    select,
+    textarea{
+        font-size:16px;
+    }
+
+
     footer h3{
         font-size:2.8rem;
     }
 
-    /* Smaller butterflies on phones */
 
-    .butterfly{
-        width:36px;
-        height:32px;
+    /*
+       Smaller decorative butterflies on mobile.
+       These stay at the edges and won't cover cards/text.
+    */
 
-        opacity:.9;
+    .section-butterfly{
+        width:55px;
+
+        opacity:.5;
     }
 
-    /* Hero placement */
 
-    .hero-butterfly-1{
-        top:9%;
-        left:4%;
-        transform:rotate(-15deg) scale(.7);
+    .countdown-butterfly{
+        left:-5px;
+
+        top:15%;
     }
 
-    .hero-butterfly-2{
-        top:11%;
-        right:4%;
-        transform:rotate(18deg) scale(.6);
-    }
-
-    .hero-butterfly-3{
-        bottom:8%;
-        left:5%;
-        transform:rotate(12deg) scale(.55);
-    }
-
-    .hero-butterfly-4{
-        bottom:9%;
-        right:5%;
-        transform:rotate(-12deg) scale(.65);
-    }
-
-    /* Section butterflies */
-
-    .countdown-butterfly-left,
-    .celebration-butterfly-left,
-    .event-butterfly-left,
-    .gallery-butterfly-left,
-    .rsvp-butterfly-left{
-        left:2%;
-        transform:scale(.55);
-    }
-
-    .countdown-butterfly-right,
-    .celebration-butterfly-right,
-    .event-butterfly-right,
-    .gallery-butterfly-right,
-    .rsvp-butterfly-right{
-        right:2%;
-        transform:scale(.55);
-    }
-
-    /* Keep butterflies farther away from content */
-
-    .countdown-butterfly-left{
-        top:5%;
-    }
 
     .countdown-butterfly-right{
-        top:5%;
+        right:-5px;
+
+        bottom:8%;
     }
+
+
+    .celebration-butterfly{
+        right:-5px;
+
+        top:18%;
+    }
+
 
     .celebration-butterfly-left{
-        bottom:5%;
+        left:-5px;
+
+        bottom:10%;
     }
 
-    .celebration-butterfly-right{
-        top:5%;
+
+    .event-butterfly{
+        left:-5px;
+
+        top:20%;
     }
 
-    .event-butterfly-left{
-        top:5%;
-    }
 
     .event-butterfly-right{
-        bottom:5%;
+        right:-5px;
+
+        bottom:12%;
     }
+
+
+    .gallery-butterfly{
+        right:-5px;
+
+        top:8%;
+    }
+
 
     .gallery-butterfly-left{
-        top:3%;
+        left:-5px;
+
+        bottom:8%;
     }
 
-    .gallery-butterfly-right{
-        top:3%;
+
+    .rsvp-butterfly{
+        left:-5px;
+
+        top:8%;
     }
 
-    .rsvp-butterfly-left{
-        top:4%;
-    }
 
     .rsvp-butterfly-right{
-        bottom:4%;
+        right:-5px;
+
+        bottom:8%;
     }
+
+
+    .footer-butterfly{
+        width:50px;
+    }
+
+
+    .footer-butterfly.left{
+        left:2%;
+    }
+
+
+    .footer-butterfly.right{
+        right:2%;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media(max-width:380px){
+
+    .hero h1{
+        font-size:3.25rem;
+    }
+
+
+    .hero-butterfly.one{
+        width:55px;
+    }
+
+
+    .hero-butterfly.two{
+        width:53px;
+    }
+
+
+    .hero-butterfly.three,
+    .hero-butterfly.four{
+        width:45px;
+    }
+
+
+    .section-title{
+        font-size:1.2rem;
+    }
+
+
+    .time-box span{
+        font-size:1.8rem;
+    }
+
 }
 
 </style>
@@ -1228,71 +1480,80 @@ footer p{
 <body>
 
 
-<!-- =========================================================
+<!-- =====================================================
      HERO
-========================================================= -->
+===================================================== -->
 
 <section class="hero">
 
-    <!-- GOLD BUTTERFLIES -->
-    <div class="butterfly hero-butterfly-1">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
 
-    <div class="butterfly hero-butterfly-2">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
+    <!-- REALISTIC GOLD BUTTERFLIES -->
 
-    <div class="butterfly hero-butterfly-3">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly hero-butterfly one"
+        alt=""
+    >
 
-    <div class="butterfly hero-butterfly-4">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly hero-butterfly two"
+        alt=""
+    >
+
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly hero-butterfly three"
+        alt=""
+    >
+
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly hero-butterfly four"
+        alt=""
+    >
 
 
     <div class="hero-content">
 
-        <div class="crown">♛</div>
+        <div class="crown">
+            ♛
+        </div>
+
 
         <h1>
             Yathziry Quirino
             <br>
-            <span class="ampersand">&</span>
+
+            <span class="ampersand">
+                &
+            </span>
+
             <br>
+
             Alexandra Garcia
         </h1>
+
 
         <div class="ornament">
             ✦ ─── ✧ ─── ✦
         </div>
 
+
         <p class="hero-subtitle">
             A JOINT QUINCEAÑERA CELEBRATION
         </p>
+
 
         <p class="hero-date">
             October 23, 2027
         </p>
 
-        <a href="#rsvp" class="btn">
+
+        <a
+            href="#rsvp"
+            class="btn"
+        >
             ♛ &nbsp; RSVP &nbsp; ♛
         </a>
 
@@ -1301,56 +1562,66 @@ footer p{
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      COUNTDOWN
-========================================================= -->
+===================================================== -->
 
 <section>
 
-    <div class="butterfly countdown-butterfly-left">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly section-butterfly countdown-butterfly"
+        alt=""
+    >
 
-    <div class="butterfly countdown-butterfly-right">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly section-butterfly countdown-butterfly-right"
+        alt=""
+    >
+
 
     <h2 class="section-title">
         COUNTDOWN
     </h2>
 
+
     <div class="ornament">
         ✦
     </div>
+
 
     <div class="countdown">
 
         <div class="time-box">
             <span id="days">0</span>
-            <div class="time-label">Days</div>
+            <div class="time-label">
+                Days
+            </div>
         </div>
+
 
         <div class="time-box">
             <span id="hours">0</span>
-            <div class="time-label">Hours</div>
+            <div class="time-label">
+                Hours
+            </div>
         </div>
+
 
         <div class="time-box">
             <span id="minutes">0</span>
-            <div class="time-label">Minutes</div>
+            <div class="time-label">
+                Minutes
+            </div>
         </div>
+
 
         <div class="time-box">
             <span id="seconds">0</span>
-            <div class="time-label">Seconds</div>
+            <div class="time-label">
+                Seconds
+            </div>
         </div>
 
     </div>
@@ -1358,31 +1629,29 @@ footer p{
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      CELEBRATION
-========================================================= -->
+===================================================== -->
 
 <section>
 
-    <div class="butterfly celebration-butterfly-left">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly section-butterfly celebration-butterfly"
+        alt=""
+    >
 
-    <div class="butterfly celebration-butterfly-right">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly section-butterfly celebration-butterfly-left"
+        alt=""
+    >
+
 
     <h2 class="section-title">
         OUR CELEBRATION
     </h2>
+
 
     <div class="card">
 
@@ -1390,14 +1659,17 @@ footer p{
             ❦
         </div>
 
+
         <p>
             We are excited to celebrate this special milestone
             with our family and friends.
         </p>
 
+
         <p>
             More details about our celebration will be shared soon.
         </p>
+
 
         <div class="ornament">
             ❦
@@ -1408,31 +1680,29 @@ footer p{
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      EVENT DETAILS
-========================================================= -->
+===================================================== -->
 
 <section>
 
-    <div class="butterfly event-butterfly-left">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly section-butterfly event-butterfly"
+        alt=""
+    >
 
-    <div class="butterfly event-butterfly-right">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly section-butterfly event-butterfly-right"
+        alt=""
+    >
+
 
     <h2 class="section-title">
         EVENT DETAILS
     </h2>
+
 
     <div class="card">
 
@@ -1440,9 +1710,11 @@ footer p{
             ⌖
         </div>
 
+
         <h3>
             VENUE COMING SOON
         </h3>
+
 
         <p>
             Location details will be announced soon.
@@ -1453,31 +1725,29 @@ footer p{
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      GALLERY
-========================================================= -->
+===================================================== -->
 
 <section>
 
-    <div class="butterfly gallery-butterfly-left">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly section-butterfly gallery-butterfly"
+        alt=""
+    >
 
-    <div class="butterfly gallery-butterfly-right">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly section-butterfly gallery-butterfly-left"
+        alt=""
+    >
+
 
     <h2 class="section-title">
         GALLERY
     </h2>
+
 
     <div class="gallery">
 
@@ -1485,13 +1755,16 @@ footer p{
             PHOTO<br>COMING SOON
         </div>
 
-        <div class="placeholder">
-            PHOTO<br>COMING SOON
-        </div>
 
         <div class="placeholder">
             PHOTO<br>COMING SOON
         </div>
+
+
+        <div class="placeholder">
+            PHOTO<br>COMING SOON
+        </div>
+
 
         <div class="placeholder">
             PHOTO<br>COMING SOON
@@ -1502,36 +1775,36 @@ footer p{
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      RSVP
-========================================================= -->
+===================================================== -->
 
 <section id="rsvp">
 
-    <div class="butterfly rsvp-butterfly-left">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly section-butterfly rsvp-butterfly"
+        alt=""
+    >
 
-    <div class="butterfly rsvp-butterfly-right">
-        <div class="wing-right"></div>
-        <div class="wing-left-bottom"></div>
-        <div class="wing-right-bottom"></div>
-        <div class="antenna-left"></div>
-        <div class="antenna-right"></div>
-    </div>
+    <img
+        src="gold-butterfly.webp"
+        class="butterfly section-butterfly rsvp-butterfly-right"
+        alt=""
+    >
 
 
     <h2 class="section-title">
         RSVP
     </h2>
 
+
     <div class="rsvp-card">
 
         <form id="rsvpForm">
+
+
+            <!-- NAME -->
 
             <input
                 type="text"
@@ -1540,12 +1813,18 @@ footer p{
                 required
             >
 
+
+            <!-- EMAIL -->
+
             <input
                 type="email"
                 name="email"
                 placeholder="Your Email"
                 required
             >
+
+
+            <!-- ATTENDANCE -->
 
             <select
                 name="attendance"
@@ -1568,11 +1847,17 @@ footer p{
             </select>
 
 
-            <!-- =============================================
-                 NUMBER OF GUESTS
-            ============================================== -->
+            <!-- GUEST COUNT -->
 
             <div id="guestContainer">
+
+                <label
+                    for="guests"
+                    class="guest-label"
+                >
+                    NUMBER OF GUESTS
+                </label>
+
 
                 <input
                     type="number"
@@ -1586,6 +1871,8 @@ footer p{
             </div>
 
 
+            <!-- MESSAGE -->
+
             <textarea
                 name="message"
                 rows="5"
@@ -1593,9 +1880,15 @@ footer p{
             ></textarea>
 
 
-            <button type="submit">
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                id="submitButton"
+            >
                 ♛ &nbsp; SEND RSVP &nbsp; ♛
             </button>
+
 
             <p id="message"></p>
 
@@ -1606,23 +1899,41 @@ footer p{
 </section>
 
 
-<!-- =========================================================
+<!-- =====================================================
      FOOTER
-========================================================= -->
+===================================================== -->
 
 <footer>
+
+
+    <img
+        src="gold-butterfly.webp"
+        class="footer-butterfly left"
+        alt=""
+    >
+
+
+    <img
+        src="gold-butterfly.webp"
+        class="footer-butterfly right"
+        alt=""
+    >
+
 
     <div class="ornament">
         ✦ ─── ❦ ─── ✦
     </div>
 
+
     <h3>
         With Love ❤️
     </h3>
 
+
     <p>
         Yathziry Quirino & Alexandra Garcia
     </p>
+
 
     <div class="ornament">
         ✦ ─── ❦ ─── ✦
@@ -1631,160 +1942,270 @@ footer p{
 </footer>
 
 
-<!-- =========================================================
+<!-- =====================================================
      EMAILJS
-========================================================= -->
+===================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
+
 <script>
+
+
+/* =====================================================
+   EMAILJS INITIALIZATION
+===================================================== */
 
 emailjs.init({
     publicKey:"vsmZUgvnvKlx7ymca"
 });
 
 
-/* =========================================================
+/* =====================================================
    GUEST BOX
-========================================================= */
+===================================================== */
 
 const attendance =
-document.getElementById("attendance");
+    document.getElementById("attendance");
+
 
 const guestContainer =
-document.getElementById("guestContainer");
+    document.getElementById("guestContainer");
+
 
 const guests =
-document.getElementById("guests");
+    document.getElementById("guests");
 
 
-attendance.addEventListener("change", function(){
+attendance.addEventListener(
+    "change",
+    function(){
 
-    if(this.value === "Yes"){
+        if(this.value === "Yes"){
 
-        guestContainer.classList.add("show");
+            guestContainer.classList.add("show");
 
-        guests.required = true;
+            guests.required = true;
 
-    }else{
+        }
 
-        guestContainer.classList.remove("show");
+        else{
 
-        guests.required = false;
+            guestContainer.classList.remove("show");
 
-        guests.value = "";
+            guests.required = false;
+
+            guests.value = "";
+
+        }
 
     }
+);
 
-});
 
-
-/* =========================================================
+/* =====================================================
    RSVP
-========================================================= */
+===================================================== */
 
-document
-.getElementById("rsvpForm")
-.addEventListener("submit",function(e){
+const form =
+    document.getElementById("rsvpForm");
 
-    e.preventDefault();
 
-    const message =
+const message =
     document.getElementById("message");
 
-    message.textContent =
-    "Sending RSVP...";
+
+const submitButton =
+    document.getElementById("submitButton");
 
 
-    emailjs.sendForm(
-        "service_l60yxx7",
-        "template_fqkpg0u",
-        this
-    )
+form.addEventListener(
+    "submit",
+    function(e){
 
-    .then(()=>{
+        e.preventDefault();
+
 
         message.textContent =
-        "💖 Thank you! Your RSVP has been received.";
-
-        this.reset();
-
-        guestContainer.classList.remove("show");
-
-        guests.required = false;
-
-    })
-
-    .catch((error)=>{
-
-        console.error(error);
-
-        message.textContent =
-        "❌ Unable to send RSVP. Please try again.";
-
-    });
-
-});
+            "Sending RSVP...";
 
 
-/* =========================================================
+        submitButton.disabled =
+            true;
+
+
+        /*
+           We send the fields explicitly so EmailJS
+           receives BOTH attendance and guest count.
+        */
+
+        const templateParams = {
+
+            name:
+                form.elements["name"].value,
+
+            email:
+                form.elements["email"].value,
+
+            attendance:
+                form.elements["attendance"].value,
+
+            guests:
+                form.elements["guests"].value || "0",
+
+            message:
+                form.elements["message"].value
+
+        };
+
+
+        emailjs.send(
+            "service_l60yxx7",
+            "template_fqkpg0u",
+            templateParams
+        )
+
+        .then(function(){
+
+            message.textContent =
+                "💖 Thank you! Your RSVP has been received.";
+
+
+            form.reset();
+
+
+            guestContainer.classList.remove(
+                "show"
+            );
+
+
+            guests.required =
+                false;
+
+
+            submitButton.disabled =
+                false;
+
+        })
+
+
+        .catch(function(error){
+
+            console.error(
+                "EmailJS Error:",
+                error
+            );
+
+
+            message.textContent =
+                "❌ Unable to send RSVP. Please try again.";
+
+
+            submitButton.disabled =
+                false;
+
+        });
+
+    }
+);
+
+
+/* =====================================================
    COUNTDOWN
-========================================================= */
+===================================================== */
 
 const eventDate =
-new Date("October 23, 2027 17:00:00").getTime();
+    new Date(
+        "October 23, 2027 17:00:00"
+    ).getTime();
 
 
 function updateCountdown(){
 
     const now =
-    new Date().getTime();
+        new Date().getTime();
+
 
     const distance =
-    eventDate - now;
+        eventDate - now;
 
 
     if(distance <= 0){
 
-        document.getElementById("days").textContent = "0";
-        document.getElementById("hours").textContent = "0";
-        document.getElementById("minutes").textContent = "0";
-        document.getElementById("seconds").textContent = "0";
+        document.getElementById(
+            "days"
+        ).textContent = "0";
+
+
+        document.getElementById(
+            "hours"
+        ).textContent = "0";
+
+
+        document.getElementById(
+            "minutes"
+        ).textContent = "0";
+
+
+        document.getElementById(
+            "seconds"
+        ).textContent = "0";
+
 
         return;
+
     }
 
 
-    document.getElementById("days").textContent =
-    Math.floor(
-        distance / (1000 * 60 * 60 * 24)
-    );
+    document.getElementById(
+        "days"
+    ).textContent =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
 
 
-    document.getElementById("hours").textContent =
-    Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
-    );
+    document.getElementById(
+        "hours"
+    ).textContent =
+        Math.floor(
+            (
+                distance %
+                (1000 * 60 * 60 * 24)
+            ) /
+            (1000 * 60 * 60)
+        );
 
 
-    document.getElementById("minutes").textContent =
-    Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
-    );
+    document.getElementById(
+        "minutes"
+    ).textContent =
+        Math.floor(
+            (
+                distance %
+                (1000 * 60 * 60)
+            ) /
+            (1000 * 60)
+        );
 
 
-    document.getElementById("seconds").textContent =
-    Math.floor(
-        (distance % (1000 * 60))
-        / 1000
-    );
+    document.getElementById(
+        "seconds"
+    ).textContent =
+        Math.floor(
+            (
+                distance %
+                (1000 * 60)
+            ) /
+            1000
+        );
 
 }
 
 
 updateCountdown();
+
 
 setInterval(
     updateCountdown,
