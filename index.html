@@ -13,9 +13,9 @@
 
 <style>
 
-/* =====================================================
+/* =========================
    GLOBAL
-===================================================== */
+========================= */
 
 *{
     margin:0;
@@ -29,15 +29,8 @@ html{
 
 body{
     font-family:'Poppins',sans-serif;
-
     background:
-        radial-gradient(
-            circle at 50% 20%,
-            #5b0808 0%,
-            #310303 45%,
-            #160101 100%
-        );
-
+        radial-gradient(circle at 50% 20%, #5b0808 0%, #310303 45%, #160101 100%);
     color:#f8ead0;
     overflow-x:hidden;
 }
@@ -49,224 +42,170 @@ body::before{
     pointer-events:none;
 
     background:
-        radial-gradient(
-            circle at 20% 30%,
-            rgba(212,175,55,.08),
-            transparent 20%
-        ),
-
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(212,175,55,.06),
-            transparent 20%
-        );
+        radial-gradient(circle at 20% 30%, rgba(212,175,55,.08), transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(212,175,55,.06), transparent 20%);
 
     z-index:-1;
 }
 
 
-/* =====================================================
+/* =========================
    GOLD BUTTERFLIES
-===================================================== */
+========================= */
 
 /*
    IMPORTANT:
-   Put your butterfly image beside this HTML file:
+   Save your butterfly image as:
 
-   gold-butterfly.webp
+   butterfly.png
+
+   and put it beside index.html.
 */
 
 .butterfly{
     position:absolute;
 
-    width:115px;
+    width:100px;
     height:auto;
 
-    object-fit:contain;
+    z-index:1;
+    pointer-events:none;
 
     /*
-       Makes the white background of the supplied
-       butterfly image blend into the dark red page.
+       Removes the appearance of the white
+       background from the uploaded image
+       against the dark red sections.
     */
     mix-blend-mode:multiply;
 
     filter:
-        drop-shadow(0 0 5px rgba(255,215,80,.85))
-        drop-shadow(0 0 15px rgba(212,175,55,.45))
-        brightness(1.12)
-        saturate(1.2);
+        brightness(1.35)
+        saturate(1.35)
+        contrast(1.12)
+        drop-shadow(0 0 4px rgba(255,215,90,.95))
+        drop-shadow(0 0 12px rgba(212,175,55,.65))
+        drop-shadow(0 0 24px rgba(212,175,55,.25));
 
-    opacity:.92;
-
-    pointer-events:none;
-
-    z-index:1;
-
-    /*
-       They are NOT fixed.
-       They belong to their section and therefore
-       scroll naturally with the page.
-    */
+    opacity:.95;
 }
 
-
-/* Extra realistic golden glow */
-
-.butterfly::after{
-    content:"";
-}
-
-
-/* =====================================================
+/*
    HERO BUTTERFLIES
-===================================================== */
+*/
 
-.hero-butterfly{
-    z-index:1;
+.hero-butterfly-1{
+    top:8%;
+    left:4%;
+    width:120px;
 }
 
-
-/* Left butterfly */
-
-.hero-butterfly.one{
-    width:125px;
-
-    left:7%;
-    top:18%;
-
-    transform:rotate(-12deg);
-
-    animation:
-        butterflyPop 1.2s ease-out,
-        gentleFloatOne 5s ease-in-out infinite 1.2s;
+.hero-butterfly-2{
+    top:12%;
+    right:5%;
+    width:100px;
 }
 
+.hero-butterfly-3{
+    bottom:9%;
+    left:8%;
+    width:75px;
+}
 
-/* Right butterfly */
-
-.hero-butterfly.two{
-    width:110px;
-
+.hero-butterfly-4{
+    bottom:12%;
     right:7%;
-    top:24%;
-
-    transform:rotate(13deg);
-
-    animation:
-        butterflyPop 1.5s ease-out,
-        gentleFloatTwo 6s ease-in-out infinite 1.5s;
-}
-
-
-/* Lower left */
-
-.hero-butterfly.three{
-    width:82px;
-
-    left:13%;
-    bottom:17%;
-
-    transform:rotate(18deg);
-
-    opacity:.72;
-
-    animation:
-        butterflyPop 1.8s ease-out,
-        gentleFloatThree 7s ease-in-out infinite 1.8s;
-}
-
-
-/* Lower right */
-
-.hero-butterfly.four{
     width:90px;
-
-    right:13%;
-    bottom:14%;
-
-    transform:rotate(-15deg);
-
-    opacity:.72;
-
-    animation:
-        butterflyPop 2s ease-out,
-        gentleFloatFour 6.5s ease-in-out infinite 2s;
 }
 
 
-/* =====================================================
-   BUTTERFLY ANIMATIONS
-===================================================== */
+/*
+   COUNTDOWN BUTTERFLIES
+*/
 
-@keyframes butterflyPop{
+.countdown-butterfly-1{
+    top:12%;
+    left:2%;
+    width:70px;
+}
 
-    0%{
-        opacity:0;
-        transform:scale(.2) rotate(0deg);
-    }
-
-    60%{
-        opacity:1;
-        transform:scale(1.12) rotate(3deg);
-    }
-
-    100%{
-        opacity:.92;
-    }
+.countdown-butterfly-2{
+    top:60%;
+    right:3%;
+    width:75px;
 }
 
 
-@keyframes gentleFloatOne{
+/*
+   CELEBRATION BUTTERFLIES
+*/
 
-    0%,100%{
-        margin-top:0;
-    }
+.celebration-butterfly-1{
+    top:15%;
+    right:4%;
+    width:85px;
+}
 
-    50%{
-        margin-top:-12px;
-    }
+.celebration-butterfly-2{
+    bottom:12%;
+    left:4%;
+    width:70px;
 }
 
 
-@keyframes gentleFloatTwo{
+/*
+   EVENT BUTTERFLIES
+*/
 
-    0%,100%{
-        margin-top:0;
-    }
+.event-butterfly-1{
+    top:15%;
+    left:4%;
+    width:75px;
+}
 
-    50%{
-        margin-top:14px;
-    }
+.event-butterfly-2{
+    bottom:15%;
+    right:4%;
+    width:85px;
 }
 
 
-@keyframes gentleFloatThree{
+/*
+   GALLERY BUTTERFLIES
+*/
 
-    0%,100%{
-        margin-top:0;
-    }
+.gallery-butterfly-1{
+    top:8%;
+    right:3%;
+    width:75px;
+}
 
-    50%{
-        margin-top:-10px;
-    }
+.gallery-butterfly-2{
+    bottom:8%;
+    left:3%;
+    width:80px;
 }
 
 
-@keyframes gentleFloatFour{
+/*
+   RSVP BUTTERFLIES
+*/
 
-    0%,100%{
-        margin-top:0;
-    }
+.rsvp-butterfly-1{
+    top:10%;
+    left:3%;
+    width:75px;
+}
 
-    50%{
-        margin-top:11px;
-    }
+.rsvp-butterfly-2{
+    bottom:8%;
+    right:3%;
+    width:85px;
 }
 
 
-/* =====================================================
+/* =========================
    GOLD DECORATIONS
-===================================================== */
+========================= */
 
 .gold-line{
     width:180px;
@@ -292,9 +231,9 @@ body::before{
 }
 
 
-/* =====================================================
+/* =========================
    HERO
-===================================================== */
+========================= */
 
 .hero{
     min-height:100vh;
@@ -317,7 +256,6 @@ body::before{
             rgba(120,0,0,.5),
             transparent 55%
         ),
-
         linear-gradient(
             135deg,
             #4d0505,
@@ -345,7 +283,6 @@ body::before{
     z-index:3;
 }
 
-
 .hero::after{
     content:"";
 
@@ -364,7 +301,7 @@ body::before{
 .hero-content{
     position:relative;
 
-    z-index:5;
+    z-index:4;
 
     max-width:1000px;
 }
@@ -380,7 +317,8 @@ body::before{
     margin-bottom:15px;
 
     text-shadow:
-        0 0 15px rgba(212,175,55,.5);
+        0 0 15px rgba(212,175,55,.5),
+        0 0 30px rgba(212,175,55,.25);
 }
 
 
@@ -417,7 +355,6 @@ body::before{
     font-size:.65em;
 }
 
-
 .hero-subtitle{
     font-family:'Cinzel',serif;
 
@@ -429,7 +366,6 @@ body::before{
 
     margin-top:30px;
 }
-
 
 .hero-date{
     font-family:'Cinzel',serif;
@@ -444,9 +380,7 @@ body::before{
 }
 
 
-/* =====================================================
-   RSVP BUTTON
-===================================================== */
+/* RSVP BUTTON */
 
 .btn{
     display:inline-block;
@@ -482,12 +416,7 @@ body::before{
         inset 0 1px rgba(255,255,255,.7);
 
     transition:.3s;
-
-    position:relative;
-
-    z-index:6;
 }
-
 
 .btn:hover{
     transform:translateY(-4px) scale(1.03);
@@ -498,9 +427,9 @@ body::before{
 }
 
 
-/* =====================================================
+/* =========================
    SECTIONS
-===================================================== */
+========================= */
 
 section{
     padding:90px 7%;
@@ -509,7 +438,6 @@ section{
 
     overflow:hidden;
 }
-
 
 .section-title{
     text-align:center;
@@ -526,12 +454,7 @@ section{
 
     text-shadow:
         0 0 15px rgba(212,175,55,.25);
-
-    position:relative;
-
-    z-index:3;
 }
-
 
 .section-title::before,
 .section-title::after{
@@ -541,144 +464,9 @@ section{
 }
 
 
-/* =====================================================
-   DECORATIVE BUTTERFLIES THROUGHOUT PAGE
-===================================================== */
-
-.section-butterfly{
-    width:95px;
-
-    opacity:.65;
-
-    z-index:1;
-}
-
-
-/* Countdown */
-
-.countdown-butterfly{
-    left:3%;
-    top:25%;
-
-    transform:rotate(-15deg);
-}
-
-
-.countdown-butterfly-right{
-    right:4%;
-    bottom:12%;
-
-    width:75px;
-
-    transform:rotate(14deg);
-
-    opacity:.55;
-}
-
-
-/* Celebration */
-
-.celebration-butterfly{
-    right:4%;
-    top:25%;
-
-    transform:rotate(18deg);
-}
-
-
-.celebration-butterfly-left{
-    left:5%;
-    bottom:15%;
-
-    width:75px;
-
-    transform:rotate(-18deg);
-
-    opacity:.5;
-}
-
-
-/* Event */
-
-.event-butterfly{
-    left:4%;
-    top:30%;
-
-    width:80px;
-
-    transform:rotate(-12deg);
-
-    opacity:.55;
-}
-
-
-.event-butterfly-right{
-    right:5%;
-    bottom:20%;
-
-    width:95px;
-
-    transform:rotate(15deg);
-
-    opacity:.55;
-}
-
-
-/* Gallery */
-
-.gallery-butterfly{
-    right:3%;
-    top:17%;
-
-    width:85px;
-
-    transform:rotate(20deg);
-
-    opacity:.55;
-}
-
-
-.gallery-butterfly-left{
-    left:3%;
-    bottom:12%;
-
-    width:80px;
-
-    transform:rotate(-20deg);
-
-    opacity:.5;
-}
-
-
-/* RSVP */
-
-.rsvp-butterfly{
-    left:3%;
-    top:18%;
-
-    width:90px;
-
-    transform:rotate(-15deg);
-
-    opacity:.55;
-}
-
-
-.rsvp-butterfly-right{
-    right:3%;
-    bottom:15%;
-
-    width:85px;
-
-    transform:rotate(18deg);
-
-    opacity:.55;
-}
-
-
-/* =====================================================
+/* =========================
    COUNTDOWN
-===================================================== */
+========================= */
 
 .countdown{
     display:grid;
@@ -694,9 +482,8 @@ section{
 
     position:relative;
 
-    z-index:3;
+    z-index:2;
 }
-
 
 .time-box{
     padding:35px 20px;
@@ -719,7 +506,6 @@ section{
         inset 0 0 25px rgba(212,175,55,.05);
 }
 
-
 .time-box span{
     display:block;
 
@@ -735,7 +521,6 @@ section{
         0 0 15px rgba(212,175,55,.25);
 }
 
-
 .time-label{
     color:#f8ead0;
 
@@ -747,9 +532,9 @@ section{
 }
 
 
-/* =====================================================
+/* =========================
    CARDS
-===================================================== */
+========================= */
 
 .card{
     max-width:950px;
@@ -777,9 +562,8 @@ section{
 
     position:relative;
 
-    z-index:3;
+    z-index:2;
 }
-
 
 .card h3{
     font-family:'Cinzel',serif;
@@ -793,19 +577,16 @@ section{
     margin-bottom:20px;
 }
 
-
 .card p{
     line-height:1.9;
 
     color:#f3e6d0;
-
-    margin:10px 0;
 }
 
 
-/* =====================================================
+/* =========================
    EVENT DETAILS
-===================================================== */
+========================= */
 
 .event-icon{
     font-size:42px;
@@ -816,9 +597,9 @@ section{
 }
 
 
-/* =====================================================
+/* =========================
    GALLERY
-===================================================== */
+========================= */
 
 .gallery{
     display:grid;
@@ -834,9 +615,8 @@ section{
 
     position:relative;
 
-    z-index:3;
+    z-index:2;
 }
-
 
 .placeholder{
     height:270px;
@@ -873,7 +653,6 @@ section{
     position:relative;
 }
 
-
 .placeholder::before{
     content:"♛";
 
@@ -885,7 +664,6 @@ section{
 
     font-size:24px;
 }
-
 
 .placeholder::after{
     content:"";
@@ -900,9 +678,9 @@ section{
 }
 
 
-/* =====================================================
+/* =========================
    RSVP
-===================================================== */
+========================= */
 
 .rsvp-card{
     max-width:850px;
@@ -927,9 +705,8 @@ section{
 
     position:relative;
 
-    z-index:3;
+    z-index:2;
 }
-
 
 form{
     display:flex;
@@ -938,7 +715,6 @@ form{
 
     gap:18px;
 }
-
 
 input,
 select,
@@ -962,12 +738,10 @@ textarea{
     transition:.3s;
 }
 
-
 input::placeholder,
 textarea::placeholder{
     color:#bda9a0;
 }
-
 
 input:focus,
 select:focus,
@@ -980,7 +754,6 @@ textarea:focus{
         0 0 15px rgba(212,175,55,.15);
 }
 
-
 select option{
     background:#260202;
 
@@ -988,38 +761,26 @@ select option{
 }
 
 
-/* =====================================================
+/* =========================
    GUEST FIELD
-===================================================== */
+========================= */
 
 #guestContainer{
     display:none;
 }
 
-
 #guestContainer.show{
     display:block;
 }
 
-
-.guest-label{
-    display:block;
-
-    color:#e3c04b;
-
-    font-family:'Cinzel',serif;
-
-    letter-spacing:2px;
-
-    margin-bottom:8px;
-
-    font-size:.9rem;
+#guests{
+    width:100%;
 }
 
 
-/* =====================================================
+/* =========================
    BUTTON
-===================================================== */
+========================= */
 
 button{
     padding:17px;
@@ -1051,7 +812,6 @@ button{
     transition:.3s;
 }
 
-
 button:hover{
     transform:translateY(-3px);
 
@@ -1059,30 +819,18 @@ button:hover{
         0 0 25px rgba(212,175,55,.4);
 }
 
-
-button:disabled{
-    opacity:.6;
-
-    cursor:not-allowed;
-
-    transform:none;
-}
-
-
 #message{
     text-align:center;
 
     color:#e6c957;
 
     font-weight:600;
-
-    min-height:24px;
 }
 
 
-/* =====================================================
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
 footer{
     padding:70px 20px;
@@ -1103,7 +851,6 @@ footer{
     overflow:hidden;
 }
 
-
 footer h3{
     font-family:'Great Vibes',cursive;
 
@@ -1114,7 +861,6 @@ footer h3{
     font-weight:400;
 }
 
-
 footer p{
     margin-top:15px;
 
@@ -1124,352 +870,181 @@ footer p{
 }
 
 
-/* Footer butterflies */
-
-.footer-butterfly{
-    position:absolute;
-
-    width:75px;
-
-    opacity:.5;
-
-    mix-blend-mode:multiply;
-
-    filter:
-        drop-shadow(0 0 8px rgba(255,215,80,.7))
-        brightness(1.15);
-}
-
-
-.footer-butterfly.left{
-    left:8%;
-
-    top:30%;
-
-    transform:rotate(-15deg);
-}
-
-
-.footer-butterfly.right{
-    right:8%;
-
-    top:35%;
-
-    transform:rotate(15deg);
-}
-
-
-/* =====================================================
+/* =========================
    MOBILE
-===================================================== */
+========================= */
 
 @media(max-width:600px){
 
     .hero{
         min-height:100svh;
 
-        padding:30px 18px;
+        padding:30px 15px;
     }
-
 
     .hero::before{
         inset:10px;
     }
 
-
     .hero::after{
         inset:18px;
     }
 
-
     .hero h1{
-        font-size:3.8rem;
-
-        line-height:.92;
+        font-size:4rem;
     }
-
 
     .hero-subtitle{
-        font-size:.68rem;
+        font-size:.75rem;
 
-        letter-spacing:2.5px;
-
-        margin-top:24px;
+        letter-spacing:3px;
     }
-
 
     .hero-date{
-        font-size:1rem;
-
-        letter-spacing:2px;
+        font-size:1.1rem;
     }
-
-
-    .crown{
-        font-size:38px;
-    }
-
-
-    .btn{
-        padding:14px 35px;
-
-        font-size:.85rem;
-
-        letter-spacing:2px;
-    }
-
-
-    /*
-       MOBILE HERO BUTTERFLIES
-
-       Kept toward the corners so they don't
-       cover the names or RSVP button.
-    */
-
-    .hero-butterfly.one{
-        width:70px;
-
-        left:3%;
-
-        top:12%;
-    }
-
-
-    .hero-butterfly.two{
-        width:68px;
-
-        right:2%;
-
-        top:14%;
-    }
-
-
-    .hero-butterfly.three{
-        width:55px;
-
-        left:5%;
-
-        bottom:10%;
-    }
-
-
-    .hero-butterfly.four{
-        width:58px;
-
-        right:5%;
-
-        bottom:9%;
-    }
-
 
     section{
         padding:70px 5%;
     }
 
-
     .section-title{
-        font-size:1.35rem;
+        font-size:1.5rem;
 
         letter-spacing:3px;
     }
 
-
-    .countdown{
-        grid-template-columns:
-            repeat(2,1fr);
-
-        gap:12px;
-
-        margin-top:30px;
-    }
-
-
     .time-box{
-        padding:24px 8px;
+        padding:25px 10px;
     }
-
 
     .time-box span{
-        font-size:2.1rem;
+        font-size:2.3rem;
     }
-
-
-    .time-label{
-        font-size:.68rem;
-
-        letter-spacing:2px;
-    }
-
-
-    .card{
-        padding:30px 20px;
-    }
-
-
-    .gallery{
-        grid-template-columns:1fr 1fr;
-
-        gap:12px;
-    }
-
-
-    .placeholder{
-        height:200px;
-
-        font-size:.8rem;
-    }
-
 
     .rsvp-card{
         padding:25px 18px;
     }
-
-
-    input,
-    select,
-    textarea{
-        font-size:16px;
-    }
-
 
     footer h3{
         font-size:2.8rem;
     }
 
 
-    /*
-       Smaller decorative butterflies on mobile.
-       These stay at the edges and won't cover cards/text.
-    */
+    /* MOBILE BUTTERFLIES */
 
-    .section-butterfly{
-        width:55px;
+    .butterfly{
+        opacity:.92;
 
-        opacity:.5;
+        filter:
+            brightness(1.4)
+            saturate(1.4)
+            contrast(1.12)
+            drop-shadow(0 0 4px rgba(255,215,90,.95))
+            drop-shadow(0 0 10px rgba(212,175,55,.65));
     }
 
-
-    .countdown-butterfly{
-        left:-5px;
-
-        top:15%;
+    .hero-butterfly-1{
+        top:7%;
+        left:1%;
+        width:65px;
     }
 
-
-    .countdown-butterfly-right{
-        right:-5px;
-
-        bottom:8%;
-    }
-
-
-    .celebration-butterfly{
-        right:-5px;
-
-        top:18%;
-    }
-
-
-    .celebration-butterfly-left{
-        left:-5px;
-
-        bottom:10%;
-    }
-
-
-    .event-butterfly{
-        left:-5px;
-
-        top:20%;
-    }
-
-
-    .event-butterfly-right{
-        right:-5px;
-
-        bottom:12%;
-    }
-
-
-    .gallery-butterfly{
-        right:-5px;
-
+    .hero-butterfly-2{
         top:8%;
+        right:1%;
+        width:60px;
     }
 
-
-    .gallery-butterfly-left{
-        left:-5px;
-
+    .hero-butterfly-3{
         bottom:8%;
-    }
-
-
-    .rsvp-butterfly{
-        left:-5px;
-
-        top:8%;
-    }
-
-
-    .rsvp-butterfly-right{
-        right:-5px;
-
-        bottom:8%;
-    }
-
-
-    .footer-butterfly{
+        left:3%;
         width:50px;
     }
 
-
-    .footer-butterfly.left{
-        left:2%;
+    .hero-butterfly-4{
+        bottom:9%;
+        right:3%;
+        width:55px;
     }
 
+    .countdown-butterfly-1{
+        top:8%;
+        left:1%;
+        width:48px;
+    }
 
-    .footer-butterfly.right{
-        right:2%;
+    .countdown-butterfly-2{
+        top:70%;
+        right:1%;
+        width:50px;
+    }
+
+    .celebration-butterfly-1{
+        top:10%;
+        right:1%;
+        width:55px;
+    }
+
+    .celebration-butterfly-2{
+        bottom:8%;
+        left:1%;
+        width:48px;
+    }
+
+    .event-butterfly-1{
+        top:10%;
+        left:1%;
+        width:50px;
+    }
+
+    .event-butterfly-2{
+        bottom:10%;
+        right:1%;
+        width:55px;
+    }
+
+    .gallery-butterfly-1{
+        top:5%;
+        right:1%;
+        width:50px;
+    }
+
+    .gallery-butterfly-2{
+        bottom:5%;
+        left:1%;
+        width:50px;
+    }
+
+    .rsvp-butterfly-1{
+        top:7%;
+        left:1%;
+        width:50px;
+    }
+
+    .rsvp-butterfly-2{
+        bottom:6%;
+        right:1%;
+        width:55px;
     }
 
 }
 
 
-/* =====================================================
-   VERY SMALL PHONES
-===================================================== */
+/* Extra-small phones */
 
 @media(max-width:380px){
 
     .hero h1{
-        font-size:3.25rem;
+        font-size:3.4rem;
     }
 
-
-    .hero-butterfly.one{
-        width:55px;
+    .hero-subtitle{
+        font-size:.65rem;
     }
 
-
-    .hero-butterfly.two{
-        width:53px;
-    }
-
-
-    .hero-butterfly.three,
-    .hero-butterfly.four{
-        width:45px;
-    }
-
-
-    .section-title{
-        font-size:1.2rem;
-    }
-
-
-    .time-box span{
-        font-size:1.8rem;
+    .butterfly{
+        opacity:.85;
     }
 
 }
@@ -1477,735 +1052,528 @@ footer p{
 </style>
 </head>
 
+
 <body>
 
 
-<!-- =====================================================
+<!-- =========================
      HERO
-===================================================== -->
+========================= -->
 
 <section class="hero">
 
+<!-- Fixed-in-page butterflies -->
+<img src="butterfly.png"
+     class="butterfly hero-butterfly-1"
+     alt="">
 
-    <!-- REALISTIC GOLD BUTTERFLIES -->
+<img src="butterfly.png"
+     class="butterfly hero-butterfly-2"
+     alt="">
 
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly hero-butterfly one"
-        alt=""
-    >
+<img src="butterfly.png"
+     class="butterfly hero-butterfly-3"
+     alt="">
 
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly hero-butterfly two"
-        alt=""
-    >
-
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly hero-butterfly three"
-        alt=""
-    >
-
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly hero-butterfly four"
-        alt=""
-    >
+<img src="butterfly.png"
+     class="butterfly hero-butterfly-4"
+     alt="">
 
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <div class="crown">
-            ♛
-        </div>
+<div class="crown">
+♛
+</div>
 
+<h1>
+Yathziry Quirino
+<br>
+<span class="ampersand">&</span>
+<br>
+Alexandra Garcia
+</h1>
 
-        <h1>
-            Yathziry Quirino
-            <br>
+<div class="ornament">
+✦ ─── ✧ ─── ✦
+</div>
 
-            <span class="ampersand">
-                &
-            </span>
+<p class="hero-subtitle">
+A JOINT QUINCEAÑERA CELEBRATION
+</p>
 
-            <br>
+<p class="hero-date">
+October 23, 2027
+</p>
 
-            Alexandra Garcia
-        </h1>
+<a href="#rsvp" class="btn">
+♛ &nbsp; RSVP &nbsp; ♛
+</a>
 
-
-        <div class="ornament">
-            ✦ ─── ✧ ─── ✦
-        </div>
-
-
-        <p class="hero-subtitle">
-            A JOINT QUINCEAÑERA CELEBRATION
-        </p>
-
-
-        <p class="hero-date">
-            October 23, 2027
-        </p>
-
-
-        <a
-            href="#rsvp"
-            class="btn"
-        >
-            ♛ &nbsp; RSVP &nbsp; ♛
-        </a>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      COUNTDOWN
-===================================================== -->
+========================= -->
 
 <section>
 
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly section-butterfly countdown-butterfly"
-        alt=""
-    >
+<img src="butterfly.png"
+     class="butterfly countdown-butterfly-1"
+     alt="">
 
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly section-butterfly countdown-butterfly-right"
-        alt=""
-    >
+<img src="butterfly.png"
+     class="butterfly countdown-butterfly-2"
+     alt="">
 
 
-    <h2 class="section-title">
-        COUNTDOWN
-    </h2>
+<h2 class="section-title">
+COUNTDOWN
+</h2>
 
+<div class="ornament">
+✦
+</div>
 
-    <div class="ornament">
-        ✦
-    </div>
+<div class="countdown">
 
+<div class="time-box">
+<span id="days">0</span>
+<div class="time-label">Days</div>
+</div>
 
-    <div class="countdown">
+<div class="time-box">
+<span id="hours">0</span>
+<div class="time-label">Hours</div>
+</div>
 
-        <div class="time-box">
-            <span id="days">0</span>
-            <div class="time-label">
-                Days
-            </div>
-        </div>
+<div class="time-box">
+<span id="minutes">0</span>
+<div class="time-label">Minutes</div>
+</div>
 
+<div class="time-box">
+<span id="seconds">0</span>
+<div class="time-label">Seconds</div>
+</div>
 
-        <div class="time-box">
-            <span id="hours">0</span>
-            <div class="time-label">
-                Hours
-            </div>
-        </div>
-
-
-        <div class="time-box">
-            <span id="minutes">0</span>
-            <div class="time-label">
-                Minutes
-            </div>
-        </div>
-
-
-        <div class="time-box">
-            <span id="seconds">0</span>
-            <div class="time-label">
-                Seconds
-            </div>
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      CELEBRATION
-===================================================== -->
+========================= -->
 
 <section>
 
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly section-butterfly celebration-butterfly"
-        alt=""
-    >
+<img src="butterfly.png"
+     class="butterfly celebration-butterfly-1"
+     alt="">
 
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly section-butterfly celebration-butterfly-left"
-        alt=""
-    >
+<img src="butterfly.png"
+     class="butterfly celebration-butterfly-2"
+     alt="">
 
 
-    <h2 class="section-title">
-        OUR CELEBRATION
-    </h2>
+<h2 class="section-title">
+OUR CELEBRATION
+</h2>
 
+<div class="card">
 
-    <div class="card">
+<div class="ornament">
+❦
+</div>
 
-        <div class="ornament">
-            ❦
-        </div>
+<p>
+We are excited to celebrate this special milestone
+with our family and friends.
+</p>
 
+<p>
+More details about our celebration will be shared soon.
+</p>
 
-        <p>
-            We are excited to celebrate this special milestone
-            with our family and friends.
-        </p>
+<div class="ornament">
+❦
+</div>
 
-
-        <p>
-            More details about our celebration will be shared soon.
-        </p>
-
-
-        <div class="ornament">
-            ❦
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      EVENT DETAILS
-===================================================== -->
+========================= -->
 
 <section>
 
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly section-butterfly event-butterfly"
-        alt=""
-    >
+<img src="butterfly.png"
+     class="butterfly event-butterfly-1"
+     alt="">
 
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly section-butterfly event-butterfly-right"
-        alt=""
-    >
+<img src="butterfly.png"
+     class="butterfly event-butterfly-2"
+     alt="">
 
 
-    <h2 class="section-title">
-        EVENT DETAILS
-    </h2>
+<h2 class="section-title">
+EVENT DETAILS
+</h2>
 
+<div class="card">
 
-    <div class="card">
+<div class="event-icon">
+⌖
+</div>
 
-        <div class="event-icon">
-            ⌖
-        </div>
+<h3>
+VENUE COMING SOON
+</h3>
 
+<p>
+Location details will be announced soon.
+</p>
 
-        <h3>
-            VENUE COMING SOON
-        </h3>
-
-
-        <p>
-            Location details will be announced soon.
-        </p>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      GALLERY
-===================================================== -->
+========================= -->
 
 <section>
 
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly section-butterfly gallery-butterfly"
-        alt=""
-    >
+<img src="butterfly.png"
+     class="butterfly gallery-butterfly-1"
+     alt="">
 
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly section-butterfly gallery-butterfly-left"
-        alt=""
-    >
+<img src="butterfly.png"
+     class="butterfly gallery-butterfly-2"
+     alt="">
 
 
-    <h2 class="section-title">
-        GALLERY
-    </h2>
+<h2 class="section-title">
+GALLERY
+</h2>
 
+<div class="gallery">
 
-    <div class="gallery">
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
 
-        <div class="placeholder">
-            PHOTO<br>COMING SOON
-        </div>
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
 
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
 
-        <div class="placeholder">
-            PHOTO<br>COMING SOON
-        </div>
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
 
-
-        <div class="placeholder">
-            PHOTO<br>COMING SOON
-        </div>
-
-
-        <div class="placeholder">
-            PHOTO<br>COMING SOON
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      RSVP
-===================================================== -->
+========================= -->
 
 <section id="rsvp">
 
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly section-butterfly rsvp-butterfly"
-        alt=""
-    >
+<img src="butterfly.png"
+     class="butterfly rsvp-butterfly-1"
+     alt="">
 
-    <img
-        src="gold-butterfly.webp"
-        class="butterfly section-butterfly rsvp-butterfly-right"
-        alt=""
-    >
+<img src="butterfly.png"
+     class="butterfly rsvp-butterfly-2"
+     alt="">
 
 
-    <h2 class="section-title">
-        RSVP
-    </h2>
+<h2 class="section-title">
+RSVP
+</h2>
+
+<div class="rsvp-card">
+
+<form id="rsvpForm">
 
 
-    <div class="rsvp-card">
+<!-- NAME -->
 
-        <form id="rsvpForm">
-
-
-            <!-- NAME -->
-
-            <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                required
-            >
+<input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    required
+>
 
 
-            <!-- EMAIL -->
+<!-- EMAIL -->
 
-            <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-            >
-
-
-            <!-- ATTENDANCE -->
-
-            <select
-                name="attendance"
-                id="attendance"
-                required
-            >
-
-                <option value="">
-                    Will you attend?
-                </option>
-
-                <option value="Yes">
-                    Yes, I will attend
-                </option>
-
-                <option value="No">
-                    No, I cannot attend
-                </option>
-
-            </select>
+<input
+    type="email"
+    name="email"
+    placeholder="Your Email"
+    required
+>
 
 
-            <!-- GUEST COUNT -->
+<!-- ATTENDANCE -->
 
-            <div id="guestContainer">
+<select
+    name="attendance"
+    id="attendance"
+    required
+>
 
-                <label
-                    for="guests"
-                    class="guest-label"
-                >
-                    NUMBER OF GUESTS
-                </label>
+<option value="">
+Will you attend?
+</option>
 
+<option value="Yes">
+Yes, I will attend
+</option>
 
-                <input
-                    type="number"
-                    name="guests"
-                    id="guests"
-                    min="1"
-                    max="20"
-                    placeholder="How many guests are you bringing?"
-                >
+<option value="No">
+No, I cannot attend
+</option>
 
-            </div>
-
-
-            <!-- MESSAGE -->
-
-            <textarea
-                name="message"
-                rows="5"
-                placeholder="Leave a message"
-            ></textarea>
+</select>
 
 
-            <!-- SUBMIT -->
+<!-- NUMBER OF GUESTS -->
 
-            <button
-                type="submit"
-                id="submitButton"
-            >
-                ♛ &nbsp; SEND RSVP &nbsp; ♛
-            </button>
+<div id="guestContainer">
+
+<input
+    type="number"
+    name="guests"
+    id="guests"
+    min="1"
+    max="20"
+    placeholder="How many guests are you bringing?"
+>
+
+</div>
 
 
-            <p id="message"></p>
+<!-- MESSAGE -->
 
-        </form>
+<textarea
+    name="message"
+    rows="5"
+    placeholder="Leave a message"
+></textarea>
 
-    </div>
+
+<!-- SUBMIT -->
+
+<button type="submit">
+♛ &nbsp; SEND RSVP &nbsp; ♛
+</button>
+
+<p id="message"></p>
+
+</form>
+
+</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      FOOTER
-===================================================== -->
+========================= -->
 
 <footer>
 
+<div class="ornament">
+✦ ─── ❦ ─── ✦
+</div>
 
-    <img
-        src="gold-butterfly.webp"
-        class="footer-butterfly left"
-        alt=""
-    >
+<h3>
+With Love ❤️
+</h3>
 
+<p>
+Yathziry Quirino & Alexandra Garcia
+</p>
 
-    <img
-        src="gold-butterfly.webp"
-        class="footer-butterfly right"
-        alt=""
-    >
-
-
-    <div class="ornament">
-        ✦ ─── ❦ ─── ✦
-    </div>
-
-
-    <h3>
-        With Love ❤️
-    </h3>
-
-
-    <p>
-        Yathziry Quirino & Alexandra Garcia
-    </p>
-
-
-    <div class="ornament">
-        ✦ ─── ❦ ─── ✦
-    </div>
+<div class="ornament">
+✦ ─── ❦ ─── ✦
+</div>
 
 </footer>
 
 
-<!-- =====================================================
+<!-- =========================
      EMAILJS
-===================================================== -->
+========================= -->
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-
 <script>
-
-
-/* =====================================================
-   EMAILJS INITIALIZATION
-===================================================== */
 
 emailjs.init({
     publicKey:"vsmZUgvnvKlx7ymca"
 });
 
 
-/* =====================================================
+/* =========================
    GUEST BOX
-===================================================== */
+========================= */
 
 const attendance =
-    document.getElementById("attendance");
-
+document.getElementById("attendance");
 
 const guestContainer =
-    document.getElementById("guestContainer");
-
+document.getElementById("guestContainer");
 
 const guests =
-    document.getElementById("guests");
+document.getElementById("guests");
 
 
-attendance.addEventListener(
-    "change",
-    function(){
+attendance.addEventListener("change", function(){
 
-        if(this.value === "Yes"){
+    if(this.value === "Yes"){
 
-            guestContainer.classList.add("show");
+        guestContainer.classList.add("show");
 
-            guests.required = true;
+        guests.required = true;
 
-        }
+    }else{
 
-        else{
+        guestContainer.classList.remove("show");
 
-            guestContainer.classList.remove("show");
+        guests.required = false;
 
-            guests.required = false;
-
-            guests.value = "";
-
-        }
+        guests.value = "";
 
     }
-);
+
+});
 
 
-/* =====================================================
+/* =========================
    RSVP
-===================================================== */
+========================= */
 
-const form =
-    document.getElementById("rsvpForm");
+document
+.getElementById("rsvpForm")
+.addEventListener("submit",function(e){
 
+    e.preventDefault();
 
-const message =
+    const message =
     document.getElementById("message");
 
+    message.textContent =
+    "Sending RSVP...";
 
-const submitButton =
-    document.getElementById("submitButton");
 
+    emailjs.sendForm(
+        "service_l60yxx7",
+        "template_fqkpg0u",
+        this
+    )
 
-form.addEventListener(
-    "submit",
-    function(e){
-
-        e.preventDefault();
-
+    .then(()=>{
 
         message.textContent =
-            "Sending RSVP...";
+        "💖 Thank you! Your RSVP has been received.";
+
+        this.reset();
+
+        guestContainer.classList.remove("show");
+
+        guests.required = false;
+
+    })
+
+    .catch((error)=>{
+
+        console.error(error);
+
+        message.textContent =
+        "❌ Unable to send RSVP. Please try again.";
+
+    });
+
+});
 
 
-        submitButton.disabled =
-            true;
-
-
-        /*
-           We send the fields explicitly so EmailJS
-           receives BOTH attendance and guest count.
-        */
-
-        const templateParams = {
-
-            name:
-                form.elements["name"].value,
-
-            email:
-                form.elements["email"].value,
-
-            attendance:
-                form.elements["attendance"].value,
-
-            guests:
-                form.elements["guests"].value || "0",
-
-            message:
-                form.elements["message"].value
-
-        };
-
-
-        emailjs.send(
-            "service_l60yxx7",
-            "template_fqkpg0u",
-            templateParams
-        )
-
-        .then(function(){
-
-            message.textContent =
-                "💖 Thank you! Your RSVP has been received.";
-
-
-            form.reset();
-
-
-            guestContainer.classList.remove(
-                "show"
-            );
-
-
-            guests.required =
-                false;
-
-
-            submitButton.disabled =
-                false;
-
-        })
-
-
-        .catch(function(error){
-
-            console.error(
-                "EmailJS Error:",
-                error
-            );
-
-
-            message.textContent =
-                "❌ Unable to send RSVP. Please try again.";
-
-
-            submitButton.disabled =
-                false;
-
-        });
-
-    }
-);
-
-
-/* =====================================================
+/* =========================
    COUNTDOWN
-===================================================== */
+========================= */
 
 const eventDate =
-    new Date(
-        "October 23, 2027 17:00:00"
-    ).getTime();
+new Date("October 23, 2027 17:00:00").getTime();
 
 
 function updateCountdown(){
 
     const now =
-        new Date().getTime();
-
+    new Date().getTime();
 
     const distance =
-        eventDate - now;
+    eventDate - now;
 
 
     if(distance <= 0){
 
-        document.getElementById(
-            "days"
-        ).textContent = "0";
-
-
-        document.getElementById(
-            "hours"
-        ).textContent = "0";
-
-
-        document.getElementById(
-            "minutes"
-        ).textContent = "0";
-
-
-        document.getElementById(
-            "seconds"
-        ).textContent = "0";
-
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
 
         return;
-
     }
 
 
-    document.getElementById(
-        "days"
-    ).textContent =
-        Math.floor(
-            distance /
-            (1000 * 60 * 60 * 24)
-        );
+    document.getElementById("days").textContent =
+    Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+    );
 
 
-    document.getElementById(
-        "hours"
-    ).textContent =
-        Math.floor(
-            (
-                distance %
-                (1000 * 60 * 60 * 24)
-            ) /
-            (1000 * 60 * 60)
-        );
+    document.getElementById("hours").textContent =
+    Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
 
 
-    document.getElementById(
-        "minutes"
-    ).textContent =
-        Math.floor(
-            (
-                distance %
-                (1000 * 60 * 60)
-            ) /
-            (1000 * 60)
-        );
+    document.getElementById("minutes").textContent =
+    Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
 
 
-    document.getElementById(
-        "seconds"
-    ).textContent =
-        Math.floor(
-            (
-                distance %
-                (1000 * 60)
-            ) /
-            1000
-        );
+    document.getElementById("seconds").textContent =
+    Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+    );
 
 }
 
 
 updateCountdown();
-
 
 setInterval(
     updateCountdown,
