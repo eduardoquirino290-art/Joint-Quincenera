@@ -1,95 +1,1016 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yathziry &amp; Alexandra's Quinceañera</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { overflow-x: hidden; color: #f8ead0; background: radial-gradient(circle at 50% 20%, #5b0808 0%, #310303 45%, #160101 100%); font-family: 'Poppins', sans-serif; }
-    body::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(circle at 20% 30%, rgba(212,175,55,.08), transparent 20%), radial-gradient(circle at 80% 70%, rgba(212,175,55,.06), transparent 20%); }
-    .ornament { color: #d4af37; font-size: 24px; letter-spacing: 8px; text-align: center; }
-    .hero { position: relative; display: flex; min-height: 100vh; padding: 40px 20px; align-items: center; justify-content: center; overflow: hidden; border-bottom: 2px solid #d4af37; text-align: center; background: radial-gradient(circle at center, rgba(120,0,0,.5), transparent 55%), linear-gradient(135deg, #4d0505, #210101 60%, #420404); }
-    .hero::before, .hero::after { content: ''; position: absolute; pointer-events: none; }
-    .hero::before { inset: 18px; border: 1px solid #d4af37; }
-    .hero::after { inset: 28px; border: 1px solid rgba(212,175,55,.35); }
-    .hero-content { position: relative; z-index: 2; max-width: 1000px; }
-    .crown { margin-bottom: 15px; color: #d4af37; font-size: 48px; text-shadow: 0 0 15px rgba(212,175,55,.5); }
-    .hero h1 { color: transparent; background: linear-gradient(180deg, #fff3a8 0%, #d4af37 35%, #fff1a0 55%, #b8860b 100%); -webkit-background-clip: text; background-clip: text; font: 400 clamp(4rem, 9vw, 8rem)/.95 'Great Vibes', cursive; text-shadow: 0 4px 15px rgba(0,0,0,.5); }
-    .ampersand { font-size: .65em; }
-    .hero-subtitle { margin-top: 30px; color: #f8ead0; font: 1rem 'Cinzel', serif; letter-spacing: 6px; }
-    .hero-date { margin-top: 18px; color: #d4af37; font: 1.5rem 'Cinzel', serif; letter-spacing: 3px; }
-    .btn, button { display: inline-block; border: 2px solid #f8df75; border-radius: 5px; color: #3b0505; cursor: pointer; background: linear-gradient(180deg, #fff0a0, #d4af37, #a67c00); box-shadow: 0 0 20px rgba(212,175,55,.35), inset 0 1px rgba(255,255,255,.7); font: 700 1rem 'Cinzel', serif; letter-spacing: 3px; text-decoration: none; transition: .3s; }
-    .btn { margin-top: 35px; padding: 15px 55px; }
-    .btn:hover, button:hover { transform: translateY(-3px); box-shadow: 0 0 35px rgba(212,175,55,.6), inset 0 1px rgba(255,255,255,.8); }
-    /* Gold butterflies */
-    .butterflies { position: absolute; z-index: 1; inset: 0; overflow: hidden; pointer-events: none; }
-    .butterfly { position: absolute; width: clamp(34px, 4.2vw, 72px); height: auto; fill: rgba(213,173,47,.11); stroke: rgba(246,215,102,.45); stroke-width: 2; filter: drop-shadow(0 0 8px rgba(224,180,39,.22)); animation: flutter 7s ease-in-out infinite alternate; }
-    .butterfly-one { top: 12%; left: 10%; transform: rotate(-24deg); }
-    .butterfly-two { top: 65%; left: 6%; width: clamp(29px,3.4vw,57px); transform: rotate(16deg); animation-delay: -2s; }
-    .butterfly-three { top: 20%; right: 11%; width: clamp(28px,3vw,50px); transform: rotate(31deg); animation-delay: -4.5s; }
-    .butterfly-four { top: 72%; right: 9%; transform: rotate(-18deg); animation-delay: -1s; }
-    .butterfly-five { top: 44%; right: 3%; width: clamp(24px,2.6vw,42px); transform: rotate(55deg); animation-delay: -5s; }
-    @keyframes flutter { from { margin-top: 0; } to { margin-top: -13px; } }
-    section { position: relative; padding: 90px 7%; }
-    .section-title { margin-bottom: 15px; color: #d4af37; font: 2rem 'Cinzel', serif; letter-spacing: 6px; text-align: center; text-shadow: 0 0 15px rgba(212,175,55,.25); }
-    .section-title::before, .section-title::after { content: ' ✦ '; color: #d4af37; }
-    .countdown { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 20px; max-width: 900px; margin: 40px auto 0; }
-    .time-box, .card, .rsvp-card { border: 1px solid #b8860b; background: linear-gradient(145deg, rgba(105,8,8,.95), rgba(45,2,2,.98)); box-shadow: 0 15px 35px rgba(0,0,0,.45), inset 0 0 25px rgba(212,175,55,.05); }
-    .time-box { padding: 35px 20px; border-radius: 12px; text-align: center; }
-    .time-box span { display: block; color: #f1d66b; font: 600 3rem 'Cinzel', serif; text-shadow: 0 0 15px rgba(212,175,55,.25); }
-    .time-label { color: #f8ead0; font-size: .85rem; letter-spacing: 3px; text-transform: uppercase; }
-    .card { max-width: 950px; margin: 35px auto 0; padding: 45px 35px; border-radius: 12px; text-align: center; }
-    .card h3 { margin-bottom: 20px; color: #e3c04b; font: 1.4rem 'Cinzel', serif; letter-spacing: 3px; }
-    .card p { color: #f3e6d0; line-height: 1.9; }
-    .event-icon { margin-bottom: 15px; color: #d4af37; font-size: 42px; }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 25px; max-width: 1100px; margin: 40px auto 0; }
-    .placeholder { position: relative; display: flex; height: 270px; align-items: center; justify-content: center; overflow: hidden; border: 1px solid #d4af37; border-radius: 10px; color: #e3c04b; background: radial-gradient(circle at center, #700909, #300202 75%); box-shadow: 0 15px 35px rgba(0,0,0,.45), inset 0 0 30px rgba(212,175,55,.06); font-family: 'Cinzel', serif; letter-spacing: 2px; text-align: center; }
-    .placeholder::before { content: '♛'; position: absolute; top: 20px; color: #d4af37; font-size: 24px; }
-    .placeholder::after { content: ''; position: absolute; inset: 8px; border: 1px solid rgba(212,175,55,.3); border-radius: 7px; }
-    .rsvp-card { max-width: 850px; margin: 35px auto 0; padding: 45px; border-color: #d4af37; border-radius: 15px; background: linear-gradient(145deg, #570606, #250202); box-shadow: 0 20px 50px rgba(0,0,0,.5); }
-    form { display: flex; flex-direction: column; gap: 18px; }
-    input, select, textarea { width: 100%; padding: 16px 18px; border: 1px solid #936f0b; border-radius: 7px; color: #f8ead0; background: #260202; font: 1rem 'Poppins', sans-serif; transition: .3s; }
-    input::placeholder, textarea::placeholder { color: #bda9a0; }
-    input:focus, select:focus, textarea:focus { outline: none; border-color: #d4af37; box-shadow: 0 0 15px rgba(212,175,55,.15); }
-    select option { color: #f8ead0; background: #260202; }
-    #guestContainer { display: none; } #guestContainer.show { display: block; }
-    button { padding: 17px; } #message { color: #e6c957; font-weight: 600; text-align: center; }
-    footer { padding: 70px 20px; border-top: 2px solid #d4af37; background: linear-gradient(180deg, #250202, #100101); text-align: center; }
-    footer h3 { color: #d4af37; font: 400 3.5rem 'Great Vibes', cursive; } footer p { margin-top: 15px; color: #f3e6d0; letter-spacing: 2px; }
-    @media(max-width:600px) { .hero::before { inset: 10px; } .hero::after { inset: 18px; } .hero h1 { font-size: 4rem; } .hero-subtitle { font-size: .75rem; letter-spacing: 3px; } .hero-date { font-size: 1.1rem; } section { padding: 70px 5%; } .section-title { font-size: 1.5rem; letter-spacing: 3px; } .time-box { padding: 25px 10px; } .time-box span { font-size: 2.3rem; } .rsvp-card { padding: 25px 18px; } footer h3 { font-size: 2.8rem; } .butterfly-five { display: none; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Yathziry & Alexandra's Quinceañera</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:
+        radial-gradient(circle at 50% 20%, #5b0808 0%, #310303 45%, #160101 100%);
+    color:#f8ead0;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(212,175,55,.08), transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(212,175,55,.06), transparent 20%);
+    z-index:-1;
+}
+
+.gold-line{
+    width:180px;
+    height:2px;
+    margin:20px auto;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #d4af37,
+        #fff0a8,
+        #d4af37,
+        transparent
+    );
+}
+
+.ornament{
+    color:#d4af37;
+    font-size:24px;
+    letter-spacing:8px;
+    text-align:center;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+
+    position:relative;
+
+    background:
+        radial-gradient(circle at center,
+        rgba(120,0,0,.5),
+        transparent 55%),
+        linear-gradient(
+        135deg,
+        #4d0505,
+        #210101 60%,
+        #420404
+        );
+
+    border-bottom:2px solid #d4af37;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:1px solid #d4af37;
+    pointer-events:none;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:28px;
+    border:1px solid rgba(212,175,55,.35);
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:1000px;
+}
+
+.crown{
+    font-size:48px;
+    color:#d4af37;
+    margin-bottom:15px;
+    text-shadow:
+        0 0 15px rgba(212,175,55,.5);
+}
+
+.hero h1{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(4rem,9vw,8rem);
+    font-weight:400;
+    line-height:.95;
+
+    background:linear-gradient(
+        180deg,
+        #fff3a8 0%,
+        #d4af37 35%,
+        #fff1a0 55%,
+        #b8860b 100%
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    text-shadow:
+        0 4px 15px rgba(0,0,0,.5);
+}
+
+.ampersand{
+    font-size:.65em;
+}
+
+.hero-subtitle{
+    font-family:'Cinzel',serif;
+    font-size:1rem;
+    letter-spacing:6px;
+    color:#f8ead0;
+    margin-top:30px;
+}
+
+.hero-date{
+    font-family:'Cinzel',serif;
+    color:#d4af37;
+    font-size:1.5rem;
+    letter-spacing:3px;
+    margin-top:18px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:15px 55px;
+
+    color:#3b0505;
+
+    background:
+        linear-gradient(
+        180deg,
+        #fff0a0,
+        #d4af37,
+        #a67c00
+        );
+
+    text-decoration:none;
+    font-family:'Cinzel',serif;
+    font-weight:700;
+    letter-spacing:3px;
+
+    border:2px solid #f8df75;
+    border-radius:5px;
+
+    box-shadow:
+        0 0 20px rgba(212,175,55,.35),
+        inset 0 1px rgba(255,255,255,.7);
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 0 35px rgba(212,175,55,.6),
+        inset 0 1px rgba(255,255,255,.8);
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 7%;
+    position:relative;
+}
+
+.section-title{
+    text-align:center;
+
+    font-family:'Cinzel',serif;
+    font-size:2rem;
+    letter-spacing:6px;
+
+    color:#d4af37;
+
+    margin-bottom:15px;
+
+    text-shadow:
+        0 0 15px rgba(212,175,55,.25);
+}
+
+.section-title::before,
+.section-title::after{
+    content:" ✦ ";
+    color:#d4af37;
+}
+
+/* COUNTDOWN */
+
+.countdown{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(160px,1fr));
+
+    gap:20px;
+    max-width:900px;
+    margin:40px auto 0;
+}
+
+.time-box{
+    padding:35px 20px;
+
+    background:
+        linear-gradient(
+        145deg,
+        rgba(105,8,8,.95),
+        rgba(45,2,2,.98)
+        );
+
+    border:1px solid #b8860b;
+    border-radius:12px;
+
+    text-align:center;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.45),
+        inset 0 0 25px rgba(212,175,55,.05);
+}
+
+.time-box span{
+    display:block;
+
+    font-family:'Cinzel',serif;
+    font-size:3rem;
+    font-weight:600;
+
+    color:#f1d66b;
+
+    text-shadow:
+        0 0 15px rgba(212,175,55,.25);
+}
+
+.time-label{
+    color:#f8ead0;
+    letter-spacing:3px;
+    font-size:.85rem;
+    text-transform:uppercase;
+}
+
+/* CARDS */
+
+.card{
+    max-width:950px;
+    margin:35px auto 0;
+
+    padding:45px 35px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+        145deg,
+        rgba(91,7,7,.95),
+        rgba(38,2,2,.98)
+        );
+
+    border:1px solid #b8860b;
+    border-radius:12px;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.45),
+        inset 0 0 35px rgba(212,175,55,.04);
+}
+
+.card h3{
+    font-family:'Cinzel',serif;
+    color:#e3c04b;
+    font-size:1.4rem;
+    letter-spacing:3px;
+    margin-bottom:20px;
+}
+
+.card p{
+    line-height:1.9;
+    color:#f3e6d0;
+}
+
+/* EVENT DETAILS */
+
+.event-icon{
+    font-size:42px;
+    color:#d4af37;
+    margin-bottom:15px;
+}
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(230px,1fr));
+
+    gap:25px;
+    max-width:1100px;
+    margin:40px auto 0;
+}
+
+.placeholder{
+    height:270px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+        circle at center,
+        #700909,
+        #300202 75%
+        );
+
+    border:1px solid #d4af37;
+    border-radius:10px;
+
+    color:#e3c04b;
+
+    font-family:'Cinzel',serif;
+    letter-spacing:2px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.45),
+        inset 0 0 30px rgba(212,175,55,.06);
+
+    position:relative;
+}
+
+.placeholder::before{
+    content:"♛";
+    position:absolute;
+    top:20px;
+    color:#d4af37;
+    font-size:24px;
+}
+
+.placeholder::after{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:1px solid rgba(212,175,55,.3);
+    border-radius:7px;
+}
+
+/* RSVP */
+
+.rsvp-card{
+    max-width:850px;
+    margin:35px auto 0;
+
+    padding:45px;
+
+    background:
+        linear-gradient(
+        145deg,
+        #570606,
+        #250202
+        );
+
+    border:1px solid #d4af37;
+    border-radius:15px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5);
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+
+    padding:16px 18px;
+
+    background:#260202;
+    color:#f8ead0;
+
+    border:1px solid #936f0b;
+    border-radius:7px;
+
+    font-family:'Poppins',sans-serif;
+    font-size:1rem;
+
+    transition:.3s;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#bda9a0;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline:none;
+
+    border-color:#d4af37;
+
+    box-shadow:
+        0 0 15px rgba(212,175,55,.15);
+}
+
+select option{
+    background:#260202;
+    color:#f8ead0;
+}
+
+/* GUEST FIELD */
+
+#guestContainer{
+    display:none;
+}
+
+#guestContainer.show{
+    display:block;
+}
+
+button{
+    padding:17px;
+
+    border:2px solid #f0d76b;
+    border-radius:7px;
+
+    background:
+        linear-gradient(
+        180deg,
+        #f0d76b,
+        #d4af37,
+        #a67c00
+        );
+
+    color:#310303;
+
+    font-family:'Cinzel',serif;
+    font-size:1rem;
+    font-weight:700;
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 25px rgba(212,175,55,.4);
+}
+
+#message{
+    text-align:center;
+    color:#e6c957;
+    font-weight:600;
+}
+
+/* FOOTER */
+
+footer{
+    padding:70px 20px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+        180deg,
+        #250202,
+        #100101
+        );
+
+    border-top:2px solid #d4af37;
+}
+
+footer h3{
+    font-family:'Great Vibes',cursive;
+    font-size:3.5rem;
+    color:#d4af37;
+    font-weight:400;
+}
+
+footer p{
+    margin-top:15px;
+    color:#f3e6d0;
+    letter-spacing:2px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .hero::before{
+        inset:10px;
+    }
+
+    .hero::after{
+        inset:18px;
+    }
+
+    .hero h1{
+        font-size:4rem;
+    }
+
+    .hero-subtitle{
+        font-size:.75rem;
+        letter-spacing:3px;
+    }
+
+    .hero-date{
+        font-size:1.1rem;
+    }
+
+    section{
+        padding:70px 5%;
+    }
+
+    .section-title{
+        font-size:1.5rem;
+        letter-spacing:3px;
+    }
+
+    .time-box{
+        padding:25px 10px;
+    }
+
+    .time-box span{
+        font-size:2.3rem;
+    }
+
+    .rsvp-card{
+        padding:25px 18px;
+    }
+
+    footer h3{
+        font-size:2.8rem;
+    }
+}
+
+</style>
 </head>
+
 <body>
-  <section class="hero">
-    <div class="butterflies" aria-hidden="true">
-      <svg class="butterfly butterfly-one" viewBox="0 0 100 80"><path d="M49 39C35 7 8 5 9 29c1 19 23 22 39 14M51 39C65 7 92 5 91 29c-1 19-23 22-39 14M50 38c-6 12-4 24 1 34M47 72h7M49 43l-5-7M52 43l5-7"/></svg>
-      <svg class="butterfly butterfly-two" viewBox="0 0 100 80"><path d="M49 39C35 7 8 5 9 29c1 19 23 22 39 14M51 39C65 7 92 5 91 29c-1 19-23 22-39 14M50 38c-6 12-4 24 1 34M47 72h7M49 43l-5-7M52 43l5-7"/></svg>
-      <svg class="butterfly butterfly-three" viewBox="0 0 100 80"><path d="M49 39C35 7 8 5 9 29c1 19 23 22 39 14M51 39C65 7 92 5 91 29c-1 19-23 22-39 14M50 38c-6 12-4 24 1 34M47 72h7M49 43l-5-7M52 43l5-7"/></svg>
-      <svg class="butterfly butterfly-four" viewBox="0 0 100 80"><path d="M49 39C35 7 8 5 9 29c1 19 23 22 39 14M51 39C65 7 92 5 91 29c-1 19-23 22-39 14M50 38c-6 12-4 24 1 34M47 72h7M49 43l-5-7M52 43l5-7"/></svg>
-      <svg class="butterfly butterfly-five" viewBox="0 0 100 80"><path d="M49 39C35 7 8 5 9 29c1 19 23 22 39 14M51 39C65 7 92 5 91 29c-1 19-23 22-39 14M50 38c-6 12-4 24 1 34M47 72h7M49 43l-5-7M52 43l5-7"/></svg>
-    </div>
-    <div class="hero-content"><div class="crown">♛</div><h1>Yathziry Quirino<br><span class="ampersand">&amp;</span><br>Alexandra Garcia</h1><div class="ornament">✦ ─── ✧ ─── ✦</div><p class="hero-subtitle">A JOINT QUINCEAÑERA CELEBRATION</p><p class="hero-date">October 23, 2027</p><a href="#rsvp" class="btn">♛ &nbsp; RSVP &nbsp; ♛</a></div>
-  </section>
-  <section><h2 class="section-title">COUNTDOWN</h2><div class="ornament">✦</div><div class="countdown"><div class="time-box"><span id="days">0</span><div class="time-label">Days</div></div><div class="time-box"><span id="hours">0</span><div class="time-label">Hours</div></div><div class="time-box"><span id="minutes">0</span><div class="time-label">Minutes</div></div><div class="time-box"><span id="seconds">0</span><div class="time-label">Seconds</div></div></div></section>
-  <section><h2 class="section-title">OUR CELEBRATION</h2><div class="card"><div class="ornament">❦</div><p>We are excited to celebrate this special milestone with our family and friends.</p><p>More details about our celebration will be shared soon.</p><div class="ornament">❦</div></div></section>
-  <section><h2 class="section-title">EVENT DETAILS</h2><div class="card"><div class="event-icon">⌖</div><h3>VENUE COMING SOON</h3><p>Location details will be announced soon.</p></div></section>
-  <section><h2 class="section-title">GALLERY</h2><div class="gallery"><div class="placeholder">PHOTO<br>COMING SOON</div><div class="placeholder">PHOTO<br>COMING SOON</div><div class="placeholder">PHOTO<br>COMING SOON</div><div class="placeholder">PHOTO<br>COMING SOON</div></div></section>
-  <section id="rsvp"><h2 class="section-title">RSVP</h2><div class="rsvp-card"><form id="rsvpForm"><input type="text" name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required><select name="attendance" id="attendance" required><option value="">Will you attend?</option><option value="Yes">Yes, I will attend</option><option value="No">No, I cannot attend</option></select><div id="guestContainer"><input type="number" name="guests" id="guests" min="1" max="20" placeholder="How many guests are you bringing?"></div><textarea name="message" rows="5" placeholder="Leave a message"></textarea><button type="submit">♛ &nbsp; SEND RSVP &nbsp; ♛</button><p id="message"></p></form></div></section>
-  <footer><div class="ornament">✦ ─── ❦ ─── ✦</div><h3>With Love ❤️</h3><p>Yathziry Quirino &amp; Alexandra Garcia</p><div class="ornament">✦ ─── ❦ ─── ✦</div></footer>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>
-    emailjs.init({ publicKey: 'vsmZUgvnvKlx7ymca' });
-    const attendance = document.getElementById('attendance'), guestContainer = document.getElementById('guestContainer'), guests = document.getElementById('guests');
-    attendance.addEventListener('change', function () { const yes = this.value === 'Yes'; guestContainer.classList.toggle('show', yes); guests.required = yes; if (!yes) guests.value = ''; });
-    document.getElementById('rsvpForm').addEventListener('submit', function (event) { event.preventDefault(); const message = document.getElementById('message'); message.textContent = 'Sending RSVP...'; emailjs.sendForm('service_l60yxx7', 'template_fqkpg0u', this).then(() => { message.textContent = '💖 Thank you! Your RSVP has been received.'; this.reset(); guestContainer.classList.remove('show'); guests.required = false; }).catch(() => { message.textContent = '❌ Unable to send RSVP. Please try again.'; }); });
-    const eventDate = new Date('October 23, 2027 17:00:00').getTime();
-    function updateCountdown() { const distance = Math.max(0, eventDate - Date.now()); days.textContent = Math.floor(distance / 86400000); hours.textContent = Math.floor(distance % 86400000 / 3600000); minutes.textContent = Math.floor(distance % 3600000 / 60000); seconds.textContent = Math.floor(distance % 60000 / 1000); }
-    updateCountdown(); setInterval(updateCountdown, 1000);
-  </script>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="crown">♛</div>
+
+<h1>
+Yathziry Quirino
+<br>
+<span class="ampersand">&</span>
+<br>
+Alexandra Garcia
+</h1>
+
+<div class="ornament">✦ ─── ✧ ─── ✦</div>
+
+<p class="hero-subtitle">
+A JOINT QUINCEAÑERA CELEBRATION
+</p>
+
+<p class="hero-date">
+October 23, 2027
+</p>
+
+<a href="#rsvp" class="btn">
+♛ &nbsp; RSVP &nbsp; ♛
+</a>
+
+</div>
+
+</section>
+
+
+<!-- COUNTDOWN -->
+
+<section>
+
+<h2 class="section-title">
+COUNTDOWN
+</h2>
+
+<div class="ornament">
+✦
+</div>
+
+<div class="countdown">
+
+<div class="time-box">
+<span id="days">0</span>
+<div class="time-label">Days</div>
+</div>
+
+<div class="time-box">
+<span id="hours">0</span>
+<div class="time-label">Hours</div>
+</div>
+
+<div class="time-box">
+<span id="minutes">0</span>
+<div class="time-label">Minutes</div>
+</div>
+
+<div class="time-box">
+<span id="seconds">0</span>
+<div class="time-label">Seconds</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CELEBRATION -->
+
+<section>
+
+<h2 class="section-title">
+OUR CELEBRATION
+</h2>
+
+<div class="card">
+
+<div class="ornament">❦</div>
+
+<p>
+We are excited to celebrate this special milestone
+with our family and friends.
+</p>
+
+<p>
+More details about our celebration will be shared soon.
+</p>
+
+<div class="ornament">❦</div>
+
+</div>
+
+</section>
+
+
+<!-- EVENT DETAILS -->
+
+<section>
+
+<h2 class="section-title">
+EVENT DETAILS
+</h2>
+
+<div class="card">
+
+<div class="event-icon">
+⌖
+</div>
+
+<h3>
+VENUE COMING SOON
+</h3>
+
+<p>
+Location details will be announced soon.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section>
+
+<h2 class="section-title">
+GALLERY
+</h2>
+
+<div class="gallery">
+
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
+
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
+
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
+
+<div class="placeholder">
+PHOTO<br>COMING SOON
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RSVP -->
+
+<section id="rsvp">
+
+<h2 class="section-title">
+RSVP
+</h2>
+
+<div class="rsvp-card">
+
+<form id="rsvpForm">
+
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required
+>
+
+<input
+type="email"
+name="email"
+placeholder="Your Email"
+required
+>
+
+<select
+name="attendance"
+id="attendance"
+required
+>
+
+<option value="">
+Will you attend?
+</option>
+
+<option value="Yes">
+Yes, I will attend
+</option>
+
+<option value="No">
+No, I cannot attend
+</option>
+
+</select>
+
+
+<!-- NUMBER OF GUESTS -->
+
+<div id="guestContainer">
+
+<input
+type="number"
+name="guests"
+id="guests"
+min="1"
+max="20"
+placeholder="How many guests are you bringing?"
+>
+
+</div>
+
+
+<textarea
+name="message"
+rows="5"
+placeholder="Leave a message"
+></textarea>
+
+<button type="submit">
+♛ &nbsp; SEND RSVP &nbsp; ♛
+</button>
+
+<p id="message"></p>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="ornament">
+✦ ─── ❦ ─── ✦
+</div>
+
+<h3>
+With Love ❤️
+</h3>
+
+<p>
+Yathziry Quirino & Alexandra Garcia
+</p>
+
+<div class="ornament">
+✦ ─── ❦ ─── ✦
+</div>
+
+</footer>
+
+
+<!-- EMAILJS -->
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+
+emailjs.init({
+    publicKey:"vsmZUgvnvKlx7ymca"
+});
+
+
+/* =========================
+   SHOW GUEST BOX
+========================= */
+
+const attendance =
+document.getElementById("attendance");
+
+const guestContainer =
+document.getElementById("guestContainer");
+
+const guests =
+document.getElementById("guests");
+
+
+attendance.addEventListener("change", function(){
+
+    if(this.value === "Yes"){
+
+        guestContainer.classList.add("show");
+
+        guests.required = true;
+
+    }else{
+
+        guestContainer.classList.remove("show");
+
+        guests.required = false;
+
+        guests.value = "";
+
+    }
+
+});
+
+
+/* =========================
+   RSVP
+========================= */
+
+document
+.getElementById("rsvpForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    const message =
+    document.getElementById("message");
+
+    message.textContent =
+    "Sending RSVP...";
+
+
+    emailjs.sendForm(
+        "service_l60yxx7",
+        "template_fqkpg0u",
+        this
+    )
+
+    .then(()=>{
+
+        message.textContent =
+        "💖 Thank you! Your RSVP has been received.";
+
+        this.reset();
+
+        guestContainer.classList.remove("show");
+
+        guests.required = false;
+
+    })
+
+    .catch((error)=>{
+
+        console.error(error);
+
+        message.textContent =
+        "❌ Unable to send RSVP. Please try again.";
+
+    });
+
+});
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+const eventDate =
+new Date("October 23, 2027 17:00:00").getTime();
+
+
+function updateCountdown(){
+
+    const now =
+    new Date().getTime();
+
+    const distance =
+    eventDate - now;
+
+
+    if(distance <= 0){
+
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
+
+        return;
+    }
+
+
+    document.getElementById("days").textContent =
+    Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+    );
+
+
+    document.getElementById("hours").textContent =
+    Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+
+    document.getElementById("minutes").textContent =
+    Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+
+    document.getElementById("seconds").textContent =
+    Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+    );
+
+}
+
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+</script>
+
 </body>
 </html>
