@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yathziry & Alexandra's Quinceañera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Poppins,sans-serif;color:#f8ead0;background:radial-gradient(circle at 50% 15%,#650909 0,#380303 42%,#170101 100%);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 15% 20%,rgba(255,215,80,.07),transparent 22%),radial-gradient(circle at 85% 70%,rgba(255,215,80,.06),transparent 22%);z-index:-1}
+section{padding:90px 7%;position:relative}.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 20px;position:relative;background:radial-gradient(circle at center,rgba(120,0,0,.55),transparent 55%),linear-gradient(135deg,#520606,#210101 60%,#450404);border-bottom:2px solid #d4af37}.hero:before{content:"";position:absolute;inset:18px;border:1px solid #d4af37}.hero:after{content:"";position:absolute;inset:28px;border:1px solid rgba(212,175,55,.35)}
+.hero-content{position:relative;z-index:3;max-width:1000px}.crown{font-size:48px;color:#d4af37;margin-bottom:15px;text-shadow:0 0 10px rgba(255,220,100,.5)}.hero h1,.footer-name{font-family:"Great Vibes",cursive}.hero h1{font-size:clamp(4rem,9vw,8rem);font-weight:400;line-height:.95;background:linear-gradient(180deg,#fff8c7,#ffe77a 18%,#d4af37 40%,#fff0a0 58%,#c28e12 78%,#fff1a3);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 3px 3px rgba(0,0,0,.65))}.ampersand{font-size:.65em}.ornament{text-align:center;color:#d4af37;font-size:24px;letter-spacing:8px}.hero-subtitle{font-family:Cinzel,serif;font-size:1rem;letter-spacing:6px;margin-top:30px}.hero-date{font-family:Cinzel,serif;color:#e6c957;font-size:1.5rem;letter-spacing:3px;margin-top:18px}.btn,button{display:inline-block;margin-top:35px;padding:15px 55px;color:#3b0505;background:linear-gradient(180deg,#fff3a5,#d4af37,#a67c00);font-family:Cinzel,serif;font-weight:700;letter-spacing:3px;border:2px solid #f8df75;border-radius:7px;box-shadow:0 0 20px rgba(212,175,55,.35);cursor:pointer;text-decoration:none;transition:.3s}.btn:hover,button:hover{transform:translateY(-3px);box-shadow:0 0 30px rgba(212,175,55,.55)}
+.section-title{text-align:center;font-family:Cinzel,serif;font-size:2rem;letter-spacing:6px;color:#d4af37;margin-bottom:15px;text-shadow:0 0 15px rgba(212,175,55,.3)}.section-title:before,.section-title:after{content:" ✦ ";color:#d4af37}
+.countdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;max-width:900px;margin:40px auto 0}.time-box,.card,.rsvp-card{background:linear-gradient(145deg,rgba(91,7,7,.95),rgba(38,2,2,.98));border:1px solid #b8860b;border-radius:12px;box-shadow:0 20px 45px rgba(0,0,0,.45),inset 0 0 35px rgba(212,175,55,.04)}.time-box{padding:35px 20px;text-align:center}.time-box span{display:block;font-family:Cinzel,serif;font-size:3rem;font-weight:600;color:#f1d66b}.time-label{color:#f8ead0;letter-spacing:3px;font-size:.85rem;text-transform:uppercase}
+.card{max-width:950px;margin:35px auto 0;padding:45px 35px;text-align:center}.card h3{font-family:Cinzel,serif;color:#e3c04b;font-size:1.4rem;letter-spacing:3px;margin-bottom:20px}.card p{line-height:1.9}.event-icon{font-size:42px;color:#d4af37;margin-bottom:15px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px;max-width:1100px;margin:40px auto 0}.photo{height:270px;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle,#700909,#300202 75%);border:1px solid #d4af37;border-radius:10px;overflow:hidden;color:#e3c04b;font-family:Cinzel,serif;position:relative}.photo img{width:100%;height:100%;object-fit:cover}.photo:before{content:"♛";position:absolute;top:15px;color:#d4af37;font-size:24px;z-index:2}
+.rsvp-card{max-width:850px;margin:35px auto 0;padding:45px}.form{display:flex;flex-direction:column;gap:18px}input,select,textarea{width:100%;padding:16px 18px;background:#260202;color:#f8ead0;border:1px solid #936f0b;border-radius:7px;font:1rem Poppins,sans-serif}input:focus,select:focus,textarea:focus{outline:none;border-color:#d4af37;box-shadow:0 0 15px rgba(212,175,55,.15)}#guestContainer{display:none}#guestContainer.show{display:block}#message{text-align:center;color:#e6c957;font-weight:600;margin-top:10px}
+section{position:relative;overflow:hidden}.section-butterfly{position:absolute;width:72px;z-index:0;pointer-events:none;filter:drop-shadow(0 0 5px rgba(255,220,100,.9)) drop-shadow(0 0 15px rgba(212,175,55,.65));animation:shine 4s ease-in-out infinite}.section-butterfly.left{left:2%;top:18%}.section-butterfly.right{right:2%;bottom:14%;width:62px;animation-delay:1.2s}.section-butterfly.small{width:48px;opacity:.9}.section-butterfly svg{width:100%;height:auto}.hero .section-butterfly{display:none}.countdown-section .section-butterfly{top:12%}.celebration-section .section-butterfly{top:25%}.details-section .section-butterfly{bottom:18%}.gallery-section .section-butterfly{top:15%}.rsvp-section .section-butterfly{top:20%}footer{padding:70px 20px;text-align:center;background:linear-gradient(180deg,#250202,#100101);border-top:2px solid #d4af37}.footer-name{font-size:3.5rem;color:#d4af37}footer p{margin-top:15px}
+.butterfly{position:absolute;width:82px;z-index:1;pointer-events:none;filter:drop-shadow(0 0 5px rgba(255,220,100,.9)) drop-shadow(0 0 15px rgba(212,175,55,.65));animation:shine 4s ease-in-out infinite}.butterfly svg{width:100%;height:auto}.butterfly-1{top:12%;left:2%}.butterfly-2{top:32%;right:2%;width:70px;animation-delay:1s}.butterfly-3{top:56%;left:2%;width:65px;animation-delay:2s}.butterfly-4{top:76%;right:2%;width:78px;animation-delay:.7s}.butterfly-5{top:94%;left:3%;width:60px;animation-delay:1.5s}
+@keyframes shine{50%{opacity:1;filter:drop-shadow(0 0 10px #ffe98a) drop-shadow(0 0 22px #d4af37)}}
+@media(max-width:600px){section{padding:70px 5%}.hero h1{font-size:4rem}.hero-subtitle{font-size:.72rem;letter-spacing:2.5px}.hero-date{font-size:1.05rem}.crown{font-size:38px}.btn{padding:14px 35px;font-size:.85rem}.countdown{grid-template-columns:repeat(2,1fr);gap:12px}.time-box{padding:25px 10px}.time-box span{font-size:2.2rem}.rsvp-card{padding:25px 18px}.butterfly{width:48px}.butterfly-2{width:42px}.butterfly-3{width:40px}.butterfly-4{width:45px}.butterfly-5{width:38px}.footer-name{font-size:2.8rem}}
+</style>
+</head>
+<body>
+
+<!-- Inline gold butterflies: no uploaded butterfly image is required. -->
+<div class="butterfly butterfly-1"><svg viewBox="0 0 160 160"><defs><linearGradient id="g1"><stop stop-color="#fff8c7"/><stop offset=".25" stop-color="#ffe16a"/><stop offset=".55" stop-color="#d4af37"/><stop offset="1" stop-color="#8b6105"/></linearGradient></defs><path fill="url(#g1)" stroke="#fff0a0" stroke-width="2" d="M78 75C45 20 10 15 16 58c3 24 27 33 57 28C45 90 27 104 42 123c11 16 30-12 38-32z"/><path fill="url(#g1)" stroke="#fff0a0" stroke-width="2" d="M82 75c33-55 68-60 62-17-3 24-27 33-57 28 28 4 46 18 31 37-11 16-30-12-38-32z"/><ellipse cx="80" cy="87" rx="6" ry="25" fill="#815606"/><path d="M76 65C67 48 59 47 53 43M84 65c9-17 17-18 23-22" fill="none" stroke="#d4af37" stroke-width="2"/></svg></div>
+<div class="butterfly butterfly-2"><svg viewBox="0 0 160 160"><defs><linearGradient id="g2"><stop stop-color="#fff9c9"/><stop offset=".3" stop-color="#f7d65c"/><stop offset=".6" stop-color="#cda42c"/><stop offset="1" stop-color="#805506"/></linearGradient></defs><path fill="url(#g2)" stroke="#ffe98c" stroke-width="2" d="M78 76C42 29 13 26 19 64c3 23 26 28 54 22-25 9-41 21-25 38 11 11 26-13 31-32z"/><path fill="url(#g2)" stroke="#ffe98c" stroke-width="2" d="M82 76c36-47 65-50 59-12-3 23-26 28-54 22 25 9 41 21 25 38-11 11-26-13-31-32z"/><ellipse cx="80" cy="88" rx="5" ry="24" fill="#795006"/></svg></div>
+<div class="butterfly butterfly-3"><svg viewBox="0 0 160 160"><defs><linearGradient id="g3"><stop stop-color="#fff9c8"/><stop offset=".3" stop-color="#f8d85e"/><stop offset=".65" stop-color="#d4af37"/><stop offset="1" stop-color="#8c6207"/></linearGradient></defs><path fill="url(#g3)" stroke="#ffe98a" stroke-width="2" d="M78 77C47 27 17 24 22 62c3 22 24 30 51 25-27 6-42 21-29 37 10 11 25-14 31-31z"/><path fill="url(#g3)" stroke="#ffe98a" stroke-width="2" d="M82 77c31-50 61-53 56-15-3 22-24 30-51 25 27 6 42 21 29 37-10 11-25-14-31-31z"/><ellipse cx="80" cy="88" rx="5" ry="24" fill="#7d5305"/></svg></div>
+<div class="butterfly butterfly-4"><svg viewBox="0 0 160 160"><defs><linearGradient id="g4"><stop stop-color="#fff9c9"/><stop offset=".22" stop-color="#ffe56b"/><stop offset=".5" stop-color="#d4af37"/><stop offset="1" stop-color="#986c08"/></linearGradient></defs><path fill="url(#g4)" stroke="#fff0a0" stroke-width="2" d="M78 77C45 24 12 22 18 61c3 24 26 33 55 26-29 4-45 21-26 39 12 12 28-16 32-33z"/><path fill="url(#g4)" stroke="#fff0a0" stroke-width="2" d="M82 77c33-53 66-55 60-16-3 24-26 33-55 26 29 4 45 21 26 39-12 12-28-16-32-33z"/><ellipse cx="80" cy="87" rx="6" ry="25" fill="#805506"/></svg></div>
+<div class="butterfly butterfly-5"><svg viewBox="0 0 160 160"><defs><linearGradient id="g5"><stop stop-color="#fff8bd"/><stop offset=".3" stop-color="#f7d65c"/><stop offset=".6" stop-color="#c69b21"/><stop offset="1" stop-color="#8c6106"/></linearGradient></defs><path fill="url(#g5)" stroke="#ffe98c" stroke-width="2" d="M78 77C49 31 20 29 24 63c3 21 23 29 49 24-23 7-33 20-22 34 9 11 22-12 28-28z"/><path fill="url(#g5)" stroke="#ffe98c" stroke-width="2" d="M82 77c29-46 58-48 54-14-3 21-23 29-49 24 23 7 33 20 22 34-9 11-22-12-28-28z"/><ellipse cx="80" cy="88" rx="5" ry="23" fill="#795006"/></svg></div>
+
+<section class="hero">
+<div class="hero-content">
+<div class="crown">♛</div>
+<h1>Yathziry Quirino<br><span class="ampersand">&</span><br>Alexandra Garcia</h1>
+<div class="ornament">✦ ─── ✧ ─── ✦</div>
+<p class="hero-subtitle">A JOINT QUINCEAÑERA CELEBRATION</p>
+<p class="hero-date">October 23, 2027</p>
+<a href="#rsvp" class="btn">♛ &nbsp; RSVP &nbsp; ♛</a>
+</div></section>
+
+<section class="countdown-section"><div class="section-butterfly left"><svg viewBox="0 0 160 160"><defs><linearGradient id="sg1"><stop stop-color="#fff8c7"/><stop offset=".25" stop-color="#ffe16a"/><stop offset=".55" stop-color="#d4af37"/><stop offset="1" stop-color="#8b6105"/></linearGradient></defs><path fill="url(#sg1)" stroke="#fff0a0" stroke-width="2" d="M78 75C45 20 10 15 16 58c3 24 27 33 57 28C45 90 27 104 42 123c11 16 30-12 38-32z"/><path fill="url(#sg1)" stroke="#fff0a0" stroke-width="2" d="M82 75c33-55 68-60 62-17-3 24-27 33-57 28 28 4 46 18 31 37-11 16-30-12-38-32z"/><ellipse cx="80" cy="87" rx="6" ry="25" fill="#815606"/></svg></div><div class="section-butterfly right small"><svg viewBox="0 0 160 160"><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M78 76C42 29 13 26 19 64c3 23 26 28 54 22-25 9-41 21-25 38 11 11 26-13 31-32z"/><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M82 76c36-47 65-50 59-12-3 23-26 28-54 22 25 9 41 21 25 38-11 11-26-13-31-32z"/><ellipse cx="80" cy="88" rx="5" ry="24" fill="#795006"/></svg></div><h2 class="section-title">COUNTDOWN</h2><div class="ornament">✦</div><div class="countdown">
+<div class="time-box"><span id="days">0</span><div class="time-label">Days</div></div>
+<div class="time-box"><span id="hours">0</span><div class="time-label">Hours</div></div>
+<div class="time-box"><span id="minutes">0</span><div class="time-label">Minutes</div></div>
+<div class="time-box"><span id="seconds">0</span><div class="time-label">Seconds</div></div></div></section>
+
+<section class="celebration-section"><div class="section-butterfly right"><svg viewBox="0 0 160 160"><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M78 77C47 27 17 24 22 62c3 22 24 30 51 25-27 6-42 21-29 37 10 11 25-14 31-31z"/><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M82 77c31-50 61-53 56-15-3 22-24 30-51 25 27 6 42 21 29 37-10 11-25-14-31-31z"/><ellipse cx="80" cy="88" rx="5" ry="24" fill="#7d5305"/></svg></div><h2 class="section-title">OUR CELEBRATION</h2><div class="card"><div class="ornament">❦</div><p>We are excited to celebrate this special milestone with our family and friends.</p><br><p>More details about our celebration will be shared soon.</p><br><div class="ornament">❦</div></div></section>
+
+<section class="details-section"><div class="section-butterfly left small"><svg viewBox="0 0 160 160"><path fill="#d4af37" stroke="#fff0a0" stroke-width="2" d="M78 77C45 24 12 22 18 61c3 24 26 33 55 26-29 4-45 21-26 39 12 12 28-16 32-33z"/><path fill="#d4af37" stroke="#fff0a0" stroke-width="2" d="M82 77c33-53 66-55 60-16-3 24-26 33-55 26 29 4 45 21 26 39-12 12-28-16-32-33z"/><ellipse cx="80" cy="87" rx="6" ry="25" fill="#805506"/></svg></div><h2 class="section-title">EVENT DETAILS</h2><div class="card"><div class="event-icon">⌖</div><h3 id="venueTitle">VENUE COMING SOON</h3><p id="venueText">Location details will be announced soon.</p></div></section>
+
+<section class="gallery-section"><div class="section-butterfly right small"><svg viewBox="0 0 160 160"><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M78 77C49 31 20 29 24 63c3 21 23 29 49 24-23 7-33 20-22 34 9 11 22-12 28-28z"/><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M82 77c29-46 58-48 54-14-3 21-23 29-49 24 23 7 33 20 22 34-9 11-22-12-28-28z"/><ellipse cx="80" cy="88" rx="5" ry="23" fill="#795006"/></svg></div><h2 class="section-title">GALLERY</h2><div id="gallery" class="gallery">
+<div class="photo">PHOTO<br>COMING SOON</div><div class="photo">PHOTO<br>COMING SOON</div><div class="photo">PHOTO<br>COMING SOON</div><div class="photo">PHOTO<br>COMING SOON</div>
+</div></section>
+
+<section id="rsvp" class="rsvp-section"><div class="section-butterfly left small"><svg viewBox="0 0 160 160"><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M78 75C45 20 10 15 16 58c3 24 27 33 57 28C45 90 27 104 42 123c11 16 30-12 38-32z"/><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M82 75c33-55 68-60 62-17-3 24-27 33-57 28 28 4 46 18 31 37-11 16-30-12-38-32z"/><ellipse cx="80" cy="87" rx="6" ry="25" fill="#815606"/></svg></div><h2 class="section-title">RSVP</h2><div class="rsvp-card">
+<form id="rsvpForm" class="form">
+<input name="name" placeholder="Your Name" required>
+<input name="email" type="email" placeholder="Your Email" required>
+<select name="attendance" id="attendance" required><option value="">Will you attend?</option><option value="Yes">Yes, I will attend</option><option value="No">No, I cannot attend</option></select>
+<div id="guestContainer"><input name="guests" id="guests" type="number" min="1" max="20" placeholder="How many guests are you bringing?"></div>
+<textarea name="message" rows="5" placeholder="Leave a message"></textarea>
+<button type="submit">♛ &nbsp; SEND RSVP &nbsp; ♛</button>
+<p id="message"></p>
+</form></div></section>
+
+<footer><div class="ornament">✦ ─── ❦ ─── ✦</div><div class="footer-name">With Love ❤️</div><p>Yathziry Quirino & Alexandra Garcia</p><div class="ornament">✦ ─── ❦ ─── ✦</div></footer>
+
+<script>
+/* NO THIRD-PARTY SERVICE VERSION
+   RSVPs, website details, and gallery data are stored in this browser's localStorage.
+   This means admin changes/RSVPs are only shared on the same browser/device.
+*/
+const RSVP_KEY="quince_rsvps";
+const SITE_KEY="quince_site_settings";
+const PHOTOS_KEY="quince_photos";
+
+const attendance=document.getElementById("attendance"), guestContainer=document.getElementById("guestContainer"), guests=document.getElementById("guests");
+attendance.addEventListener("change",()=>{const yes=attendance.value==="Yes";guestContainer.classList.toggle("show",yes);guests.required=yes;if(!yes)guests.value=""});
+
+function getData(key,fallback=[]){try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}}
+function setData(key,value){localStorage.setItem(key,JSON.stringify(value))}
+
+// RSVP — stored locally, no database or third-party service.
+document.getElementById("rsvpForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const message=document.getElementById("message");
+  const data=Object.fromEntries(new FormData(e.currentTarget).entries());
+  data.id=crypto.randomUUID?crypto.randomUUID():String(Date.now());
+  data.guests=data.attendance==="Yes"?(Number(data.guests)||1):0;
+  data.createdAt=new Date().toISOString();
+  const rsvps=getData(RSVP_KEY,[]);rsvps.unshift(data);setData(RSVP_KEY,rsvps);
+  message.textContent="💖 Thank you! Your RSVP has been received.";
+  e.currentTarget.reset();guestContainer.classList.remove("show");guests.required=false;
+});
+
+const eventDate=new Date("October 23, 2027 17:00:00").getTime();
+function updateCountdown(){let d=eventDate-Date.now();if(d<0)d=0;document.getElementById("days").textContent=Math.floor(d/86400000);document.getElementById("hours").textContent=Math.floor(d%86400000/3600000);document.getElementById("minutes").textContent=Math.floor(d%3600000/60000);document.getElementById("seconds").textContent=Math.floor(d%60000/1000)}
+updateCountdown();setInterval(updateCountdown,1000);
+
+function escapeHtml(value=""){return String(value).replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"}[c]));}
+function loadSite(){
+  const settings=getData(SITE_KEY,null);
+  if(settings){
+    if(settings.venue_title)document.getElementById("venueTitle").textContent=settings.venue_title;
+    if(settings.venue_text)document.getElementById("venueText").textContent=settings.venue_text;
+  }
+  const photos=getData(PHOTOS_KEY,[]);
+  if(photos.length)document.getElementById("gallery").innerHTML=photos.map(p=>`<div class="photo"><img src="${escapeHtml(p.data)}" alt="${escapeHtml(p.title||"Quinceañera photo")}"></div>`).join("");
+}
+loadSite();
+</script>
+</body>
+</html>

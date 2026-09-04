@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quinceañera Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#160102;color:#f8ead0;font-family:Poppins,sans-serif}main{max-width:1100px;margin:auto;padding:30px 18px}h1,h2{font-family:Cinzel,serif;color:#e7c95b}h1{text-align:center}section{background:#300303;border:1px solid #a77c13;border-radius:12px;padding:24px;margin:20px 0;box-shadow:0 15px 35px #0008}input,textarea,button{width:100%;padding:12px;margin:7px 0;border-radius:6px;border:1px solid #96700d;background:#1e0202;color:#fff;font:inherit}button{background:linear-gradient(#fff0a0,#d4af37,#9b7000);color:#240000;font-weight:700;cursor:pointer}button:disabled{opacity:.6;cursor:not-allowed}.hidden{display:none}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{padding:18px;text-align:center;border:1px solid #8f6b0d;border-radius:8px}.stat b{display:block;font-size:28px;color:#f1d66b}.rsvp{border-top:1px solid #76570b;padding:15px 0}.danger{background:#7b1111;color:#fff}.photo-row{display:flex;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #76570b}.photo-row img{width:100px;height:75px;object-fit:cover;border:1px solid #d4af37}.logout{max-width:160px}.muted{opacity:.75;font-size:.9rem}.ok{color:#e6c957}.error{color:#ff9a9a}.warning{padding:12px;border:1px solid #a77c13;border-radius:8px;background:#250202}.setup-note{font-size:.9rem;opacity:.8}@media(max-width:600px){.stats{grid-template-columns:1fr}.photo-row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body><main>
+<h1>♛ Quinceañera Admin ♛</h1>
+<section id="login">
+<h2 id="loginTitle">Private Login</h2>
+<div id="firstSetup" class="hidden">
+<p>Create your admin password. It will <b>not be displayed</b> on the website. Only a one-way hash is stored in this browser.</p>
+<input id="newPassword" type="password" placeholder="Create admin password" autocomplete="new-password">
+<input id="newPassword2" type="password" placeholder="Confirm admin password" autocomplete="new-password">
+<button id="setupBtn">CREATE ADMIN PASSWORD</button>
+</div>
+<div id="normalLogin">
+<input id="password" type="password" placeholder="Admin password" autocomplete="current-password">
+<button id="loginBtn">LOGIN</button>
+</div>
+<p id="loginMsg"></p>
+<p class="setup-note">For privacy, the password is never shown in plain text.</p>
+</section>
+
+<div id="app" class="hidden">
+<button class="logout" id="logoutBtn">LOG OUT</button>
+<section><h2>RSVP Dashboard</h2><div class="stats"><div class="stat"><b id="total">0</b>Total RSVPs</div><div class="stat"><b id="yes">0</b>Attending</div><div class="stat"><b id="guests">0</b>Total Guests</div></div><div id="rsvps"></div><button id="exportBtn">DOWNLOAD RSVPs</button><button class="danger" id="clearBtn">DELETE ALL RSVPs</button></section>
+<section><h2>Website Details</h2><input id="venueTitle" placeholder="Venue title"><textarea id="venueText" rows="5" placeholder="Venue details"></textarea><button id="saveSite">SAVE WEBSITE DETAILS</button><p id="siteMsg"></p></section>
+<section><h2>Gallery</h2><input id="photoFile" type="file" accept="image/*"><input id="photoTitle" placeholder="Photo description"><button id="uploadPhoto">ADD PHOTO</button><p class="muted">Photos are saved in this browser. Keep images reasonably small so the browser does not run out of storage.</p><div id="photos"></div><p id="photoMsg"></p></section>
+<section><h2>Important</h2><p class="warning">This version uses only GitHub + your browser. There is no server or database, so RSVPs and admin edits are stored locally on this device/browser. They will not automatically appear on another phone or computer.</p></section>
+</div></main>
+<script>
+const RSVP_KEY="quince_rsvps",SITE_KEY="quince_site_settings",PHOTOS_KEY="quince_photos",AUTH_KEY="quince_admin_hash",SESSION_KEY="quince_admin_session";
+const $=id=>document.getElementById(id);
+const getData=(key,fallback=[])=>{try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}};
+const setData=(key,value)=>localStorage.setItem(key,JSON.stringify(value));
+const clean=v=>String(v??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"}[c]));
+
+async function hashPassword(password){const bytes=new TextEncoder().encode(password),hash=await crypto.subtle.digest("SHA-256",bytes);return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,"0")).join("")}
+function hasPassword(){return !!localStorage.getItem(AUTH_KEY)}
+function showLogin(){
+  $("login").classList.remove("hidden");$("app").classList.add("hidden");
+  $("firstSetup").classList.toggle("hidden",hasPassword());$("normalLogin").classList.toggle("hidden",!hasPassword());
+  $("loginTitle").textContent=hasPassword()?"Private Login":"First-Time Admin Setup";
+}
+function showApp(){
+  $("login").classList.add("hidden");$("app").classList.remove("hidden");loadAll();
+}
+
+$("setupBtn").onclick=async()=>{
+  const a=$("newPassword").value,b=$("newPassword2").value;
+  if(a.length<8)return $("loginMsg").textContent="Password must be at least 8 characters.";
+  if(a!==b)return $("loginMsg").textContent="Passwords do not match.";
+  localStorage.setItem(AUTH_KEY,await hashPassword(a));localStorage.setItem(SESSION_KEY,"1");$("loginMsg").textContent="Admin password created.";showApp();
+};
+$("loginBtn").onclick=async()=>{const entered=await hashPassword($("password").value);if(entered!==localStorage.getItem(AUTH_KEY))return $("loginMsg").textContent="Incorrect password.";localStorage.setItem(SESSION_KEY,"1");$("loginMsg").textContent="";showApp()};
+$("logoutBtn").onclick=()=>{localStorage.removeItem(SESSION_KEY);showLogin()};
+if(localStorage.getItem(SESSION_KEY)==="1"&&hasPassword())showApp();else showLogin();
+
+function loadAll(){loadRsvps();loadSite();loadPhotos()}
+function loadRsvps(){
+ const data=getData(RSVP_KEY,[]);$("total").textContent=data.length;$("yes").textContent=data.filter(x=>x.attendance==="Yes").length;$("guests").textContent=data.reduce((n,x)=>n+(Number(x.guests)||0),0);
+ $("rsvps").innerHTML=data.length?data.map(x=>`<div class="rsvp"><b>${clean(x.name)}</b> — ${clean(x.attendance)} — ${Number(x.guests)||0} guest(s)<br><small>${clean(x.email)}${x.message?" — "+clean(x.message):""}</small><br><button class="danger" data-id="${clean(x.id)}">DELETE</button></div>`).join(""):"<p class='muted'>No RSVPs yet.</p>";
+ $("rsvps").querySelectorAll("[data-id]").forEach(btn=>btn.onclick=()=>deleteRsvp(btn.dataset.id));
+}
+function deleteRsvp(id){if(!confirm("Delete this RSVP?"))return;setData(RSVP_KEY,getData(RSVP_KEY,[]).filter(x=>x.id!==id));loadRsvps()}
+$("clearBtn").onclick=()=>{if(confirm("Delete ALL RSVPs? This cannot be undone.")){localStorage.removeItem(RSVP_KEY);loadRsvps()}};
+$("exportBtn").onclick=()=>{const blob=new Blob([JSON.stringify(getData(RSVP_KEY,[]),null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="quinceanera-rsvps.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+
+function loadSite(){const d=getData(SITE_KEY,null);if(d){$("venueTitle").value=d.venue_title||"";$("venueText").value=d.venue_text||""}}
+$("saveSite").onclick=()=>{setData(SITE_KEY,{venue_title:$("venueTitle").value.trim(),venue_text:$("venueText").value.trim()});$("siteMsg").textContent="Saved! Refresh the main website to see the changes."};
+
+function loadPhotos(){const data=getData(PHOTOS_KEY,[]);$("photos").innerHTML=data.length?data.map(p=>`<div class="photo-row"><img src="${clean(p.data)}" alt="${clean(p.title||"Gallery photo")}"><div style="flex:1"><b>${clean(p.title||"Gallery photo")}</b><button class="danger" data-photo="${clean(p.id)}">DELETE</button></div></div>`).join(""):"<p class='muted'>No photos yet.</p>";$("photos").querySelectorAll("[data-photo]").forEach(b=>b.onclick=()=>deletePhoto(b.dataset.photo))}
+function deletePhoto(id){if(!confirm("Delete this photo?"))return;setData(PHOTOS_KEY,getData(PHOTOS_KEY,[]).filter(x=>x.id!==id));loadPhotos()}
+$("uploadPhoto").onclick=()=>{const file=$("photoFile").files[0];if(!file)return alert("Choose an image first.");if(file.size>2*1024*1024)return alert("For this no-server version, keep each image under 2 MB.");const reader=new FileReader();$("photoMsg").textContent="Adding photo...";reader.onload=()=>{const data=getData(PHOTOS_KEY,[]);data.unshift({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),title:$("photoTitle").value.trim(),data:reader.result});try{setData(PHOTOS_KEY,data);$("photoFile").value="";$("photoTitle").value="";$("photoMsg").textContent="Photo added! Refresh the main website to see it.";loadPhotos()}catch(e){$("photoMsg").textContent="Browser storage is full. Try a smaller image."}};reader.readAsDataURL(file)};
+</script>
+</body></html>
