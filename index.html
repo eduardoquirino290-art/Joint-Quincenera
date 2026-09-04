@@ -18,7 +18,7 @@ section{padding:90px 7%;position:relative}.hero{min-height:100svh;display:flex;a
 .card{max-width:950px;margin:35px auto 0;padding:45px 35px;text-align:center}.card h3{font-family:Cinzel,serif;color:#e3c04b;font-size:1.4rem;letter-spacing:3px;margin-bottom:20px}.card p{line-height:1.9}.event-icon{font-size:42px;color:#d4af37;margin-bottom:15px}
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:25px;max-width:1100px;margin:40px auto 0}.photo{height:270px;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle,#700909,#300202 75%);border:1px solid #d4af37;border-radius:10px;overflow:hidden;color:#e3c04b;font-family:Cinzel,serif;position:relative}.photo img{width:100%;height:100%;object-fit:cover}.photo:before{content:"♛";position:absolute;top:15px;color:#d4af37;font-size:24px;z-index:2}
 .rsvp-card{max-width:850px;margin:35px auto 0;padding:45px}.form{display:flex;flex-direction:column;gap:18px}input,select,textarea{width:100%;padding:16px 18px;background:#260202;color:#f8ead0;border:1px solid #936f0b;border-radius:7px;font:1rem Poppins,sans-serif}input:focus,select:focus,textarea:focus{outline:none;border-color:#d4af37;box-shadow:0 0 15px rgba(212,175,55,.15)}#guestContainer{display:none}#guestContainer.show{display:block}#message{text-align:center;color:#e6c957;font-weight:600;margin-top:10px}
-footer{padding:70px 20px;text-align:center;background:linear-gradient(180deg,#250202,#100101);border-top:2px solid #d4af37}.footer-name{font-size:3.5rem;color:#d4af37}footer p{margin-top:15px}
+section{position:relative;overflow:hidden}.section-butterfly{position:absolute;width:72px;z-index:0;pointer-events:none;filter:drop-shadow(0 0 5px rgba(255,220,100,.9)) drop-shadow(0 0 15px rgba(212,175,55,.65));animation:shine 4s ease-in-out infinite}.section-butterfly.left{left:2%;top:18%}.section-butterfly.right{right:2%;bottom:14%;width:62px;animation-delay:1.2s}.section-butterfly.small{width:48px;opacity:.9}.section-butterfly svg{width:100%;height:auto}.hero .section-butterfly{display:none}.countdown-section .section-butterfly{top:12%}.celebration-section .section-butterfly{top:25%}.details-section .section-butterfly{bottom:18%}.gallery-section .section-butterfly{top:15%}.rsvp-section .section-butterfly{top:20%}footer{padding:70px 20px;text-align:center;background:linear-gradient(180deg,#250202,#100101);border-top:2px solid #d4af37}.footer-name{font-size:3.5rem;color:#d4af37}footer p{margin-top:15px}
 .butterfly{position:absolute;width:82px;z-index:1;pointer-events:none;filter:drop-shadow(0 0 5px rgba(255,220,100,.9)) drop-shadow(0 0 15px rgba(212,175,55,.65));animation:shine 4s ease-in-out infinite}.butterfly svg{width:100%;height:auto}.butterfly-1{top:12%;left:2%}.butterfly-2{top:32%;right:2%;width:70px;animation-delay:1s}.butterfly-3{top:56%;left:2%;width:65px;animation-delay:2s}.butterfly-4{top:76%;right:2%;width:78px;animation-delay:.7s}.butterfly-5{top:94%;left:3%;width:60px;animation-delay:1.5s}
 @keyframes shine{50%{opacity:1;filter:drop-shadow(0 0 10px #ffe98a) drop-shadow(0 0 22px #d4af37)}}
 @media(max-width:600px){section{padding:70px 5%}.hero h1{font-size:4rem}.hero-subtitle{font-size:.72rem;letter-spacing:2.5px}.hero-date{font-size:1.05rem}.crown{font-size:38px}.btn{padding:14px 35px;font-size:.85rem}.countdown{grid-template-columns:repeat(2,1fr);gap:12px}.time-box{padding:25px 10px}.time-box span{font-size:2.2rem}.rsvp-card{padding:25px 18px}.butterfly{width:48px}.butterfly-2{width:42px}.butterfly-3{width:40px}.butterfly-4{width:45px}.butterfly-5{width:38px}.footer-name{font-size:2.8rem}}
@@ -43,21 +43,21 @@ footer{padding:70px 20px;text-align:center;background:linear-gradient(180deg,#25
 <a href="#rsvp" class="btn">♛ &nbsp; RSVP &nbsp; ♛</a>
 </div></section>
 
-<section><h2 class="section-title">COUNTDOWN</h2><div class="ornament">✦</div><div class="countdown">
+<section class="countdown-section"><div class="section-butterfly left"><svg viewBox="0 0 160 160"><defs><linearGradient id="sg1"><stop stop-color="#fff8c7"/><stop offset=".25" stop-color="#ffe16a"/><stop offset=".55" stop-color="#d4af37"/><stop offset="1" stop-color="#8b6105"/></linearGradient></defs><path fill="url(#sg1)" stroke="#fff0a0" stroke-width="2" d="M78 75C45 20 10 15 16 58c3 24 27 33 57 28C45 90 27 104 42 123c11 16 30-12 38-32z"/><path fill="url(#sg1)" stroke="#fff0a0" stroke-width="2" d="M82 75c33-55 68-60 62-17-3 24-27 33-57 28 28 4 46 18 31 37-11 16-30-12-38-32z"/><ellipse cx="80" cy="87" rx="6" ry="25" fill="#815606"/></svg></div><div class="section-butterfly right small"><svg viewBox="0 0 160 160"><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M78 76C42 29 13 26 19 64c3 23 26 28 54 22-25 9-41 21-25 38 11 11 26-13 31-32z"/><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M82 76c36-47 65-50 59-12-3 23-26 28-54 22 25 9 41 21 25 38-11 11-26-13-31-32z"/><ellipse cx="80" cy="88" rx="5" ry="24" fill="#795006"/></svg></div><h2 class="section-title">COUNTDOWN</h2><div class="ornament">✦</div><div class="countdown">
 <div class="time-box"><span id="days">0</span><div class="time-label">Days</div></div>
 <div class="time-box"><span id="hours">0</span><div class="time-label">Hours</div></div>
 <div class="time-box"><span id="minutes">0</span><div class="time-label">Minutes</div></div>
 <div class="time-box"><span id="seconds">0</span><div class="time-label">Seconds</div></div></div></section>
 
-<section><h2 class="section-title">OUR CELEBRATION</h2><div class="card"><div class="ornament">❦</div><p>We are excited to celebrate this special milestone with our family and friends.</p><br><p>More details about our celebration will be shared soon.</p><br><div class="ornament">❦</div></div></section>
+<section class="celebration-section"><div class="section-butterfly right"><svg viewBox="0 0 160 160"><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M78 77C47 27 17 24 22 62c3 22 24 30 51 25-27 6-42 21-29 37 10 11 25-14 31-31z"/><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M82 77c31-50 61-53 56-15-3 22-24 30-51 25 27 6 42 21 29 37-10 11-25-14-31-31z"/><ellipse cx="80" cy="88" rx="5" ry="24" fill="#7d5305"/></svg></div><h2 class="section-title">OUR CELEBRATION</h2><div class="card"><div class="ornament">❦</div><p>We are excited to celebrate this special milestone with our family and friends.</p><br><p>More details about our celebration will be shared soon.</p><br><div class="ornament">❦</div></div></section>
 
-<section><h2 class="section-title">EVENT DETAILS</h2><div class="card"><div class="event-icon">⌖</div><h3 id="venueTitle">VENUE COMING SOON</h3><p id="venueText">Location details will be announced soon.</p></div></section>
+<section class="details-section"><div class="section-butterfly left small"><svg viewBox="0 0 160 160"><path fill="#d4af37" stroke="#fff0a0" stroke-width="2" d="M78 77C45 24 12 22 18 61c3 24 26 33 55 26-29 4-45 21-26 39 12 12 28-16 32-33z"/><path fill="#d4af37" stroke="#fff0a0" stroke-width="2" d="M82 77c33-53 66-55 60-16-3 24-26 33-55 26 29 4 45 21 26 39-12 12-28-16-32-33z"/><ellipse cx="80" cy="87" rx="6" ry="25" fill="#805506"/></svg></div><h2 class="section-title">EVENT DETAILS</h2><div class="card"><div class="event-icon">⌖</div><h3 id="venueTitle">VENUE COMING SOON</h3><p id="venueText">Location details will be announced soon.</p></div></section>
 
-<section><h2 class="section-title">GALLERY</h2><div id="gallery" class="gallery">
+<section class="gallery-section"><div class="section-butterfly right small"><svg viewBox="0 0 160 160"><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M78 77C49 31 20 29 24 63c3 21 23 29 49 24-23 7-33 20-22 34 9 11 22-12 28-28z"/><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M82 77c29-46 58-48 54-14-3 21-23 29-49 24 23 7 33 20 22 34-9 11-22-12-28-28z"/><ellipse cx="80" cy="88" rx="5" ry="23" fill="#795006"/></svg></div><h2 class="section-title">GALLERY</h2><div id="gallery" class="gallery">
 <div class="photo">PHOTO<br>COMING SOON</div><div class="photo">PHOTO<br>COMING SOON</div><div class="photo">PHOTO<br>COMING SOON</div><div class="photo">PHOTO<br>COMING SOON</div>
 </div></section>
 
-<section id="rsvp"><h2 class="section-title">RSVP</h2><div class="rsvp-card">
+<section id="rsvp" class="rsvp-section"><div class="section-butterfly left small"><svg viewBox="0 0 160 160"><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M78 75C45 20 10 15 16 58c3 24 27 33 57 28C45 90 27 104 42 123c11 16 30-12 38-32z"/><path fill="#d4af37" stroke="#ffe98c" stroke-width="2" d="M82 75c33-55 68-60 62-17-3 24-27 33-57 28 28 4 46 18 31 37-11 16-30-12-38-32z"/><ellipse cx="80" cy="87" rx="6" ry="25" fill="#815606"/></svg></div><h2 class="section-title">RSVP</h2><div class="rsvp-card">
 <form id="rsvpForm" class="form">
 <input name="name" placeholder="Your Name" required>
 <input name="email" type="email" placeholder="Your Email" required>
@@ -74,7 +74,7 @@ footer{padding:70px 20px;text-align:center;background:linear-gradient(180deg,#25
 /* Replace these two values after creating your Supabase project. */
 const SUPABASE_URL = "https://jabptlvotgyszohmqjw.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_qODwW-Ai1JkGdowLfr6WiA_nxkEafDy";
-const USE_DATABASE = SUPABASE_URL.startsWith("https://") && SUPABASE_ANON_KEY !== "YOUR_SUPABASE_ANON_KEY";
+const USE_DATABASE = true;
 
 let supabase = null;
 if (USE_DATABASE) {
@@ -104,7 +104,7 @@ async function loadSite(){
  const {data:settings}=await supabase.from("site_settings").select("*").eq("id",1).maybeSingle();
  if(settings){if(settings.venue_title)document.getElementById("venueTitle").textContent=settings.venue_title;if(settings.venue_text)document.getElementById("venueText").textContent=settings.venue_text}
  const {data:photos}=await supabase.from("photos").select("*").order("created_at",{ascending:false});
- if(photos?.length){document.getElementById("gallery").innerHTML=photos.map(p=>`<div class="photo"><img src="${p.url}" alt="${p.alt_text||"Quinceañera photo"}"></div>`).join("")}
+ if(photos?.length){document.getElementById("gallery").innerHTML=photos.map(p=>`<div class="photo"><img src="${p.image_url}" alt="${p.title||"Quinceañera photo"}"></div>`).join("")}
 }
 loadSite();
 </script>
