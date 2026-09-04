@@ -15,7 +15,7 @@
 </div></main>
 <script type="module">
 import {createClient} from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-const SUPABASE_URL="https://jabptlvotgyszohmqjw.supabase.co",SUPABASE_ANON_KEY="sb_publishable_";
+const SUPABASE_URL="https://jabptlvotgyszohmqjw.supabase.co",SUPABASE_ANON_KEY="sb_publishable_qODwW-Ai1JkGdowLfr6WiA_nxkEafDy";
 const sb=createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 const $=id=>document.getElementById(id);
 $("loginBtn").onclick=async()=>{const {error}=await sb.auth.signInWithPassword({email:$("email").value,password:$("password").value});if(error){$("loginMsg").textContent=error.message;return}showApp()};
@@ -26,8 +26,8 @@ async function loadRsvps(){const {data,error}=await sb.from("rsvps").select("*")
 window.deleteRsvp=async id=>{if(!confirm("Delete this RSVP?"))return;await sb.from("rsvps").delete().eq("id",id);loadRsvps()}
 async function loadSite(){const {data}=await sb.from("site_settings").select("*").eq("id",1).maybeSingle();if(data){$("venueTitle").value=data.venue_title||"";$("venueText").value=data.venue_text||""}}
 $("saveSite").onclick=async()=>{const {error}=await sb.from("site_settings").upsert({id:1,venue_title:$("venueTitle").value,venue_text:$("venueText").value});$("siteMsg").textContent=error?error.message:"Saved!"}
-$("uploadPhoto").onclick=async()=>{const f=$("photoFile").files[0];if(!f)return;$("photoMsg").textContent="Uploading...";const path=crypto.randomUUID()+"-"+f.name.replace(/[^a-zA-Z0-9._-]/g,"_");const up=await sb.storage.from("quinceanera-photos").upload(path,f);if(up.error){$("photoMsg").textContent=up.error.message;return}const {data:url}=sb.storage.from("quinceanera-photos").getPublicUrl(path);const {error}=await sb.from("photos").insert({url:url.publicUrl,storage_path:path,alt_text:$("photoAlt").value});$("photoMsg").textContent=error?error.message:"Photo uploaded!";$("photoFile").value="";loadPhotos()}
-async function loadPhotos(){const {data}=await sb.from("photos").select("*").order("created_at",{ascending:false});$("photos").innerHTML=(data||[]).map(p=>`<div class="photo-row"><img src="${p.url}"><button class="danger" onclick="deletePhoto('${p.id}','${encodeURIComponent(p.storage_path||"")}')">DELETE</button></div>`).join("")}
+$("uploadPhoto").onclick=async()=>{const f=$("photoFile").files[0];if(!f)return;$("photoMsg").textContent="Uploading...";const path=crypto.randomUUID()+"-"+f.name.replace(/[^a-zA-Z0-9._-]/g,"_");const up=await sb.storage.from("quinceanera-photos").upload(path,f);if(up.error){$("photoMsg").textContent=up.error.message;return}const {data:url}=sb.storage.from("quinceanera-photos").getPublicUrl(path);const {error}=await sb.from("photos").insert({title:path,image_url:url.publicUrl});$("photoMsg").textContent=error?error.message:"Photo uploaded!";$("photoFile").value="";loadPhotos()}
+async function loadPhotos(){const {data}=await sb.from("photos").select("*").order("created_at",{ascending:false});$("photos").innerHTML=(data||[]).map(p=>`<div class="photo-row"><img src="${p.image_url}"><button class="danger" onclick="deletePhoto('${p.id}','${encodeURIComponent(p.title||"")}')">DELETE</button></div>`).join("")}
 window.deletePhoto=async(id,path)=>{if(!confirm("Delete photo?"))return;if(path)await sb.storage.from("quinceanera-photos").remove([decodeURIComponent(path)]);await sb.from("photos").delete().eq("id",id);loadPhotos()}
 function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
 showApp();
